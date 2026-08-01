@@ -1,0 +1,1318 @@
+/* ============================================================
+   Sabatini Pro Painting — palette rebuilt from the actual logo
+   (heritage green + gold crest, cream ground, illustrated duck
+   mascot). Structural DNA (mosaic grid, tiles, rounded blocks)
+   still sourced from thematterofdesign.com — only the color
+   tokens changed, so every bg-* class below updates site-wide.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=Alex+Brush&display=swap');
+
+:root {
+  /* color tokens — pulled from the logo: forest green ring, gold trim,
+     cream ground, sage/dusty-blue landscape, terracotta beak/accent */
+  --apricot: #C9A24B;   /* gold trim ring */
+  --salmon: #9CAE8C;    /* sage green (landscape trees) */
+  --rust: #A8542A;      /* terracotta (duck's beak, muted) */
+  --navy: #1E4636;      /* forest green (the logo's signature color) */
+  --lavender: #E1E5D6;  /* pale sage neutral */
+  --skyblue: #AFC8C5;   /* dusty blue-green (landscape water/sky) */
+  --cream: #F5EEDA;     /* warm parchment (logo's inner ground) */
+  --white: #FFFFFF;
+  --ink: #22201A;       /* warm near-black, ties to the deep outline ink */
+
+  /* typography */
+  --font-heading: 'Fraunces', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --size-display: clamp(2.25rem, 4vw, 4rem);
+  --size-h1: clamp(1.9rem, 3vw, 2.5rem);
+  --size-h2: clamp(1.4rem, 2.2vw, 1.75rem);
+  --size-h3: 1.25rem;
+  --size-body: 1.0625rem;
+  --size-body-sm: 0.9375rem;
+  --size-caption: 0.8125rem;
+  --size-overline: 0.75rem;
+
+  /* spacing */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+  --space-7: 96px;
+  --gutter: 10px;
+
+  /* shape */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-pill: 999px;
+  --radius-swatch: 5px; /* real paint-chip cards are near-sharp, not rounded */
+
+  /* script font for the real brand tagline */
+  --font-script: 'Alex Brush', cursive;
+
+  /* motion */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-micro: 150ms;
+  --dur-normal: 300ms;
+  --dur-macro: 500ms;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--size-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .serif {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+h1 { font-size: var(--size-display); }
+h2 { font-size: var(--size-h1); }
+h3 { font-size: var(--size-h2); }
+
+p { margin: 0; }
+
+a { color: inherit; text-decoration: none; }
+
+img { max-width: 100%; display: block; }
+
+/* ---------- layout shell ---------- */
+
+.mosaic {
+  display: grid;
+  gap: var(--gutter);
+  padding: var(--gutter);
+  min-height: 100vh;
+}
+
+.block {
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 700px) {
+  .block { padding: var(--space-3) var(--space-3); border-radius: var(--radius-md); }
+}
+
+.bg-cream   { background: var(--cream); }
+.bg-apricot { background: var(--apricot); }
+.bg-salmon  { background: var(--salmon); }
+.bg-rust    { background: var(--rust); color: var(--white); }
+.bg-navy    { background: var(--navy); color: var(--white); }
+.bg-lavender{ background: var(--lavender); }
+.bg-skyblue { background: var(--skyblue); }
+.bg-white   { background: var(--white); }
+.bg-brick   { background: #8F3524; color: var(--white); }
+
+/* ---------- brand mark / wordmark ---------- */
+
+.brand {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Real logo art (circular badge) — the source file has a small square
+   background around the circle, cropped out here via the round mask
+   rather than editing the image itself. */
+.logo-mark {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.logo-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.logo-mark.large { width: 96px; height: 96px; }
+
+.tagline-script {
+  font-family: var(--font-script);
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  color: var(--navy);
+  line-height: 1;
+}
+
+.monogram {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--ink);
+}
+
+.monogram .dotgrid {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background-image: radial-gradient(currentColor 1.4px, transparent 1.6px);
+  background-size: 8px 8px;
+  opacity: 0.55;
+}
+
+/* ---------- nav icon button + overlay ---------- */
+
+.nav-toggle {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-pill);
+  background: var(--navy);
+  color: var(--cream);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 40;
+  transition: transform var(--dur-normal) var(--ease);
+}
+.nav-toggle:hover { transform: scale(1.06); }
+
+.nav-toggle svg { width: 18px; height: 18px; }
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--navy);
+  color: var(--cream);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-macro) var(--ease);
+}
+.nav-overlay.open { opacity: 1; pointer-events: auto; }
+
+.nav-overlay-close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  border: 1px solid var(--cream);
+  color: var(--cream);
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+.nav-overlay ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-overlay li { margin-bottom: var(--space-2); }
+.nav-overlay a {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 500;
+  transition: opacity var(--dur-micro) var(--ease), transform var(--dur-normal) var(--ease);
+  display: inline-block;
+}
+.nav-overlay a:hover { opacity: 0.6; transform: translateX(8px); }
+
+/* ---------- buttons / chips ---------- */
+
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  border: 1px solid currentColor;
+  border-radius: var(--radius-pill);
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: var(--size-body-sm);
+  background: transparent;
+  cursor: pointer;
+  transition: transform var(--dur-normal) var(--ease), background var(--dur-normal) var(--ease);
+}
+.btn-pill:hover { background: rgba(0,0,0,0.06); transform: scale(1.03); }
+.bg-rust .btn-pill:hover, .bg-navy .btn-pill:hover { background: rgba(255,255,255,0.12); }
+
+.chip {
+  display: inline-block;
+  background: var(--salmon);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: var(--size-body-sm);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  margin: 0 var(--space-1) var(--space-1) 0;
+}
+
+/* ---------- paint-chip swatch cards (homepage grid) ----------
+   Modeled directly on real Sherwin-Williams individual swatch cards:
+   a near-sharp-cornered rectangle, almost all color, with a plain
+   white label strip pinned to the bottom holding a small gray code
+   line and a bold name line underneath it. */
+
+.swatch-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-swatch);
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  transition: transform var(--dur-normal) var(--ease), filter var(--dur-normal) var(--ease);
+}
+.swatch-card:hover { transform: scale(1.015); filter: brightness(1.03); }
+
+.swatch-color {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+
+.swatch-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swatch-label {
+  flex-shrink: 0;
+  background: var(--white);
+  padding: 10px 16px 12px;
+}
+.swatch-code {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #767066;
+  margin-bottom: 1px;
+}
+.swatch-name {
+  display: block;
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+/* ---------- form ---------- */
+
+.field { margin-bottom: var(--space-3); }
+.field label {
+  display: block;
+  font-weight: 600;
+  font-size: var(--size-body-sm);
+  margin-bottom: 8px;
+}
+.field input, .field select, .field textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid #D8D2C4;
+  background: var(--white);
+  font-family: var(--font-body);
+  font-size: var(--size-body-sm);
+  color: var(--ink);
+}
+.field textarea { min-height: 110px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: 2px solid var(--rust);
+  outline-offset: 1px;
+}
+
+/* ---------- monogram pattern panel (contact page) ---------- */
+
+.pattern-panel {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 4px;
+  height: 100%;
+  align-content: center;
+  background: var(--navy);
+  color: rgba(250, 243, 231, 0.55);
+}
+.pattern-panel span {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.1rem;
+}
+.pattern-panel span:nth-child(3n) { opacity: 0.4; }
+.pattern-panel span:nth-child(5n) { opacity: 0.85; font-size: 1.3rem; }
+
+/* ---------- gallery ---------- */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--gutter);
+}
+.gallery-card {
+  border-radius: var(--radius-md);
+  aspect-ratio: 4 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-3);
+  color: var(--ink);
+  transition: transform var(--dur-normal) var(--ease);
+}
+.gallery-card:hover { transform: scale(1.02); }
+.gallery-card .kicker { font-size: var(--size-overline); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.65; }
+.gallery-card h3 { font-size: 1.35rem; margin-top: 4px; }
+
+/* ---------- reveal-on-scroll ---------- */
+
+/* Visible by default (no-JS / reduced-motion fallback). JS opts elements
+   into the animated state by adding .armed, so content never depends on
+   script execution to be seen. */
+.reveal.armed {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--dur-macro) var(--ease), transform var(--dur-macro) var(--ease);
+}
+.reveal.armed.in { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal.armed { opacity: 1; transform: none; transition: none; }
+  .tile, .btn-pill, .nav-toggle, .gallery-card { transition: none; }
+}
+
+/* ---------- avatar ---------- */
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--navy);
+  overflow: hidden;
+  border: 2px solid var(--white);
+}
+
+/* ---------- footer ---------- */
+
+.footer-block {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--size-body-sm);
+}
+
+/* ---------- photo hero (job story pages) ----------
+   A real featured photo behind the title, with a gradient scrim so
+   text stays legible regardless of the photo underneath. */
+
+.hero-photo {
+  background-size: cover;
+  background-position: center;
+  background-color: var(--navy);
+  min-height: 360px;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(100deg, rgba(15, 28, 20, 0.94) 0%, rgba(15, 28, 20, 0.82) 55%, rgba(15, 28, 20, 0.4) 78%, rgba(15, 28, 20, 0.15) 100%);
+}
+/* Text-shadow safety net: legible regardless of what's behind the gradient
+   in any given photo, since future job stories will use different images. */
+.hero-photo .brand, .hero-photo h1, .hero-photo p, .hero-photo .tile-tag {
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+}
+.hero-photo .btn-pill {
+  background: rgba(0, 0, 0, 0.28);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 700px) {
+  .hero-photo { min-height: 280px; }
+  .hero-overlay { background: linear-gradient(180deg, rgba(15, 28, 20, 0.6) 0%, rgba(15, 28, 20, 0.92) 70%); }
+}
+
+/* ---------- persistent estimate CTA ----------
+   Per the vision brief: a persistent, unmissable CTA living outside the
+   swatch/content structure entirely. Non-negotiable — present on every
+   page, never removed for a layout's sake. */
+
+.sticky-cta {
+  position: fixed;
+  right: var(--space-3);
+  bottom: var(--space-3);
+  z-index: 60;
+  background: var(--rust);
+  color: var(--white);
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+  border: 2px solid var(--cream);
+  font-weight: 700;
+  font-size: var(--size-body-sm);
+  transition: transform var(--dur-normal) var(--ease);
+}
+.sticky-cta:hover { transform: scale(1.05); }
+
+@media (max-width: 700px) {
+  .sticky-cta { right: var(--space-2); bottom: var(--space-2); padding: 12px 22px; font-size: 0.875rem; }
+}
+
+/* ---------- photo-based story cards + search (job stories hub) ----------
+   Past the homepage, content pages lean on real photography rather than
+   flat color blocks — the swatch treatment stays a homepage-only device. */
+
+.story-search { margin-bottom: var(--space-3); max-width: 480px; }
+.story-search input {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: var(--radius-pill);
+  border: 1px solid #D8D2C4;
+  background: var(--white);
+  font-family: var(--font-body);
+  font-size: var(--size-body-sm);
+  color: var(--ink);
+}
+.story-search input:focus { outline: 2px solid var(--rust); outline-offset: 1px; }
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--gutter);
+}
+.story-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--dur-normal) var(--ease), box-shadow var(--dur-normal) var(--ease);
+}
+.story-card:hover { transform: scale(1.015); }
+.story-card.hidden { display: none; }
+
+.story-card-media {
+  display: block;
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background-size: cover;
+  background-position: center;
+}
+.story-card-media .status-tag {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  font-size: var(--size-caption);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.85);
+  color: var(--ink);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.story-card-body { padding: var(--space-3); display: flex; flex-direction: column; gap: 6px; }
+.story-card .kicker { font-size: var(--size-overline); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.6; }
+.story-card h3 { font-size: 1.2rem; margin-top: 2px; }
+.story-card .hook { font-size: var(--size-body-sm); opacity: 0.75; }
+.story-card-link { font-weight: 700; font-size: var(--size-body-sm); color: var(--rust); margin-top: 4px; }
+.story-card.coming-soon .story-card-body { opacity: 0.8; }
+
+/* ---------- job story cards (hub grid) ----------
+   Hover reveals a related-image caption + slight scale/brightness shift —
+   the same interaction spec the brief calls for on the homepage swatches. */
+
+.job-card {
+  position: relative;
+  border-radius: var(--radius-md);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-3);
+  color: var(--ink);
+  transition: transform var(--dur-normal) var(--ease), filter var(--dur-normal) var(--ease);
+}
+.job-card:hover { transform: scale(1.02); filter: brightness(1.04); }
+.job-card .job-card-content { position: relative; z-index: 2; }
+.job-card .kicker { font-size: var(--size-overline); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.65; }
+.job-card h3 { font-size: 1.3rem; margin-top: 4px; }
+.job-card .hook { font-size: var(--size-body-sm); margin-top: 8px; opacity: 0.85; max-width: 34ch; }
+
+.job-card .reveal-photo {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3);
+  text-align: center;
+  font-size: var(--size-caption);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  background: rgba(23, 63, 77, 0.72);
+  opacity: 0;
+  transition: opacity var(--dur-normal) var(--ease);
+}
+.job-card:hover .reveal-photo { opacity: 1; }
+
+.job-card.coming-soon { cursor: default; opacity: 0.85; }
+.job-card .status-tag {
+  align-self: flex-start;
+  font-size: var(--size-caption);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.55);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  margin-bottom: var(--space-1);
+}
+
+/* ---------- photo slot placeholders (before/during/after) ----------
+   No real jobsite photos wired in yet — these are clearly-labeled
+   placeholders to swap real photography into later. */
+
+.photo-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gutter);
+}
+.photo-slot {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  padding: var(--space-2);
+  border: 2px dashed rgba(26, 26, 26, 0.25);
+}
+.photo-slot .stage {
+  font-size: var(--size-overline);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+.photo-slot .caption { font-size: var(--size-body-sm); opacity: 0.75; max-width: 22ch; }
+
+/* ---------- photo carousel (main image + thumbnail strip) ----------
+   Pairs with the before/after slider: click a thumbnail to swap the
+   main display's background-image. Height tracks the slider next to
+   it via the shared grid row. A dark bottom scrim keeps the caption
+   legible regardless of how bright the underlying photo is. */
+
+.photo-carousel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  height: 100%;
+}
+.carousel-main {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-3);
+  background-color: var(--lavender);
+  background-size: cover;
+  background-position: center;
+  transition: background-image var(--dur-normal) var(--ease);
+}
+.carousel-main::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 20, 14, 0.65), rgba(15, 20, 14, 0) 60%);
+}
+.carousel-main .stage, .carousel-main .caption {
+  position: relative;
+  z-index: 1;
+  color: var(--white);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+.carousel-main .stage { font-size: var(--size-overline); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.9; }
+.carousel-main .caption { font-size: var(--size-body-sm); margin-top: 4px; max-width: 30ch; }
+
+.carousel-thumbs {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+.carousel-thumb {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-sm);
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0;
+  background-color: var(--lavender);
+  background-size: cover;
+  background-position: center;
+  transition: transform var(--dur-micro) var(--ease), border-color var(--dur-micro) var(--ease);
+}
+.carousel-thumb:hover { transform: scale(1.06); }
+.carousel-thumb.active { border-color: var(--navy); }
+
+@media (max-width: 700px) {
+  .carousel-thumbs { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ---------- before/after drag-to-compare slider ----------
+   Real, working drag interaction. Images are placeholders (a CSS
+   "rough texture" for before, a smooth gradient for after) — swap in
+   real jobsite photos by replacing the two .ba-layer backgrounds/content
+   with <img> tags, structure stays the same. */
+
+.ba-slider {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  cursor: ew-resize;
+  user-select: none;
+  touch-action: none;
+  --pos: 50%;
+}
+.ba-slider .ba-layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-3);
+  color: var(--white);
+}
+.ba-slider .ba-after {
+  z-index: 1;
+  background-color: var(--salmon);
+  background-image: linear-gradient(135deg, var(--salmon), var(--apricot));
+  background-size: cover;
+  background-position: center;
+}
+.ba-slider .ba-before {
+  z-index: 2;
+  clip-path: inset(0 calc(100% - var(--pos)) 0 0);
+  background-color: #cabfa9;
+  background-image: repeating-linear-gradient(135deg, #cabfa9, #cabfa9 10px, #b7ab90 10px, #b7ab90 20px);
+  background-size: cover;
+  background-position: center;
+}
+.ba-slider .ba-layer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 20, 14, 0.55), rgba(15, 20, 14, 0) 55%);
+}
+.ba-slider .ba-caption {
+  position: relative;
+  z-index: 1;
+  font-size: var(--size-body-sm);
+  font-weight: 600;
+  max-width: 26ch;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.35);
+}
+.ba-slider .ba-tag {
+  position: absolute;
+  top: var(--space-2);
+  font-size: var(--size-caption);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: rgba(0,0,0,0.35);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  z-index: 3;
+}
+.ba-slider .before-tag { left: var(--space-2); }
+.ba-slider .after-tag { right: var(--space-2); }
+.ba-slider .ba-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--pos);
+  z-index: 4;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.ba-slider .ba-handle::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0; left: 50%;
+  width: 3px;
+  background: var(--cream);
+  transform: translateX(-50%);
+}
+.ba-slider .ba-grip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 2px solid var(--navy);
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.ba-slider.dragging .ba-grip { transform: translate(-50%, -50%) scale(1.08); }
+
+.ba-hint {
+  margin-top: var(--space-1);
+  font-size: var(--size-caption);
+  opacity: 0.6;
+}
+
+/* ---------- history timeline ---------- */
+
+.timeline { display: flex; flex-direction: column; gap: var(--space-6); }
+.timeline-year-row { display: flex; align-items: baseline; gap: var(--space-3); margin-bottom: var(--space-2); }
+.timeline-year {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--navy);
+  white-space: nowrap;
+  line-height: 1;
+}
+.timeline-rule {
+  flex: 1;
+  height: 2px;
+  background: rgba(26, 26, 26, 0.15);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 900ms var(--ease);
+}
+.reveal.armed.in .timeline-rule { transform: scaleX(1); }
+.timeline-caption { max-width: 68ch; font-size: 1.05rem; }
+.timeline-caption strong { color: var(--rust); }
+.timeline-photo {
+  margin-top: var(--space-3);
+  max-width: 420px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.timeline-photo img { width: 100%; display: block; }
+
+/* two separate tracks before the company existed, converging in 2015 */
+.timeline-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+  position: relative;
+}
+.timeline-split::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: rgba(26, 26, 26, 0.12);
+}
+.timeline-track { display: flex; flex-direction: column; gap: var(--space-5); }
+.timeline-track-name {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.55;
+  margin: 0 0 var(--space-1);
+}
+
+.timeline-converge {
+  text-align: center;
+  padding: var(--space-4) 0;
+  border-top: 2px solid rgba(26, 26, 26, 0.15);
+  border-bottom: 2px solid rgba(26, 26, 26, 0.15);
+  margin-bottom: var(--space-6);
+}
+.timeline-converge .timeline-year { display: block; }
+.timeline-converge .timeline-caption { margin: var(--space-2) auto 0; max-width: 55ch; }
+
+@media (max-width: 700px) {
+  .timeline-split { grid-template-columns: 1fr; gap: var(--space-4); }
+  .timeline-split::after { display: none; }
+}
+
+/* ---------- byline illustration (non-overlapping, single circle) ---------- */
+
+.byline {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.byline-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--white);
+  border: 2px solid var(--white);
+}
+.byline-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.byline-name { font-weight: 700; }
+.byline-role { font-size: var(--size-body-sm); opacity: 0.75; }
+
+/* ---------- testimonial ---------- */
+
+.testimonial blockquote {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  line-height: 1.4;
+  margin: 0 0 var(--space-3);
+}
+.testimonial cite {
+  font-style: normal;
+  font-weight: 700;
+  font-size: var(--size-body-sm);
+}
+
+/* ---------- fan deck (homepage v2 experiment) ----------
+   Real paint-deck strips, fanned and overlapping on a table, rather
+   than a flat grid. Each card is the same clickable swatch as v1 —
+   just tall, rotated, and cascading instead of boxed into a grid. */
+
+.wood-table {
+  background-image: url('images/misc/table-topdown.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #5c3a1d; /* fallback while the photo loads */
+}
+
+.fan-stage {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.fan-brand-card {
+  position: absolute;
+  left: var(--space-5);
+  bottom: var(--space-5);
+  z-index: 50;
+  background: var(--cream);
+  border-radius: var(--radius-swatch);
+  padding: var(--space-3) var(--space-4);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: flex-start;
+}
+.fan-brand-card .brand-contact { font-size: 0.8rem; }
+.fan-brand-card .brand-divider { width: 100%; margin: 2px 0; }
+
+.fan-deck {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-4);
+  transform: translateX(-38%);
+  display: flex;
+  align-items: flex-end;
+}
+
+.fan-card {
+  width: 180px;
+  height: 400px;
+  margin-left: -78px;
+  transform-origin: bottom center;
+  transform: rotate(var(--r, 0deg));
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.4);
+  transition: transform var(--dur-normal) var(--ease), box-shadow var(--dur-normal) var(--ease);
+}
+.fan-card:first-child { margin-left: 0; }
+.fan-card:hover {
+  transform: translateY(-46px) rotate(var(--r, 0deg)) scale(1.035);
+  box-shadow: 0 26px 46px rgba(0, 0, 0, 0.45);
+  z-index: 99 !important;
+}
+.fan-card .swatch-label { padding: 12px 14px 16px; }
+.fan-card .swatch-name { font-size: 1.05rem; }
+
+@media (max-width: 900px) {
+  .fan-stage { height: auto; min-height: 100vh; padding-top: var(--space-6); }
+  .fan-brand-card { position: static; margin: 0 auto var(--space-4); }
+  .fan-deck { position: static; transform: none; flex-wrap: wrap; justify-content: center; padding: 0 var(--space-3) var(--space-6); }
+  .fan-card { margin-left: -50px; }
+}
+
+/* ---------- v2: individual paint chips ----------
+   Card typography matched to the reference photo: sharp corners (real
+   cardstock, no rounding), regular-weight charcoal text (not bold),
+   a primary code+name upper-left, and a SEPARATE small italic
+   locator code upper-right (the two are visually distinct on real
+   SW cards, not one merged label).
+   Layout: side-by-side with a little rotation per card for an organic
+   feel — NOT overlapping. (A heavy-overlap "pile" version was tried
+   and rejected — don't reintroduce absolute-positioned stacking here.) */
+
+.chip-scatter {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 16px;
+  max-width: 800px;
+}
+.chip-scatter .chip-card:nth-child(2n) { margin-top: 18px; }
+.chip-scatter .chip-card:nth-child(3n) { margin-top: -8px; }
+
+.chip-card {
+  position: relative;
+  width: 178px;
+  height: 254px;
+  border-radius: 1px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 2px 10px 18px rgba(0, 0, 0, 0.35);
+  transform: rotate(var(--r, 0deg));
+  transform-origin: center;
+  transition: transform var(--dur-normal) var(--ease), box-shadow var(--dur-normal) var(--ease), z-index 0s;
+}
+.chip-card:hover {
+  transform: rotate(var(--r, 0deg)) scale(1.05);
+  box-shadow: 4px 18px 30px rgba(0, 0, 0, 0.45);
+  z-index: 100 !important;
+}
+.chip-name {
+  position: absolute;
+  top: 16px;
+  left: 15px;
+  z-index: 2;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.98rem;
+  line-height: 1.25;
+  max-width: 68%;
+  color: #33312b;
+}
+.chip-name .chip-primary-code {
+  display: block;
+  font-weight: 500;
+  font-size: 0.78rem;
+  margin-bottom: 3px;
+  color: #4a473f;
+}
+.chip-locator {
+  position: absolute;
+  top: 15px;
+  right: 13px;
+  z-index: 2;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: #6b6858;
+  opacity: 0.8;
+}
+.chip-card.chip-on-dark .chip-name,
+.chip-card.chip-on-dark .chip-name .chip-primary-code,
+.chip-card.chip-on-dark .chip-locator { color: rgba(255,255,255,0.92); }
+
+.chip-card .chip-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.chip-card .chip-video-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+}
+
+/* ---------- v2: real fan deck (not clickable) ----------
+   Generated by script.js (buildRealFanDeck): 30+ thin single-color
+   strips swept through a real color-family progression, uneven
+   lengths for the stepped-band look, a spine + rivet at the base.
+   Pure atmosphere — pointer-events disabled throughout. */
+
+.real-fan {
+  position: absolute;
+  pointer-events: none;
+}
+.real-fan-strips {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+}
+.real-fan-strip {
+  width: 24px;
+  margin-left: -18px;
+  border-radius: 2px 2px 0 0;
+  transform-origin: bottom center;
+  transform: rotate(var(--r, 0deg));
+  box-shadow: 1px 6px 14px rgba(0, 0, 0, 0.28);
+  position: relative;
+}
+.real-fan-strip:first-child { margin-left: 0; }
+.real-fan-strip .real-fan-label {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-90deg);
+  transform-origin: center;
+  white-space: nowrap;
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  color: rgba(0,0,0,0.55);
+}
+.real-fan-label .rf-code { display: block; font-weight: 600; }
+.real-fan-label .rf-name { font-style: italic; opacity: 0.85; }
+
+.real-fan-spine {
+  position: absolute;
+  width: 46px;
+  height: 90px;
+  background: #1c2733;
+  border-radius: 2px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+.real-fan-rivet {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #d8d8d8, #8a8a8a 60%, #5a5a5a 100%);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.6) inset, 0 1px 2px rgba(255,255,255,0.3);
+}
+
+/* ---------- Google review slideshow mockup (v2 homepage) ----------
+   Sits in the swatch grid where "5.0 Rating" used to be — now a real
+   clickable card that rotates through a few reviews. Rotation is
+   handled by buildReviewRotator() in script.js. Clicking leads to
+   reviews.html (kept intentionally minimal for now). */
+
+.review-card {
+  background: var(--white);
+  color: var(--ink);
+  transition: transform var(--dur-normal) var(--ease), box-shadow var(--dur-normal) var(--ease);
+}
+/* the card itself (bg, border, title) is static — only .review-body's
+   text (quote + author) fades when the rotator swaps content, per
+   Rick's correction that the whole swatch shouldn't flicker */
+.review-body {
+  position: absolute;
+  top: 46px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4px 12px 10px;
+  gap: 4px;
+}
+.review-stars { color: #F2B400; font-size: 1rem; letter-spacing: 2px; }
+.review-fade { transition: opacity 300ms ease; }
+.review-quote { font-size: 0.78rem; line-height: 1.35; font-style: italic; color: #3a3a3a; margin: 0; }
+.review-author { font-size: 0.72rem; font-weight: 700; margin-top: 2px; color: var(--ink); }
+.review-google {
+  font-size: 0.6rem;
+  opacity: 0.5;
+  margin-top: 6px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+/* ---------- mobile homepage (v2) ----------
+   A dedicated layout for small screens, not just a reflow of the
+   desktop scatter — matches the brief Rick approved: business card
+   up top (with phone/email), a squared-off grid below. Squared off
+   on purpose (--radius-mobile-swatch) per Rick's explicit correction
+   — do not round these back off. */
+
+.mobile-only { display: none; }
+.desktop-only { display: block; }
+
+@media (max-width: 700px) {
+  .desktop-only { display: none !important; }
+  .mobile-only { display: block; }
+}
+
+.mobile-home {
+  padding: var(--space-3);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.mobile-card {
+  border-radius: 3px; /* squared off — real swatch corners, not rounded */
+  overflow: hidden;
+  position: relative;
+  box-shadow: 2px 8px 16px rgba(0, 0, 0, 0.25);
+}
+
+.mobile-brand-card {
+  background: var(--cream);
+  padding: 20px 18px;
+}
+.brand-card-name {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 1.15;
+  color: var(--ink);
+  margin: 0;
+}
+.mobile-brand-card .brand-card-name { font-size: 1.5rem; }
+.mobile-brand-card .tagline-script { font-size: 1.15rem; margin-top: 6px; }
+.brand-divider { border: none; border-top: 1px solid rgba(0,0,0,0.15); margin: 14px 0; }
+.brand-contact {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--ink);
+  opacity: 0.85;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+.brand-contact + .brand-contact { margin-top: 2px; opacity: 0.7; font-size: 0.78rem; }
+
+.mobile-swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+.mobile-swatch-grid .mobile-brand-card { grid-column: span 2; align-self: start; }
+
+/* Mobile swatches now reuse the exact same .chip-card/.chip-name
+   component as desktop (top-anchored title, sharp corners) instead of
+   a separate bottom-anchored style — just resized to fit the grid. */
+.mobile-swatch-grid .chip-card {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 0.72;
+  box-shadow: 2px 6px 12px rgba(0, 0, 0, 0.3);
+}
+.mobile-swatch-grid .chip-name { font-size: 0.8rem; top: 10px; left: 10px; }
+.mobile-swatch-grid .chip-name .chip-primary-code { font-size: 0.6rem; margin-bottom: 2px; }
+.mobile-swatch-grid .chip-locator { font-size: 0.56rem; top: 9px; right: 9px; }
+.mobile-swatch-grid .review-body { top: 34px; padding: 2px 8px 6px; gap: 2px; }
+.mobile-swatch-grid .review-stars { font-size: 0.75rem; letter-spacing: 1px; }
+.mobile-swatch-grid .review-quote {
+  font-size: 0.6rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.mobile-swatch-grid .review-author { font-size: 0.58rem; }
+.mobile-swatch-grid .review-google { font-size: 0.48rem; margin-top: 3px; }
+
+.mobile-swatch {
+  aspect-ratio: 0.7;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 12px 10px;
+  cursor: pointer;
+  color: var(--ink);
+}
+.mobile-swatch-code {
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+}
+.mobile-swatch-name {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.92rem;
+  margin-top: 2px;
+  line-height: 1.15;
+}
+.mobile-swatch.chip-on-dark { color: rgba(255,255,255,0.95); }
+
+.mobile-video-card {
+  background: #1c1c1c;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+}
+.mobile-play-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+.mobile-play-btn svg { width: 14px; height: 14px; margin-left: 2px; }
+.mobile-video-card .mobile-swatch-name { margin-top: 0; }
+
+/* ---------- utility ---------- */
+
+.col-span-2 { grid-column: span 2; }
+.row-span-2 { grid-row: span 2; }
+.stack { display: flex; flex-direction: column; gap: var(--space-2); }
+.between { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-3); flex-wrap: wrap; }

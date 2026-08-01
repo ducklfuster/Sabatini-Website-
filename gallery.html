@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery — Sabatini Pro Painting</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <script src="palette.js"></script>
+</head>
+<body>
+
+  <div class="mosaic" style="grid-template-columns: 1fr;">
+
+    <!-- hero -->
+    <div class="block bg-lavender between reveal in">
+      <div class="stack" style="max-width: 640px;">
+        <div class="brand" style="margin-bottom: var(--space-3);"><span class="logo-mark"><img src="images/logo.jpg" alt="Sabatini Pro Painting logo"></span> Sabatini Pro Painting</div>
+        <h1>Gallery</h1>
+        <p style="margin-top: var(--space-2); max-width: 60ch;">A look at recent work — every project its own color story.</p>
+      </div>
+      <a class="btn-pill" href="get-quote.html" style="align-self: center;">Get Quote</a>
+    </div>
+
+    <button class="nav-toggle" data-nav-toggle aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+    </button>
+
+    <div class="block bg-cream reveal">
+      <div class="gallery-grid">
+
+        <div class="gallery-card bg-apricot">
+          <span class="kicker">Exterior</span>
+          <h3>Colonial Full Repaint</h3>
+        </div>
+
+        <div class="gallery-card bg-navy" style="color: var(--cream);">
+          <span class="kicker" style="opacity: 0.7;">Interior</span>
+          <h3>Kitchen Cabinet Refinish</h3>
+        </div>
+
+        <div class="gallery-card bg-salmon">
+          <span class="kicker">Interior</span>
+          <h3>Whole-Home Refresh</h3>
+        </div>
+
+        <div class="gallery-card bg-skyblue">
+          <span class="kicker">Exterior</span>
+          <h3>Deck &amp; Fence Staining</h3>
+        </div>
+
+        <div class="gallery-card bg-rust" style="color: var(--white);">
+          <span class="kicker" style="opacity: 0.75;">Commercial</span>
+          <h3>Office Suite Repaint</h3>
+        </div>
+
+        <div class="gallery-card bg-lavender">
+          <span class="kicker">Interior</span>
+          <h3>Accent Wall &amp; Trim Detail</h3>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <a class="sticky-cta" href="get-quote.html">Get Free Estimate</a>
+
+  <!-- nav overlay -->
+  <div class="nav-overlay" data-nav-overlay>
+    <button class="nav-overlay-close" data-nav-close aria-label="Close menu">&times;</button>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="job-stories.html">Job Stories</a></li>
+      <li><a href="our-team.html">Our Team</a></li>
+      <li><a href="history.html">History</a></li>
+      <li><a href="our-process.html">Our Process</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="get-quote.html">Get Quote</a></li>
+    </ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

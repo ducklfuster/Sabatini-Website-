@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabatini Pro Painting — v2 Concept</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <script src="palette.js"></script>
+  <style>
+    html, body { height: 100%; overflow: hidden; }
+    @media (max-width: 1000px) {
+      html, body { height: auto; overflow: auto; }
+      .fan-stage { height: auto !important; min-height: 100vh; padding: var(--space-6) var(--space-3); }
+      .v2-content { position: static !important; transform: none !important; max-width: none !important; }
+    }
+    @media (max-width: 700px) {
+      .fan-stage { padding: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="fan-stage wood-table">
+
+    <!-- ================= DESKTOP ================= -->
+    <div class="desktop-only">
+      <!-- brand card + swatches, side by side, not overlapping -->
+      <div class="v2-content" style="position: absolute; left: var(--space-5); top: 50%; transform: translateY(-50%); z-index: 10; display: flex; flex-direction: column; gap: var(--space-4); max-width: 840px;">
+
+        <!-- business card -->
+        <div class="fan-brand-card" style="position: static; align-self: flex-start;">
+          <span class="logo-mark large"><img src="images/logo.jpg" alt="Sabatini Pro Painting logo"></span>
+          <h2 class="brand-card-name">Sabatini Pro Painting</h2>
+          <p class="tagline-script" style="font-size: 1.3rem;">The best for your nest!</p>
+          <hr class="brand-divider">
+          <a class="brand-contact" href="https://maps.google.com/?q=123+Main+St,+Folsom,+PA+19033" target="_blank" rel="noopener">123 Main St, Folsom, PA 19033</a>
+          <a class="brand-contact" href="tel:+16035550148">(603) 555-0148</a>
+          <a class="brand-contact" href="https://sabatinipropainting.com" target="_blank" rel="noopener">sabatinipropainting.com</a>
+          <a class="brand-contact" href="mailto:hello@sabatinipropainting.com">hello@sabatinipropainting.com</a>
+        </div>
+
+        <div class="chip-scatter">
+
+          <a class="chip-card bg-apricot" href="our-team.html" style="--r: -4deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6001</span>Our Team</span>
+            <span class="chip-locator">142-C3</span>
+          </a>
+
+          <a class="chip-card chip-on-dark" href="our-process.html" style="--r: 3deg;">
+            <video class="chip-video" autoplay muted loop playsinline>
+              <source src="images/video/process-real.mp4" type="video/mp4">
+            </video>
+            <div class="chip-video-overlay bg-salmon"></div>
+            <span class="chip-name"><span class="chip-primary-code">SPP 6002</span>Our Process</span>
+            <span class="chip-locator">210-C4</span>
+          </a>
+
+          <a class="chip-card bg-lavender" href="gallery.html" style="--r: -3deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6003</span>Gallery</span>
+            <span class="chip-locator">176-C4</span>
+          </a>
+
+          <a class="chip-card chip-on-dark" href="history.html" style="--r: 5deg; background: #6E4423;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6006</span>History</span>
+            <span class="chip-locator">204-C6</span>
+          </a>
+
+          <a class="chip-card bg-skyblue" href="faq.html" style="--r: -5deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6007</span>FAQ</span>
+            <span class="chip-locator">118-C2</span>
+          </a>
+
+          <a class="chip-card review-card" href="reviews.html" style="--r: 4deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6004</span>Reviews</span>
+            <span class="chip-locator">301-C1</span>
+            <div class="review-body" data-review-rotator>
+              <div class="review-stars">★★★★★</div>
+              <div class="review-fade">
+                <p class="review-quote">&ldquo;On time, careful with our floors, and the paint job looks incredible.&rdquo;</p>
+                <div class="review-author">— Jamie R.</div>
+              </div>
+              <div class="review-google">Google Reviews</div>
+            </div>
+          </a>
+
+          <a class="chip-card chip-on-dark bg-brick" href="get-quote.html" style="--r: -2deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6005</span>Get Quote</span>
+            <span class="chip-locator">255-C7</span>
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= MOBILE ================= -->
+    <div class="mobile-only">
+      <div class="mobile-home">
+
+        <div class="mobile-swatch-grid">
+
+          <!-- business card -->
+          <div class="mobile-card mobile-brand-card">
+            <h1 class="brand-card-name">Sabatini<br>Pro Painting</h1>
+            <p class="tagline-script">The best for your nest!</p>
+            <hr class="brand-divider">
+            <a class="brand-contact" href="https://maps.google.com/?q=123+Main+St,+Folsom,+PA+19033" target="_blank" rel="noopener">123 Main St, Folsom, PA 19033</a>
+            <a class="brand-contact" href="tel:+16035550148">(603) 555-0148</a>
+            <a class="brand-contact" href="https://sabatinipropainting.com" target="_blank" rel="noopener">sabatinipropainting.com</a>
+            <a class="brand-contact" href="mailto:hello@sabatinipropainting.com">hello@sabatinipropainting.com</a>
+          </div>
+
+          <!-- Get Quote — same size as the rest -->
+          <a class="chip-card chip-on-dark bg-brick" href="get-quote.html" style="--r: -2deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6005</span>Get Quote</span>
+            <span class="chip-locator">255-C7</span>
+          </a>
+
+          <!-- row 2 -->
+          <a class="chip-card bg-apricot" href="our-team.html" style="--r: -4deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6001</span>Our Team</span>
+            <span class="chip-locator">142-C3</span>
+          </a>
+
+          <a class="chip-card chip-on-dark" href="our-process.html" style="--r: 3deg;">
+            <video class="chip-video" autoplay muted loop playsinline>
+              <source src="images/video/process-real.mp4" type="video/mp4">
+            </video>
+            <div class="chip-video-overlay bg-salmon"></div>
+            <span class="chip-name"><span class="chip-primary-code">SPP 6002</span>Our Process</span>
+            <span class="chip-locator">210-C4</span>
+          </a>
+
+          <a class="chip-card bg-lavender" href="gallery.html" style="--r: -3deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6003</span>Gallery</span>
+            <span class="chip-locator">176-C4</span>
+          </a>
+
+          <!-- row 3 -->
+          <a class="chip-card chip-on-dark" href="history.html" style="--r: 5deg; background: #6E4423;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6006</span>History</span>
+            <span class="chip-locator">204-C6</span>
+          </a>
+
+          <a class="chip-card bg-skyblue" href="faq.html" style="--r: -5deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6007</span>FAQ</span>
+            <span class="chip-locator">118-C2</span>
+          </a>
+
+          <a class="chip-card review-card" href="reviews.html" style="--r: 4deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6004</span>Reviews</span>
+            <span class="chip-locator">301-C1</span>
+            <div class="review-body" data-review-rotator>
+              <div class="review-stars">★★★★★</div>
+              <div class="review-fade">
+                <p class="review-quote">&ldquo;On time, careful with our floors, and the paint job looks incredible.&rdquo;</p>
+                <div class="review-author">— Jamie R.</div>
+              </div>
+              <div class="review-google">Google Reviews</div>
+            </div>
+          </a>
+
+        </div>
+
+        <p style="margin-top: var(--space-3); font-size: var(--size-caption); opacity: 0.55; text-align: center;">Placeholder business info — swap in the real address/phone/site.</p>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

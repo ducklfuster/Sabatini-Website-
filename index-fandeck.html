@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabatini Pro Painting — Fan Deck Concept</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <script src="palette.js"></script>
+  <style>
+    html, body { height: 100%; overflow: hidden; }
+    @media (max-width: 900px) { html, body { height: auto; overflow: auto; } }
+  </style>
+</head>
+<body>
+
+  <div class="fan-stage wood-table">
+
+    <!-- brand card, sitting flat on the table like the individual chips in the reference photo -->
+    <div class="fan-brand-card">
+      <span class="logo-mark large"><img src="images/logo.jpg" alt="Sabatini Pro Painting logo"></span>
+      <div class="brand">Sabatini Pro Painting</div>
+      <p class="tagline-script" style="font-size: 1.5rem;">The best for your nest!</p>
+    </div>
+
+    <a class="sticky-cta" href="get-quote.html" style="top: var(--space-3); right: var(--space-3); bottom: auto;">Get Free Estimate</a>
+
+    <!-- the fan deck itself -->
+    <div class="fan-deck">
+
+      <a class="fan-card swatch-card" href="our-team.html" style="--r: -18deg;">
+        <div class="swatch-color bg-apricot"></div>
+        <div class="swatch-label">
+          <span class="swatch-code">SPP 6001</span>
+          <span class="swatch-name">Our Team</span>
+        </div>
+      </a>
+
+      <a class="fan-card swatch-card" href="our-process.html" style="--r: -9deg;">
+        <div class="swatch-color">
+          <video class="swatch-video" autoplay muted loop playsinline poster="images/misc/roller-hand.png">
+            <source src="images/video/painter-roller.mp4" type="video/mp4">
+          </video>
+          <div class="tile-video-overlay bg-salmon"></div>
+        </div>
+        <div class="swatch-label">
+          <span class="swatch-code">SPP 6002</span>
+          <span class="swatch-name">Our Process</span>
+        </div>
+      </a>
+
+      <a class="fan-card swatch-card" href="gallery.html" style="--r: 0deg;">
+        <div class="swatch-color bg-lavender"></div>
+        <div class="swatch-label">
+          <span class="swatch-code">SPP 6003</span>
+          <span class="swatch-name">Gallery</span>
+        </div>
+      </a>
+
+      <div class="fan-card swatch-card" style="--r: 9deg; cursor: default;">
+        <div class="swatch-color bg-navy" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px;">
+          <div class="serif" style="font-size: 1.3rem; color: var(--white);">★★★★★</div>
+          <p style="opacity: 0.85; max-width: 16ch; color: var(--white); font-size: var(--size-caption);">Rated by homeowners</p>
+        </div>
+        <div class="swatch-label">
+          <span class="swatch-code">SPP 6004</span>
+          <span class="swatch-name">5.0 Rating</span>
+        </div>
+      </div>
+
+      <a class="fan-card swatch-card" href="get-quote.html" style="--r: 18deg;">
+        <div class="swatch-color bg-rust"></div>
+        <div class="swatch-label">
+          <span class="swatch-code">SPP 6005</span>
+          <span class="swatch-name">Get Quote</span>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
