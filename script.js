@@ -1,3 +1,25 @@
+// Performance fix: the homepage has two <video> elements (one inside
+// .desktop-only, one inside .mobile-only) so each layout gets its own
+// swatch, but CSS display:none does NOT stop a browser from fetching
+// video data for a hidden element — so both were downloading the same
+// ~11MB file at once, especially painful on mobile. Fix: videos ship
+// with no <source> and preload="none"; this picks whichever one
+// actually matches the current layout and is the only one that loads.
+function loadResponsiveVideo() {
+  const isMobile = window.matchMedia('(max-width: 700px)').matches;
+  document.querySelectorAll('video[data-video-src]').forEach((video) => {
+    const inMobileBlock = !!video.closest('.mobile-only');
+    if (inMobileBlock !== isMobile) return; // not the active layout — leave unloaded
+    if (video.querySelector('source')) return; // already loaded
+
+    const source = document.createElement('source');
+    source.src = video.dataset.videoSrc;
+    source.type = 'video/mp4';
+    video.appendChild(source);
+    video.load();
+  });
+}
+
 // Google review slideshow mockup (v2 homepage): rotates a few fake
 // reviews inside any [data-review-rotator] card. Purely a mockup —
 // the card still links to reviews.html for the real thing later.
@@ -86,6 +108,7 @@ function buildRealFanDeck() {
 document.addEventListener('DOMContentLoaded', () => {
   buildRealFanDeck();
   buildReviewRotator();
+  loadResponsiveVideo();
 
   const toggle = document.querySelector('[data-nav-toggle]');
   const overlay = document.querySelector('[data-nav-overlay]');
