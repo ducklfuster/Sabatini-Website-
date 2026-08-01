@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabatini Pro Painting</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <script src="palette.js"></script>
+  <style>
+    /* Homepage-only: lock to the fold, no scroll, on desktop. Mobile
+       breakpoint below reverts to a normal scrollable stack. */
+    html, body { height: 100%; overflow: hidden; }
+    /* the Get Quote swatch already lives bottom-right — move the
+       persistent CTA up top on this page only so they don't collide */
+    .sticky-cta { top: var(--space-3); right: var(--space-3); bottom: auto; }
+    @media (max-width: 900px) {
+      html, body { height: auto; overflow: auto; }
+      .mosaic { grid-template-columns: 1fr !important; grid-template-rows: none !important; height: auto !important; }
+      .mosaic > * { grid-column: auto !important; grid-row: auto !important; min-height: 220px; }
+      .sticky-cta { top: auto; bottom: var(--space-2); right: var(--space-2); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="mosaic" style="grid-template-columns: 1fr 1.15fr 1fr 1fr; grid-template-rows: 1fr 1fr; height: 100vh;">
+
+    <!-- sidebar / brand block -->
+    <div class="block bg-cream stack" style="justify-content: space-between; grid-row: span 2;">
+      <div class="stack" style="gap: var(--space-3);">
+        <span class="logo-mark large"><img src="images/logo.jpg" alt="Sabatini Pro Painting logo"></span>
+        <div class="brand">Sabatini Pro Painting</div>
+      </div>
+      <p class="tagline-script">The best for your nest!</p>
+    </div>
+
+    <!-- Our Team -->
+    <a class="swatch-card" href="our-team.html">
+      <div class="swatch-color bg-apricot"></div>
+      <div class="swatch-label">
+        <span class="swatch-code">SPP 6001</span>
+        <span class="swatch-name">Our Team</span>
+      </div>
+    </a>
+
+    <!-- Our Process (large, video swatch — the "moving image" from the reference site) -->
+    <a class="swatch-card" href="our-process.html" style="grid-column: span 2;">
+      <div class="swatch-color">
+        <video class="swatch-video" autoplay muted loop playsinline poster="images/misc/roller-hand.png">
+          <source src="images/video/painter-roller.mp4" type="video/mp4">
+        </video>
+        <div class="tile-video-overlay bg-salmon"></div>
+      </div>
+      <div class="swatch-label">
+        <span class="swatch-code">SPP 6002</span>
+        <span class="swatch-name">Our Process</span>
+      </div>
+    </a>
+
+    <!-- Gallery -->
+    <a class="swatch-card" href="gallery.html">
+      <div class="swatch-color bg-lavender"></div>
+      <div class="swatch-label">
+        <span class="swatch-code">SPP 6003</span>
+        <span class="swatch-name">Gallery</span>
+      </div>
+    </a>
+
+    <!-- Trust tile (non-link, decorative like original client-logo tile) -->
+    <div class="swatch-card" style="cursor: default;">
+      <div class="swatch-color bg-navy" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px;">
+        <div class="serif" style="font-size: 1.5rem; color: var(--white);">★★★★★</div>
+        <p style="opacity: 0.85; max-width: 22ch; color: var(--white); font-size: var(--size-body-sm);">Rated by homeowners across the area</p>
+      </div>
+      <div class="swatch-label">
+        <span class="swatch-code">SPP 6004</span>
+        <span class="swatch-name">5.0 Rating</span>
+      </div>
+    </div>
+
+    <!-- Get Quote -->
+    <a class="swatch-card" href="get-quote.html">
+      <div class="swatch-color bg-rust"></div>
+      <div class="swatch-label">
+        <span class="swatch-code">SPP 6005</span>
+        <span class="swatch-name">Get Quote</span>
+      </div>
+    </a>
+
+  </div>
+
+  <a class="sticky-cta" href="get-quote.html">Get Free Estimate</a>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -8,89 +8,167 @@
   <link rel="icon" type="image/jpeg" href="images/logo.jpg">
   <script src="palette.js"></script>
   <style>
-    /* Homepage-only: lock to the fold, no scroll, on desktop. Mobile
-       breakpoint below reverts to a normal scrollable stack. */
     html, body { height: 100%; overflow: hidden; }
-    /* the Get Quote swatch already lives bottom-right — move the
-       persistent CTA up top on this page only so they don't collide */
-    .sticky-cta { top: var(--space-3); right: var(--space-3); bottom: auto; }
-    @media (max-width: 900px) {
+    @media (max-width: 1000px) {
       html, body { height: auto; overflow: auto; }
-      .mosaic { grid-template-columns: 1fr !important; grid-template-rows: none !important; height: auto !important; }
-      .mosaic > * { grid-column: auto !important; grid-row: auto !important; min-height: 220px; }
-      .sticky-cta { top: auto; bottom: var(--space-2); right: var(--space-2); }
+      .fan-stage { height: auto !important; min-height: 100vh; padding: var(--space-6) var(--space-3); }
+      .v2-content { position: static !important; transform: none !important; max-width: none !important; }
+    }
+    @media (max-width: 700px) {
+      .fan-stage { padding: 0; }
     }
   </style>
 </head>
 <body>
 
-  <div class="mosaic" style="grid-template-columns: 1fr 1.15fr 1fr 1fr; grid-template-rows: 1fr 1fr; height: 100vh;">
+  <div class="fan-stage wood-table">
 
-    <!-- sidebar / brand block -->
-    <div class="block bg-cream stack" style="justify-content: space-between; grid-row: span 2;">
-      <div class="stack" style="gap: var(--space-3);">
-        <span class="logo-mark large"><img src="images/logo.jpg" alt="Sabatini Pro Painting logo"></span>
-        <div class="brand">Sabatini Pro Painting</div>
+    <!-- ================= DESKTOP ================= -->
+    <div class="desktop-only">
+      <!-- brand card + swatches, side by side, not overlapping -->
+      <div class="v2-content" style="position: absolute; left: var(--space-5); top: 50%; transform: translateY(-50%); z-index: 10; display: flex; flex-direction: column; gap: var(--space-4); max-width: 840px;">
+
+        <!-- business card -->
+        <div class="fan-brand-card" style="position: static; align-self: flex-start;">
+          <span class="logo-mark large"><img src="images/logo.jpg" alt="Sabatini Pro Painting logo"></span>
+          <h2 class="brand-card-name">Sabatini Pro Painting</h2>
+          <p class="tagline-script" style="font-size: 1.3rem;">The best for your nest!</p>
+          <hr class="brand-divider">
+          <a class="brand-contact" href="https://maps.google.com/?q=123+Main+St,+Folsom,+PA+19033" target="_blank" rel="noopener">123 Main St, Folsom, PA 19033</a>
+          <a class="brand-contact" href="tel:+16035550148">(603) 555-0148</a>
+          <a class="brand-contact" href="https://sabatinipropainting.com" target="_blank" rel="noopener">sabatinipropainting.com</a>
+          <a class="brand-contact" href="mailto:hello@sabatinipropainting.com">hello@sabatinipropainting.com</a>
+        </div>
+
+        <div class="chip-scatter">
+
+          <a class="chip-card bg-apricot" href="our-team.html" style="--r: -4deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6001</span>Our Team</span>
+            <span class="chip-locator">142-C3</span>
+          </a>
+
+          <a class="chip-card chip-on-dark" href="our-process.html" style="--r: 3deg;">
+            <video class="chip-video" autoplay muted loop playsinline>
+              <source src="images/video/process-real.mp4" type="video/mp4">
+            </video>
+            <div class="chip-video-overlay bg-salmon"></div>
+            <span class="chip-name"><span class="chip-primary-code">SPP 6002</span>Our Process</span>
+            <span class="chip-locator">210-C4</span>
+          </a>
+
+          <a class="chip-card bg-lavender" href="gallery.html" style="--r: -3deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6003</span>Gallery</span>
+            <span class="chip-locator">176-C4</span>
+          </a>
+
+          <a class="chip-card chip-on-dark" href="history.html" style="--r: 5deg; background: #6E4423;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6006</span>History</span>
+            <span class="chip-locator">204-C6</span>
+          </a>
+
+          <a class="chip-card bg-skyblue" href="faq.html" style="--r: -5deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6007</span>FAQ</span>
+            <span class="chip-locator">118-C2</span>
+          </a>
+
+          <a class="chip-card review-card" href="reviews.html" style="--r: 4deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6004</span>Reviews</span>
+            <span class="chip-locator">301-C1</span>
+            <div class="review-body" data-review-rotator>
+              <div class="review-stars">★★★★★</div>
+              <div class="review-fade">
+                <p class="review-quote">&ldquo;On time, careful with our floors, and the paint job looks incredible.&rdquo;</p>
+                <div class="review-author">— Jamie R.</div>
+              </div>
+              <div class="review-google">Google Reviews</div>
+            </div>
+          </a>
+
+          <a class="chip-card chip-on-dark bg-brick" href="get-quote.html" style="--r: -2deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6005</span>Get Quote</span>
+            <span class="chip-locator">255-C7</span>
+          </a>
+
+        </div>
+
       </div>
-      <p class="tagline-script">The best for your nest!</p>
     </div>
 
-    <!-- Our Team -->
-    <a class="swatch-card" href="our-team.html">
-      <div class="swatch-color bg-apricot"></div>
-      <div class="swatch-label">
-        <span class="swatch-code">SPP 6001</span>
-        <span class="swatch-name">Our Team</span>
-      </div>
-    </a>
+    <!-- ================= MOBILE ================= -->
+    <div class="mobile-only">
+      <div class="mobile-home">
 
-    <!-- Our Process (large, video swatch — the "moving image" from the reference site) -->
-    <a class="swatch-card" href="our-process.html" style="grid-column: span 2;">
-      <div class="swatch-color">
-        <video class="swatch-video" autoplay muted loop playsinline poster="images/misc/roller-hand.png">
-          <source src="images/video/painter-roller.mp4" type="video/mp4">
-        </video>
-        <div class="tile-video-overlay bg-salmon"></div>
-      </div>
-      <div class="swatch-label">
-        <span class="swatch-code">SPP 6002</span>
-        <span class="swatch-name">Our Process</span>
-      </div>
-    </a>
+        <div class="mobile-swatch-grid">
 
-    <!-- Gallery -->
-    <a class="swatch-card" href="gallery.html">
-      <div class="swatch-color bg-lavender"></div>
-      <div class="swatch-label">
-        <span class="swatch-code">SPP 6003</span>
-        <span class="swatch-name">Gallery</span>
-      </div>
-    </a>
+          <!-- business card -->
+          <div class="mobile-card mobile-brand-card">
+            <h1 class="brand-card-name">Sabatini<br>Pro Painting</h1>
+            <p class="tagline-script">The best for your nest!</p>
+            <hr class="brand-divider">
+            <a class="brand-contact" href="https://maps.google.com/?q=123+Main+St,+Folsom,+PA+19033" target="_blank" rel="noopener">123 Main St, Folsom, PA 19033</a>
+            <a class="brand-contact" href="tel:+16035550148">(603) 555-0148</a>
+            <a class="brand-contact" href="https://sabatinipropainting.com" target="_blank" rel="noopener">sabatinipropainting.com</a>
+            <a class="brand-contact" href="mailto:hello@sabatinipropainting.com">hello@sabatinipropainting.com</a>
+          </div>
 
-    <!-- Trust tile (non-link, decorative like original client-logo tile) -->
-    <div class="swatch-card" style="cursor: default;">
-      <div class="swatch-color bg-navy" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 6px;">
-        <div class="serif" style="font-size: 1.5rem; color: var(--white);">★★★★★</div>
-        <p style="opacity: 0.85; max-width: 22ch; color: var(--white); font-size: var(--size-body-sm);">Rated by homeowners across the area</p>
-      </div>
-      <div class="swatch-label">
-        <span class="swatch-code">SPP 6004</span>
-        <span class="swatch-name">5.0 Rating</span>
+          <!-- Get Quote — same size as the rest -->
+          <a class="chip-card chip-on-dark bg-brick" href="get-quote.html" style="--r: -2deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6005</span>Get Quote</span>
+            <span class="chip-locator">255-C7</span>
+          </a>
+
+          <!-- row 2 -->
+          <a class="chip-card bg-apricot" href="our-team.html" style="--r: -4deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6001</span>Our Team</span>
+            <span class="chip-locator">142-C3</span>
+          </a>
+
+          <a class="chip-card chip-on-dark" href="our-process.html" style="--r: 3deg;">
+            <video class="chip-video" autoplay muted loop playsinline>
+              <source src="images/video/process-real.mp4" type="video/mp4">
+            </video>
+            <div class="chip-video-overlay bg-salmon"></div>
+            <span class="chip-name"><span class="chip-primary-code">SPP 6002</span>Our Process</span>
+            <span class="chip-locator">210-C4</span>
+          </a>
+
+          <a class="chip-card bg-lavender" href="gallery.html" style="--r: -3deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6003</span>Gallery</span>
+            <span class="chip-locator">176-C4</span>
+          </a>
+
+          <!-- row 3 -->
+          <a class="chip-card chip-on-dark" href="history.html" style="--r: 5deg; background: #6E4423;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6006</span>History</span>
+            <span class="chip-locator">204-C6</span>
+          </a>
+
+          <a class="chip-card bg-skyblue" href="faq.html" style="--r: -5deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6007</span>FAQ</span>
+            <span class="chip-locator">118-C2</span>
+          </a>
+
+          <a class="chip-card review-card" href="reviews.html" style="--r: 4deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6004</span>Reviews</span>
+            <span class="chip-locator">301-C1</span>
+            <div class="review-body" data-review-rotator>
+              <div class="review-stars">★★★★★</div>
+              <div class="review-fade">
+                <p class="review-quote">&ldquo;On time, careful with our floors, and the paint job looks incredible.&rdquo;</p>
+                <div class="review-author">— Jamie R.</div>
+              </div>
+              <div class="review-google">Google Reviews</div>
+            </div>
+          </a>
+
+        </div>
+
+        <p style="margin-top: var(--space-3); font-size: var(--size-caption); opacity: 0.55; text-align: center;">Placeholder business info — swap in the real address/phone/site.</p>
+
       </div>
     </div>
-
-    <!-- Get Quote -->
-    <a class="swatch-card" href="get-quote.html">
-      <div class="swatch-color bg-rust"></div>
-      <div class="swatch-label">
-        <span class="swatch-code">SPP 6005</span>
-        <span class="swatch-name">Get Quote</span>
-      </div>
-    </a>
 
   </div>
-
-  <a class="sticky-cta" href="get-quote.html">Get Free Estimate</a>
 
   <script src="script.js"></script>
 </body>
