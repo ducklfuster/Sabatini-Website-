@@ -1380,28 +1380,29 @@ img { max-width: 100%; display: block; }
 .bento-tile.review-card .review-quote { font-size: clamp(0.68rem, 1.1vw, 0.8rem); }
 
 .bento-sidebar .brand-card-name { font-size: clamp(1.1rem, 1.8vw, 1.5rem); }
+/* internal grid mirrors the outer bento-grid's own row proportions
+   (1fr 1fr, same --gutter gap) so the photo/card-body split lines up
+   exactly with the row boundary the rest of the grid uses -- the photo
+   (row 1) bottom edge lands on the same line as Get Quote/Job Stories'
+   top edge, the same way it already lines up with About Us at the top. */
 .bento-sidebar {
   background: var(--cream);
   border-radius: var(--radius-swatch);
-  padding: var(--space-3);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: var(--gutter);
   overflow: hidden;
 }
 .bento-sidebar .brand-contact { font-size: clamp(0.68rem, 1vw, 0.8rem); }
 
-/* business card photo — the visual anchor of the sidebar; grows to fill
-   whatever vertical space .card-body's text doesn't need. Bleeds to the
-   top/left/right edges of the sidebar (negative margin cancelling out
-   the card's own padding on those sides) so its top edge lines up with
-   the About Us swatch's top edge in the row beside it -- the sidebar's
-   own overflow:hidden + border-radius clips it back to a rounded rect. */
+/* business card photo — the visual anchor of the sidebar; fills row 1
+   of the sidebar's internal grid edge-to-edge. */
 .card-photo {
   position: relative;
-  flex: 1;
-  min-height: 90px;
-  margin: calc(-1 * var(--space-3)) calc(-1 * var(--space-3)) 0;
+  min-height: 0;
+  /* extend down through the internal grid gap so the photo's bottom
+     edge lands exactly on Get Quote's top edge, not the gap above it */
+  margin-bottom: calc(-1 * var(--gutter));
 }
 .card-photo img {
   width: 100%;
@@ -1426,8 +1427,11 @@ img { max-width: 100%; display: block; }
 .card-body {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 2px;
-  flex: 0 0 auto;
+  min-height: 0;
+  overflow: hidden;
+  padding: var(--space-3);
 }
 .card-owner-label {
   font-size: 0.62rem;
@@ -1494,9 +1498,29 @@ img { max-width: 100%; display: block; }
       "gallery gallery"
       "reviews about";
   }
+  /* the desktop sidebar's internal grid (photo row matched to Get
+     Quote's row height) assumes desktop's roomier proportions -- on
+     mobile's narrower column the same text needs more lines, so it
+     reverts to flexible/content-sized layout instead of a fixed 50/50
+     split (which was clipping the phone number). */
+  .bento-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .card-photo {
+    flex: 1;
+    min-height: 60px;
+    margin-bottom: 0;
+  }
+  .card-body {
+    flex: 0 0 auto;
+    justify-content: flex-start;
+    overflow: visible;
+    padding: var(--space-2) var(--space-3) var(--space-3);
+  }
   .bento-sidebar .brand-card-name { font-size: 0.95rem; }
   .bento-sidebar .brand-contact { font-size: 0.62rem; }
-  .card-photo { min-height: 60px; }
   .card-belief-line { font-size: 0.66rem; margin: 1px 0 5px; }
   .brand-contact.phone-prominent { font-size: 0.95em; }
   .site-footer { font-size: 0.58rem; gap: 4px 10px; padding: var(--space-1) var(--space-2); }
