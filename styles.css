@@ -19,6 +19,7 @@
   --skyblue: #AFC8C5;   /* dusty blue-green (landscape water/sky) */
   --cream: #F5EEDA;     /* warm parchment (logo's inner ground) */
   --white: #FFFFFF;
+  --fog: #D8D5CC;       /* warm light gray — Reviews swatch on the white-bg bento page */
   --ink: #22201A;       /* warm near-black, ties to the deep outline ink */
 
   /* typography */
@@ -1332,7 +1333,7 @@ img { max-width: 100%; display: block; }
 .bento-page {
   height: 100vh;
   overflow: hidden;
-  background: var(--cream);
+  background: var(--white);
   display: flex;
   flex-direction: column;
 }
@@ -1374,6 +1375,7 @@ img { max-width: 100%; display: block; }
 }
 .bento-tile .chip-video-overlay { position: absolute; inset: 0; z-index: 1; opacity: 0.5; mix-blend-mode: multiply; }
 
+.bento-tile.review-card { background: var(--fog); }
 .bento-tile.review-card .review-body { top: 42px; }
 .bento-tile.review-card .review-quote { font-size: clamp(0.68rem, 1.1vw, 0.8rem); }
 
