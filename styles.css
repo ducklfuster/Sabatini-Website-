@@ -1326,8 +1326,8 @@ img { max-width: 100%; display: block; }
   gap: 10px;
 }
 .mbc-photo {
-  width: 42px;
-  height: 42px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
