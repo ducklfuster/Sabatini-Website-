@@ -128,6 +128,21 @@ document.addEventListener('DOMContentLoaded', () => {
   buildReviewRotator();
   loadResponsiveVideo();
 
+  // Safety net: some mobile browsers still leave an autoplay muted video
+  // paused despite every correct attribute being set (a real, somewhat
+  // unpredictable quirk, not something reproducible in every test
+  // browser). Give the browser a beat to settle, then explicitly nudge
+  // anything still paused. Cheap, harmless if everything already played.
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelectorAll('video[autoplay]').forEach((video) => {
+        if (!video.paused) return;
+        const p = video.play();
+        if (p && typeof p.catch === 'function') p.catch(() => {});
+      });
+    }, 300);
+  });
+
   const toggle = document.querySelector('[data-nav-toggle]');
   const overlay = document.querySelector('[data-nav-overlay]');
   const close = document.querySelector('[data-nav-close]');
