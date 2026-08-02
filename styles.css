@@ -1013,6 +1013,30 @@ img { max-width: 100%; display: block; }
 .chip-scatter .chip-card:nth-child(2n) { margin-top: 18px; }
 .chip-scatter .chip-card:nth-child(3n) { margin-top: -8px; }
 
+/* Tabletop v2 (index-tabletop-v2.html) only -- desktop content (business
+   card + chip-scatter) was taller than 100vh on common laptop screen
+   heights, and since .v2-content is vertically centered inside
+   .fan-stage's overflow:hidden box, that overflow clipped BOTH the top
+   and bottom equally. Scaling the chip cards down by viewport height
+   (capped at the original 178x254 so nothing changes on tall screens)
+   keeps it inside the fold. Scoped to .tt2 so index.html's original
+   desktop sizing is untouched. */
+.fan-stage.tt2 .chip-scatter .chip-card {
+  height: clamp(170px, 26vh, 254px);
+  width: auto;
+  aspect-ratio: 178 / 254;
+}
+.fan-stage.tt2 .fan-brand-card {
+  padding: clamp(14px, 2.2vh, 24px) clamp(18px, 3vh, 32px);
+  gap: clamp(6px, 1.2vh, 16px);
+}
+.fan-stage.tt2 .fan-brand-card .logo-mark.large {
+  width: clamp(64px, 9vh, 96px);
+  height: clamp(64px, 9vh, 96px);
+}
+.fan-stage.tt2 .fan-brand-card .brand-card-name { font-size: clamp(1.1rem, 2.6vh, 1.5rem); }
+.fan-stage.tt2 .fan-brand-card .tagline-script { font-size: clamp(1rem, 2.2vh, 1.3rem) !important; }
+
 .chip-card {
   position: relative;
   width: 178px;

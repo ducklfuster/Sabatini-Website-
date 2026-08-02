@@ -15,18 +15,21 @@
       .v2-content { position: static !important; transform: none !important; max-width: none !important; }
     }
     @media (max-width: 700px) {
-      .fan-stage { padding: 0; }
+      /* the 100vh min-height above was leaving a big dead gap of plain
+         wood-table background between the swatches and the footer on
+         phones -- let the mobile layout just be as tall as its content */
+      .fan-stage { padding: 0; min-height: 0; }
     }
   </style>
 </head>
 <body>
 
-  <div class="fan-stage wood-table">
+  <div class="fan-stage wood-table tt2">
 
     <!-- ================= DESKTOP ================= -->
     <div class="desktop-only">
       <!-- brand card + swatches, side by side, not overlapping -->
-      <div class="v2-content" style="position: absolute; left: var(--space-5); top: 50%; transform: translateY(-50%); z-index: 10; display: flex; flex-direction: column; gap: var(--space-4); max-width: 840px;">
+      <div class="v2-content" style="position: absolute; left: var(--space-5); top: 50%; transform: translateY(-50%); z-index: 10; display: flex; flex-direction: column; gap: clamp(12px, 2.5vh, 32px); max-width: 840px;">
 
         <!-- business card -->
         <div class="fan-brand-card" style="position: static; align-self: flex-start;">
@@ -165,8 +168,6 @@
           </a>
 
         </div>
-
-        <p style="margin-top: var(--space-3); font-size: var(--size-caption); opacity: 0.55; text-align: center;">Placeholder business info — swap in the real address/phone/site.</p>
 
       </div>
     </div>
