@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabatini Pro Painting — Bento v3 (Photoreal Concept)</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <script src="palette.js"></script>
+</head>
+<body>
+
+  <div class="bento-page">
+    <div class="bento-grid">
+
+      <!-- sidebar / business card — top-left, 1 col x 2 rows -->
+      <div class="bento-sidebar">
+        <span class="logo-mark"><img src="images/logo.jpg" alt="Sabatini Pro Painting logo"></span>
+        <div>
+          <h2 class="brand-card-name">Sabatini Pro Painting</h2>
+          <p class="tagline-script">The best for your nest!</p>
+          <hr class="brand-divider">
+          <a class="brand-contact" href="https://maps.google.com/?q=123+Main+St,+Folsom,+PA+19033" target="_blank" rel="noopener">123 Main St, Folsom, PA 19033</a>
+          <a class="brand-contact" href="tel:+16035550148">(603) 555-0148</a>
+          <a class="brand-contact" href="https://sabatinipropainting.com" target="_blank" rel="noopener">sabatinipropainting.com</a>
+          <a class="brand-contact" href="mailto:hello@sabatinipropainting.com">hello@sabatinipropainting.com</a>
+        </div>
+      </div>
+
+      <!-- Job Stories — the painter video swatch (video is the visual, no photo swatch needed) -->
+      <a class="bento-tile chip-on-dark bg-navy" href="job-stories.html" style="grid-area: jobstories;">
+        <video class="chip-video" autoplay muted loop playsinline preload="auto" poster="images/misc/roller-hand.png">
+          <source src="images/video/process-real.mp4" type="video/mp4">
+        </video>
+        <div class="chip-video-overlay bg-lavender"></div>
+        <span class="chip-name"><span class="chip-primary-code">SPP 6010</span>Job Stories</span>
+        <span class="chip-locator">210-C4</span>
+      </a>
+
+      <!-- Get Quote — photoreal brick swatch -->
+      <a class="bento-tile chip-on-dark photo-swatch" href="get-quote.html" style="grid-area: getquote; background-image: url('images/swatches/get-quote.png');">
+        <span class="chip-name"><span class="chip-primary-code">SPP 6005</span>Get Quote</span>
+        <span class="chip-locator">255-C7</span>
+      </a>
+
+      <!-- Gallery — photoreal green swatch, wide 2x1 render -->
+      <a class="bento-tile photo-swatch" href="gallery.html" style="grid-area: gallery; background-image: url('images/swatches/gallery-wide.png');">
+        <span class="chip-name"><span class="chip-primary-code">SPP 6003</span>Gallery</span>
+        <span class="chip-locator">176-C4</span>
+      </a>
+
+      <!-- Reviews — photoreal white swatch, rotator still live on top -->
+      <a class="bento-tile review-card photo-swatch" href="reviews.html" style="grid-area: reviews; background-image: url('images/swatches/reviews.png');">
+        <span class="chip-name"><span class="chip-primary-code">SPP 6004</span>Reviews</span>
+        <span class="chip-locator">301-C1</span>
+        <div class="review-body" data-review-rotator>
+          <div class="review-stars">★★★★★</div>
+          <div class="review-fade">
+            <p class="review-quote">&ldquo;On time, careful with our floors, and the paint job looks incredible.&rdquo;</p>
+            <div class="review-author">— Jamie R.</div>
+          </div>
+          <div class="review-google">Google Reviews</div>
+        </div>
+      </a>
+
+      <!-- About Us — photoreal gold swatch -->
+      <a class="bento-tile photo-swatch" href="our-team.html" style="grid-area: about; background-image: url('images/swatches/about-us.png');">
+        <span class="chip-name"><span class="chip-primary-code">SPP 6001</span>About Us</span>
+        <span class="chip-locator">142-C3</span>
+      </a>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
