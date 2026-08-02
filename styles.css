@@ -1392,6 +1392,7 @@ img { max-width: 100%; display: block; }
 /* business card photo — the visual anchor of the sidebar; grows to fill
    whatever vertical space .card-body's text doesn't need. */
 .card-photo {
+  position: relative;
   flex: 1;
   min-height: 90px;
   border-radius: var(--radius-swatch);
@@ -1403,6 +1404,19 @@ img { max-width: 100%; display: block; }
   object-fit: cover;
   object-position: center 20%;
   display: block;
+}
+/* small logo badge overlaid on the photo corner -- a quiet mark, not a
+   second competing visual next to the photo that's meant to anchor the
+   card */
+.card-photo-logo {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--cream);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  z-index: 2;
 }
 .card-body {
   display: flex;
