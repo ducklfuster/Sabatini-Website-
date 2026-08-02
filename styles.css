@@ -1333,13 +1333,16 @@ img { max-width: 100%; display: block; }
   height: 100vh;
   overflow: hidden;
   background: var(--cream);
+  display: flex;
+  flex-direction: column;
 }
 
 .bento-grid {
   display: grid;
   gap: var(--gutter);
   padding: var(--gutter);
-  height: 100%;
+  flex: 1;
+  min-height: 0;
   grid-template-columns: 0.85fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
@@ -1375,16 +1378,91 @@ img { max-width: 100%; display: block; }
 .bento-tile.review-card .review-quote { font-size: clamp(0.68rem, 1.1vw, 0.8rem); }
 
 .bento-sidebar .brand-card-name { font-size: clamp(1.1rem, 1.8vw, 1.5rem); }
-.bento-sidebar .tagline-script { font-size: clamp(1rem, 1.6vw, 1.4rem); }
 .bento-sidebar {
   background: var(--cream);
   border-radius: var(--radius-swatch);
   padding: var(--space-3);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: var(--space-2);
+  overflow: hidden;
 }
 .bento-sidebar .brand-contact { font-size: clamp(0.68rem, 1vw, 0.8rem); }
+
+/* business card photo — the visual anchor of the sidebar; grows to fill
+   whatever vertical space .card-body's text doesn't need. Currently a
+   dashed placeholder box until Rick's real photo replaces it. */
+.card-photo {
+  flex: 1;
+  min-height: 90px;
+  border-radius: var(--radius-swatch);
+  border: 1px dashed rgba(0, 0, 0, 0.25);
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04) 10px,
+    rgba(0, 0, 0, 0.07) 10px, rgba(0, 0, 0, 0.07) 20px
+  );
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-2);
+}
+.card-photo-label {
+  font-size: 0.7rem;
+  font-style: italic;
+  opacity: 0.55;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 0 0 auto;
+}
+.card-belief-line {
+  font-size: clamp(0.72rem, 1.1vw, 0.85rem);
+  font-style: italic;
+  opacity: 0.85;
+  margin: 2px 0 8px;
+}
+.card-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  padding-top: 8px;
+}
+.brand-contact.phone-prominent {
+  font-size: 1.35em;
+  font-weight: 700;
+  opacity: 1;
+  margin-bottom: 2px;
+}
+
+/* site-wide trust footer — quiet, static, sits on the page background */
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 16px;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--size-caption);
+  opacity: 0.65;
+  text-align: center;
+}
+.site-footer a { text-decoration: underline; text-underline-offset: 2px; }
+.site-footer .footer-sep { opacity: 0.4; }
+/* clear the fixed .sticky-cta pill on pages that have one; the bento
+   homepage has no sticky-cta and is height-budgeted to the viewport, so
+   it keeps its footer flush instead */
+.site-footer { margin-bottom: 90px; }
+.bento-page .site-footer { margin-bottom: 0; }
+@media (max-width: 700px) {
+  .site-footer { margin-bottom: 64px; }
+}
 
 @media (max-width: 900px) {
   /* mobile is genuinely its own layout, not a reflow of desktop's areas:
@@ -1400,10 +1478,13 @@ img { max-width: 100%; display: block; }
       "gallery gallery"
       "reviews about";
   }
-  .bento-sidebar .logo-mark { width: 32px; height: 32px; }
   .bento-sidebar .brand-card-name { font-size: 0.95rem; }
-  .bento-sidebar .tagline-script { font-size: 0.85rem; }
   .bento-sidebar .brand-contact { font-size: 0.62rem; }
+  .card-photo { min-height: 60px; }
+  .card-photo-label { font-size: 0.58rem; }
+  .card-belief-line { font-size: 0.66rem; margin: 1px 0 5px; }
+  .brand-contact.phone-prominent { font-size: 1.15em; }
+  .site-footer { font-size: 0.58rem; gap: 4px 10px; padding: var(--space-1) var(--space-2); }
   .bento-tile .chip-name { font-size: 0.72rem; }
   .bento-tile .chip-name .chip-primary-code { font-size: 0.56rem; margin-bottom: 1px; }
   .bento-tile .chip-locator { font-size: 0.5rem; }
