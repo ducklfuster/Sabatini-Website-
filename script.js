@@ -73,6 +73,36 @@ function buildReviewRotator() {
   });
 }
 
+// Business-card trust ticker (Variant A, business-card-variants.html):
+// rotates a few real trust facts inside any [data-trust-ticker] element.
+// Same fade-only-text pattern as buildReviewRotator() -- the ticker's
+// footprint never flickers, only its inner text swaps.
+function buildTrustTicker() {
+  const tickers = document.querySelectorAll('[data-trust-ticker]');
+  if (!tickers.length) return;
+
+  const facts = [
+    'Est. 2016 · Family-Owned & Operated',
+    'Licensed & Insured',
+    '60%+ of Our Business Is Repeat & Referral'
+  ];
+
+  tickers.forEach((ticker) => {
+    let i = 0;
+    const fadeEl = ticker.querySelector('.trust-ticker-fade');
+    if (!fadeEl) return;
+
+    setInterval(() => {
+      i = (i + 1) % facts.length;
+      fadeEl.style.opacity = '0';
+      setTimeout(() => {
+        fadeEl.textContent = facts[i];
+        fadeEl.style.opacity = '1';
+      }, 300);
+    }, 4000);
+  });
+}
+
 // Real fan deck (v2 homepage): generates ~30 thin single-color strips
 // swept through a real color-family progression (blue -> teal -> green
 // -> olive -> gold -> brown -> mauve -> gray), with uneven lengths for
@@ -126,6 +156,7 @@ function buildRealFanDeck() {
 document.addEventListener('DOMContentLoaded', () => {
   buildRealFanDeck();
   buildReviewRotator();
+  buildTrustTicker();
   loadResponsiveVideo();
 
   // Safety net: some mobile browsers still leave an autoplay muted video

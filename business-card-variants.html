@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Card Variants — Comparison</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <script src="palette.js"></script>
+  <style>
+    body { background: var(--cream); min-height: 100vh; }
+    .variant-page {
+      padding: var(--space-5) var(--space-4);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .variant-page h1 {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      margin: 0 0 var(--space-5);
+      text-align: center;
+    }
+    .variant-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .variant-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .variant-label {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      opacity: 0.7;
+      text-align: center;
+    }
+    /* Fixed real-world sidebar size (desktop bento sidebar is ~1 col of a
+       4-col grid on a typical laptop viewport) so Rick judges true
+       proportions, not a stretched or shrunk card. */
+    .card-frame.bento-sidebar {
+      width: 260px;
+      height: 480px;
+      box-shadow: 2px 8px 16px rgba(0, 0, 0, 0.18);
+    }
+    .card-frame .brand-card-name { font-size: 1.35rem; }
+    .card-frame .tagline-script { font-size: 1.1rem; }
+    .card-frame .brand-contact { font-size: 0.78rem; }
+  </style>
+</head>
+<body>
+
+  <div class="variant-page">
+    <h1>Business Card — Trust Signal Variants</h1>
+
+    <div class="variant-row">
+
+      <!-- Variant A — Rotating Ticker -->
+      <div class="variant-col">
+        <div class="variant-label">A &mdash; Rotating Ticker</div>
+        <div class="card-frame bento-sidebar">
+          <span class="logo-mark"><img src="images/logo.jpg" alt="Sabatini Pro Painting logo"></span>
+          <div>
+            <h2 class="brand-card-name">Sabatini Pro Painting</h2>
+            <p class="tagline-script">The best for your nest!</p>
+            <hr class="brand-divider">
+            <a class="brand-contact" href="https://maps.google.com/?q=123+Main+St,+Folsom,+PA+19033" target="_blank" rel="noopener">123 Main St, Folsom, PA 19033</a>
+            <a class="brand-contact" href="tel:+16035550148">(603) 555-0148</a>
+            <a class="brand-contact" href="https://sabatinipropainting.com" target="_blank" rel="noopener">sabatinipropainting.com</a>
+            <a class="brand-contact" href="mailto:hello@sabatinipropainting.com">hello@sabatinipropainting.com</a>
+            <div class="trust-ticker" data-trust-ticker>
+              <span class="trust-ticker-fade">Est. 2016 &middot; Family-Owned &amp; Operated</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variant B — Permanent Line -->
+      <div class="variant-col">
+        <div class="variant-label">B &mdash; Permanent Line</div>
+        <div class="card-frame bento-sidebar">
+          <span class="logo-mark"><img src="images/logo.jpg" alt="Sabatini Pro Painting logo"></span>
+          <div>
+            <h2 class="brand-card-name">Sabatini Pro Painting</h2>
+            <p class="tagline-script">The best for your nest!</p>
+            <hr class="brand-divider">
+            <a class="brand-contact" href="https://maps.google.com/?q=123+Main+St,+Folsom,+PA+19033" target="_blank" rel="noopener">123 Main St, Folsom, PA 19033</a>
+            <a class="brand-contact" href="tel:+16035550148">(603) 555-0148</a>
+            <a class="brand-contact" href="mailto:hello@sabatinipropainting.com">hello@sabatinipropainting.com</a>
+            <div class="trust-line">60%+ of our business is repeat customers &amp; referrals</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variant C — Badge Row -->
+      <div class="variant-col">
+        <div class="variant-label">C &mdash; Badge Row</div>
+        <div class="card-frame bento-sidebar">
+          <span class="logo-mark"><img src="images/logo.jpg" alt="Sabatini Pro Painting logo"></span>
+          <div>
+            <h2 class="brand-card-name">Sabatini Pro Painting</h2>
+            <p class="tagline-script">The best for your nest!</p>
+            <div class="trust-badge-row">
+              <span class="trust-badge">Licensed &amp; Insured</span>
+              <span class="trust-badge">Est. 2016</span>
+              <span class="trust-badge">&#9733; 4.9 Rated</span>
+            </div>
+            <a class="brand-contact" href="https://maps.google.com/?q=123+Main+St,+Folsom,+PA+19033" target="_blank" rel="noopener">123 Main St, Folsom, PA 19033</a>
+            <a class="brand-contact" href="tel:+16035550148">(603) 555-0148</a>
+            <a class="brand-contact" href="mailto:hello@sabatinipropainting.com">hello@sabatinipropainting.com</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
