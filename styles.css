@@ -1086,14 +1086,19 @@ img { max-width: 100%; display: block; }
   opacity: 0.8;
 }
 
-/* "Meet the Owners" swatch (index-tabletop-v3.html) -- the photo sits
-   inset inside the tile, not full-bleed like the Job Stories video, so
-   the apricot swatch color still shows as a frame around it (Rick's
+/* "Meet the Owners" swatch (index-tabletop-v3/v4.html) -- the photo
+   sits inset inside the tile, not full-bleed like the Job Stories
+   video, so the swatch color still shows as a frame around it (Rick's
    explicit call: "keep the photo inside the swatch so we can still see
-   the swatch color"). */
+   the swatch color"). "Meet the Owners" wraps to 2-3 lines on this
+   narrow a tile, taller than the single-line labels every other swatch
+   has -- the top offset has to clear the actual wrapped height (verified
+   via getBoundingClientRect: label runs to ~87px desktop / ~65px
+   mobile) or the photo covers part of the text. This also naturally
+   makes the photo itself smaller, which was Rick's other ask. */
 .chip-photo-inset {
   position: absolute;
-  top: 54px;
+  top: 92px;
   left: 12px;
   right: 12px;
   bottom: 12px;
@@ -1102,7 +1107,21 @@ img { max-width: 100%; display: block; }
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 .chip-photo-inset img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
-.mobile-swatch-grid .chip-photo-inset { top: 34px; left: 8px; right: 8px; bottom: 8px; }
+.chip-photo-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.45);
+  color: var(--white);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-align: center;
+  padding: 4px 4px;
+}
+.mobile-swatch-grid .chip-photo-inset { top: 70px; left: 8px; right: 8px; bottom: 8px; }
+.mobile-swatch-grid .chip-photo-caption { font-size: 0.46rem; padding: 2px 3px; }
 .chip-card.chip-on-dark .chip-name,
 .chip-card.chip-on-dark .chip-name .chip-primary-code,
 .chip-card.chip-on-dark .chip-locator,

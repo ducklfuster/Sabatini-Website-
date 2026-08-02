@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabatini Pro Painting — Tabletop v4</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <script src="palette.js"></script>
+  <style>
+    /* .fan-stage clips itself at 100vh on its own (styles.css); body is
+       left free to scroll so the site-footer below it is reachable */
+    @media (max-width: 1000px) {
+      .fan-stage { height: auto !important; min-height: 100vh; padding: var(--space-6) var(--space-3); }
+      .v2-content { position: static !important; transform: none !important; max-width: none !important; }
+    }
+    @media (max-width: 700px) {
+      /* the 100vh min-height above was leaving a big dead gap of plain
+         wood-table background between the swatches and the footer on
+         phones -- let the mobile layout just be as tall as its content */
+      .fan-stage { padding: 0; min-height: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="fan-stage wood-table tt2">
+
+    <!-- ================= DESKTOP ================= -->
+    <div class="desktop-only">
+      <!-- brand card + swatches, side by side, not overlapping -->
+      <div class="v2-content" style="position: absolute; left: var(--space-5); top: 50%; transform: translateY(-50%); z-index: 10; display: flex; flex-direction: column; gap: clamp(12px, 2.5vh, 32px); max-width: 840px;">
+
+        <!-- business card -->
+        <div class="fan-brand-card" style="position: static; align-self: flex-start;">
+          <span class="logo-mark large"><img src="images/logo.jpg" alt="Sabatini Pro Painting logo"></span>
+          <h2 class="brand-card-name">Sabatini Pro Painting</h2>
+          <p class="tagline-script" style="font-size: 1.3rem;">The best for your nest!</p>
+          <hr class="brand-divider">
+          <a class="brand-contact" href="https://maps.google.com/?q=102+Ohio+Ave,+Folsom,+PA+19033" target="_blank" rel="noopener">102 Ohio Ave, Folsom, PA 19033</a>
+          <a class="brand-contact" href="tel:+16108105040">(610) 810-5040</a>
+          <a class="brand-contact" href="https://sabatinipropainting.com" target="_blank" rel="noopener">sabatinipropainting.com</a>
+          <a class="brand-contact" href="mailto:hello@sabatinipropainting.com">hello@sabatinipropainting.com</a>
+        </div>
+
+        <div class="chip-scatter">
+
+          <a class="chip-card chip-on-dark" href="history.html" style="--r: 5deg; background: #6E4423;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6006</span>History</span>
+            <span class="chip-locator">204-C6</span>
+          </a>
+
+          <!-- Meet the Owners -- replaces the old plain "Our Team" tile.
+               Photo sits inset inside the tile (not full-bleed like the
+               Job Stories video) so the swatch color still frames it --
+               per Rick's explicit call to keep the color visible. Rust
+               instead of the original apricot gold, which clashed with
+               the photo's heavy green background; rust isn't used by
+               any other swatch in this composition. Still links to
+               our-team.html. Small name-tag caption overlaid on the
+               photo identifies who's in it. -->
+          <a class="chip-card chip-on-dark bg-rust owners-photo" href="our-team.html" style="--r: -4deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6001</span>Meet the Owners</span>
+            <span class="chip-locator">142-C3</span>
+            <span class="chip-photo-inset">
+              <img src="images/misc/owner-photo.jpg" alt="Alejandra Sabatini Guizada and Rick Sabatini">
+              <span class="chip-photo-caption">Alejandra &amp; Rick</span>
+            </span>
+          </a>
+
+          <a class="chip-card chip-on-dark" href="our-process.html" style="--r: 3deg;">
+            <video class="chip-video" autoplay muted loop playsinline preload="none" data-video-src="images/video/process-real.mp4"></video>
+            <div class="chip-video-overlay bg-salmon"></div>
+            <span class="chip-name"><span class="chip-primary-code">SPP 6002</span>Our Process</span>
+            <span class="chip-locator">210-C4</span>
+          </a>
+
+          <a class="chip-card bg-lavender" href="gallery.html" style="--r: -3deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6003</span>Gallery</span>
+            <span class="chip-locator">176-C4</span>
+          </a>
+
+          <a class="chip-card bg-skyblue" href="faq.html" style="--r: -5deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6007</span>FAQ</span>
+            <span class="chip-locator">118-C2</span>
+          </a>
+
+          <a class="chip-card review-card" href="https://www.google.com/maps/place/Sabatini+Pro+Painting/@39.8799306,-75.3351085,17z/data=!3m1!4b1!4m6!3m5!1s0x89c6e7d8c8bd1b61:0x1130aaf7edb03d08!8m2!3d39.8799306!4d-75.3351085!16s%2Fg%2F11c1rtwc4n" target="_blank" rel="noopener" style="--r: 4deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6004</span>Reviews</span>
+            <span class="chip-locator">301-C1</span>
+            <div class="review-body" data-review-rotator>
+              <div class="review-stars">★★★★★</div>
+              <div class="review-fade">
+                <p class="review-quote">&ldquo;On time, careful with our floors, and the paint job looks incredible.&rdquo;</p>
+                <div class="review-author">— Jamie R.</div>
+              </div>
+              <div class="review-google">See our Google reviews &#8599;</div>
+            </div>
+          </a>
+
+          <a class="chip-card chip-on-dark bg-brick" href="get-quote.html" style="--r: -2deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6005</span>Get Quote</span>
+            <span class="chip-locator">255-C7</span>
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= MOBILE ================= -->
+    <div class="mobile-only">
+      <div class="mobile-home">
+
+        <div class="mobile-swatch-grid tt2">
+
+          <!-- business card -- v4 drops the owners' names line, since
+               the "Meet the Owners" swatch below now covers that
+               (avoids saying the same thing twice on one screen).
+               Scoped with .tt2 so this doesn't touch index.html's
+               original card, which stays untouched as the leading
+               "tabletop v1" design. -->
+          <div class="mobile-card mobile-brand-card">
+            <span class="mbc-badge">Est. 2015</span>
+            <div class="mbc-header">
+              <span class="mbc-photo"><img src="images/logo.jpg" alt="Sabatini Pro Painting logo"></span>
+              <h1 class="brand-card-name">Sabatini Pro Painting</h1>
+            </div>
+            <p class="tagline-script">The best for your nest!</p>
+            <a class="brand-contact phone-prominent" href="tel:+16108105040">(610) 810-5040</a>
+          </div>
+
+          <!-- Get Quote — same size as the rest -->
+          <a class="chip-card chip-on-dark bg-brick" href="get-quote.html" style="--r: -2deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6005</span>Get Quote</span>
+            <span class="chip-locator">255-C7</span>
+          </a>
+
+          <!-- row 2 -- History now sits where Meet the Owners used to
+               be (swapped positions per Rick's request) -->
+          <a class="chip-card chip-on-dark" href="history.html" style="--r: 5deg; background: #6E4423;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6006</span>History</span>
+            <span class="chip-locator">204-C6</span>
+          </a>
+
+          <a class="chip-card chip-on-dark" href="our-process.html" style="--r: 3deg;">
+            <video class="chip-video" autoplay muted loop playsinline preload="none" data-video-src="images/video/process-real.mp4"></video>
+            <div class="chip-video-overlay bg-salmon"></div>
+            <span class="chip-name"><span class="chip-primary-code">SPP 6002</span>Our Process</span>
+            <span class="chip-locator">210-C4</span>
+          </a>
+
+          <a class="chip-card bg-lavender" href="gallery.html" style="--r: -3deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6003</span>Gallery</span>
+            <span class="chip-locator">176-C4</span>
+          </a>
+
+          <!-- row 3 -- Meet the Owners, rust instead of apricot (the
+               original gold clashed with the photo's heavy green
+               background; rust isn't used by any other swatch here),
+               plus a small name-tag caption on the photo -->
+          <a class="chip-card chip-on-dark bg-rust owners-photo" href="our-team.html" style="--r: -4deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6001</span>Meet the Owners</span>
+            <span class="chip-locator">142-C3</span>
+            <span class="chip-photo-inset">
+              <img src="images/misc/owner-photo.jpg" alt="Alejandra Sabatini Guizada and Rick Sabatini">
+              <span class="chip-photo-caption">Alejandra &amp; Rick</span>
+            </span>
+          </a>
+
+          <a class="chip-card bg-skyblue" href="faq.html" style="--r: -5deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6007</span>FAQ</span>
+            <span class="chip-locator">118-C2</span>
+          </a>
+
+          <a class="chip-card review-card" href="https://www.google.com/maps/place/Sabatini+Pro+Painting/@39.8799306,-75.3351085,17z/data=!3m1!4b1!4m6!3m5!1s0x89c6e7d8c8bd1b61:0x1130aaf7edb03d08!8m2!3d39.8799306!4d-75.3351085!16s%2Fg%2F11c1rtwc4n" target="_blank" rel="noopener" style="--r: 4deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6004</span>Reviews</span>
+            <span class="chip-locator">301-C1</span>
+            <div class="review-body" data-review-rotator>
+              <div class="review-stars">★★★★★</div>
+              <div class="review-fade">
+                <p class="review-quote">&ldquo;On time, careful with our floors, and the paint job looks incredible.&rdquo;</p>
+                <div class="review-author">— Jamie R.</div>
+              </div>
+              <div class="review-google">See our Google reviews &#8599;</div>
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- site-wide trust footer -->
+  <footer class="site-footer">
+    <span>License #PA124576 &middot; Insured</span>
+    <span class="footer-sep">|</span>
+    <span>Est. 2015</span>
+    <span class="footer-sep">|</span>
+    <span>Family-owned &amp; operated</span>
+    <span class="footer-sep">|</span>
+    <a href="https://www.google.com/maps/place/Sabatini+Pro+Painting/@39.8799306,-75.3351085,17z/data=!3m1!4b1!4m6!3m5!1s0x89c6e7d8c8bd1b61:0x1130aaf7edb03d08!8m2!3d39.8799306!4d-75.3351085!16s%2Fg%2F11c1rtwc4n" target="_blank" rel="noopener">4.9&#9733; from 212 Google Reviews &#8599;</a>
+    <span class="footer-sep">|</span>
+    <span>Two-year warranty on all painting jobs</span>
+    <span class="footer-sep">|</span>
+    <span>[Certifications / trade affiliations]</span>
+    <span class="footer-sep">|</span>
+    <a href="https://maps.google.com/?q=102+Ohio+Ave,+Folsom,+PA+19033" target="_blank" rel="noopener">102 Ohio Ave, Folsom, PA 19033</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
