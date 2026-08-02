@@ -1390,30 +1390,19 @@ img { max-width: 100%; display: block; }
 .bento-sidebar .brand-contact { font-size: clamp(0.68rem, 1vw, 0.8rem); }
 
 /* business card photo — the visual anchor of the sidebar; grows to fill
-   whatever vertical space .card-body's text doesn't need. Currently a
-   dashed placeholder box until Rick's real photo replaces it. */
+   whatever vertical space .card-body's text doesn't need. */
 .card-photo {
   flex: 1;
   min-height: 90px;
   border-radius: var(--radius-swatch);
-  border: 1px dashed rgba(0, 0, 0, 0.25);
-  background: repeating-linear-gradient(
-    45deg,
-    rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04) 10px,
-    rgba(0, 0, 0, 0.07) 10px, rgba(0, 0, 0, 0.07) 20px
-  );
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: var(--space-2);
+  overflow: hidden;
 }
-.card-photo-label {
-  font-size: 0.7rem;
-  font-style: italic;
-  opacity: 0.55;
+.card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
 }
 .card-body {
   display: flex;
@@ -1481,7 +1470,6 @@ img { max-width: 100%; display: block; }
   .bento-sidebar .brand-card-name { font-size: 0.95rem; }
   .bento-sidebar .brand-contact { font-size: 0.62rem; }
   .card-photo { min-height: 60px; }
-  .card-photo-label { font-size: 0.58rem; }
   .card-belief-line { font-size: 0.66rem; margin: 1px 0 5px; }
   .brand-contact.phone-prominent { font-size: 1.15em; }
   .site-footer { font-size: 0.58rem; gap: 4px 10px; padding: var(--space-1) var(--space-2); }
