@@ -1168,7 +1168,22 @@ img { max-width: 100%; display: block; }
    .fan-stage and rely on a small scroll to reach it. */
 .fan-stage.tt7 { display: flex; flex-direction: column; gap: var(--space-2); }
 .fan-stage.tt7 .desktop-only.dt7 { flex: 1; min-height: 0; position: relative; }
-.fan-stage.tt7 .site-footer { flex-shrink: 0; }
+.fan-stage.tt7 .site-footer {
+  flex-shrink: 0;
+  /* wood-table background made the footer text hard to read -- same
+     cream as the business card, so it reads as its own panel */
+  background: var(--cream);
+  border-radius: var(--radius-swatch);
+}
+
+/* v7 mobile only -- a little extra separation between row 1 (business
+   card + Get Quote) and the swatches below, on top of the grid's
+   normal 10px gap, not instead of it. Scoped to .tt7 (not .tt2, which
+   v2-v6 also share) so those versions are untouched. */
+.mobile-swatch-grid.tt7 .mobile-brand-card,
+.mobile-swatch-grid.tt7 .mobile-brand-card + .chip-card {
+  margin-bottom: 14px;
+}
 .chip-card.chip-on-dark .chip-name,
 .chip-card.chip-on-dark .chip-name .chip-primary-code,
 .chip-card.chip-on-dark .chip-locator,
