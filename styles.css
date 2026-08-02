@@ -1122,6 +1122,39 @@ img { max-width: 100%; display: block; }
 }
 .mobile-swatch-grid .chip-photo-inset { top: 70px; left: 8px; right: 8px; bottom: 8px; }
 .mobile-swatch-grid .chip-photo-caption { font-size: 0.46rem; padding: 2px 3px; }
+
+/* Tabletop v7 desktop only -- business card becomes a full-height
+   sidebar ("stretch to the floor" per Rick) and the swatches become a
+   real 4x2 grid filling the rest of the screen instead of a smaller
+   flex-wrap scatter. New, unique class names (.v2-content-v7,
+   .fan-brand-card-v7, .chip-grid-v7) so index.html and v2-v6's
+   .chip-scatter/.fan-brand-card/rotated .chip-card are all completely
+   untouched. */
+.fan-brand-card-v7 {
+  width: 320px;
+  flex-shrink: 0;
+  height: 100%;
+}
+.chip-grid-v7 {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: var(--gutter);
+}
+.chip-grid-v7 .chip-card {
+  width: 100%;
+  height: 100%;
+  transform: none;
+}
+.chip-grid-v7 .chip-card:hover { transform: scale(1.02); }
+.chip-grid-v7 .span-2 { grid-column: span 2; }
+/* tiles are much bigger here, so the photo-inset frame needs to scale
+   up proportionally or it reads as a thin sliver on a huge tile */
+.chip-grid-v7 .chip-photo-inset { top: 130px; left: 24px; right: 24px; bottom: 24px; }
+.chip-grid-v7 .chip-name { font-size: 1.3rem; }
+.chip-grid-v7 .chip-name .chip-primary-code { font-size: 0.95rem; }
+.chip-grid-v7 .chip-locator { font-size: 0.85rem; }
 .chip-card.chip-on-dark .chip-name,
 .chip-card.chip-on-dark .chip-name .chip-primary-code,
 .chip-card.chip-on-dark .chip-locator,
