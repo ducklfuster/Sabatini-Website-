@@ -1390,13 +1390,16 @@ img { max-width: 100%; display: block; }
 .bento-sidebar .brand-contact { font-size: clamp(0.68rem, 1vw, 0.8rem); }
 
 /* business card photo — the visual anchor of the sidebar; grows to fill
-   whatever vertical space .card-body's text doesn't need. */
+   whatever vertical space .card-body's text doesn't need. Bleeds to the
+   top/left/right edges of the sidebar (negative margin cancelling out
+   the card's own padding on those sides) so its top edge lines up with
+   the About Us swatch's top edge in the row beside it -- the sidebar's
+   own overflow:hidden + border-radius clips it back to a rounded rect. */
 .card-photo {
   position: relative;
   flex: 1;
   min-height: 90px;
-  border-radius: var(--radius-swatch);
-  overflow: hidden;
+  margin: calc(-1 * var(--space-3)) calc(-1 * var(--space-3)) 0;
 }
 .card-photo img {
   width: 100%;
@@ -1423,6 +1426,14 @@ img { max-width: 100%; display: block; }
   flex-direction: column;
   gap: 2px;
   flex: 0 0 auto;
+}
+.card-owner-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin: 1px 0 0;
 }
 .card-belief-line {
   font-size: clamp(0.72rem, 1.1vw, 0.85rem);
@@ -1485,7 +1496,7 @@ img { max-width: 100%; display: block; }
   .bento-sidebar .brand-contact { font-size: 0.62rem; }
   .card-photo { min-height: 60px; }
   .card-belief-line { font-size: 0.66rem; margin: 1px 0 5px; }
-  .brand-contact.phone-prominent { font-size: 1.15em; }
+  .brand-contact.phone-prominent { font-size: 0.95em; }
   .site-footer { font-size: 0.58rem; gap: 4px 10px; padding: var(--space-1) var(--space-2); }
   .bento-tile .chip-name { font-size: 0.72rem; }
   .bento-tile .chip-name .chip-primary-code { font-size: 0.56rem; margin-bottom: 1px; }
