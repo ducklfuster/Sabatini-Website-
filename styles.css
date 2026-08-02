@@ -1140,14 +1140,18 @@ img { max-width: 100%; display: block; }
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: var(--gutter);
+  gap: 26px;
 }
 .chip-grid-v7 .chip-card {
   width: 100%;
   height: 100%;
-  transform: none;
+  /* small rotation restored (Rick wants the "sprawled on a table" feel
+     back) -- kept subtle since these tiles are much bigger than the old
+     ones, so the same angles as before would displace corners a lot
+     further */
+  transform: rotate(var(--r, 0deg));
 }
-.chip-grid-v7 .chip-card:hover { transform: scale(1.02); }
+.chip-grid-v7 .chip-card:hover { transform: rotate(var(--r, 0deg)) scale(1.02); }
 .chip-grid-v7 .span-2 { grid-column: span 2; }
 /* tiles are much bigger here, so the photo-inset frame needs to scale
    up proportionally or it reads as a thin sliver on a huge tile */
@@ -1155,6 +1159,16 @@ img { max-width: 100%; display: block; }
 .chip-grid-v7 .chip-name { font-size: 1.3rem; }
 .chip-grid-v7 .chip-name .chip-primary-code { font-size: 0.95rem; }
 .chip-grid-v7 .chip-locator { font-size: 0.85rem; }
+
+/* v7: footer now lives inside .fan-stage instead of after it, so it
+   sits on the fold instead of requiring a scroll past 100vh. .fan-stage
+   becomes a flex column: the desktop content takes the remaining space
+   after the footer's natural height. Scoped to .tt7/.dt7 so this
+   doesn't touch index.html or v2-v6, which still put the footer after
+   .fan-stage and rely on a small scroll to reach it. */
+.fan-stage.tt7 { display: flex; flex-direction: column; gap: var(--space-2); }
+.fan-stage.tt7 .desktop-only.dt7 { flex: 1; min-height: 0; position: relative; }
+.fan-stage.tt7 .site-footer { flex-shrink: 0; }
 .chip-card.chip-on-dark .chip-name,
 .chip-card.chip-on-dark .chip-name .chip-primary-code,
 .chip-card.chip-on-dark .chip-locator,

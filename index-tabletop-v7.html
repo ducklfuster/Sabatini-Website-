@@ -32,45 +32,40 @@
 </head>
 <body>
 
-  <div class="fan-stage wood-table tt2">
+  <div class="fan-stage wood-table tt2 tt7">
 
     <!-- ================= DESKTOP ================= -->
-    <div class="desktop-only">
+    <div class="desktop-only dt7">
       <!-- v7: business card is now a fixed-width sidebar stretching the
            full height of the stage ("to the floor" per Rick), and the
            swatches are a real 4x2 CSS grid filling the rest of the
-           screen (bigger tiles, no more flex-wrap/rotation scatter --
-           rotation doesn't read well once tiles are this large and
-           evenly gridded, so it's dropped here; scoped to
-           .chip-grid-v7 so index.html and v2-v6's .chip-scatter/
-           rotated .chip-card look are completely untouched). Get Quote
-           sits top-right per Rick's explicit call. -->
+           screen (bigger tiles than the old flex-wrap scatter). Small
+           per-tile rotation is back (Rick wants the "sprawled on a
+           table" feel) -- kept subtle since these tiles are much bigger
+           than the old ones, so the same angles would displace corners
+           much further. Get Quote sits top-right per Rick's explicit
+           call. Scoped to .chip-grid-v7 so index.html and v2-v6's
+           .chip-scatter/.chip-card look are completely untouched. -->
       <div class="v2-content-v7" style="position: absolute; inset: var(--space-4); z-index: 10; display: flex; gap: var(--gutter); align-items: stretch;">
 
-        <!-- business card -- full height, contact block pushed to the
-             bottom via margin-top:auto so the tall card doesn't look
-             like it's just got everything crammed at the top -->
+        <!-- business card -- full height. Just the phone number for now
+             (Rick's call: drop address/website/email) -->
         <div class="fan-brand-card fan-brand-card-v7" style="position: static;">
           <span class="logo-mark large"><img src="images/logo.jpg" alt="Sabatini Pro Painting logo"></span>
           <h2 class="brand-card-name">Sabatini Pro Painting</h2>
           <p class="tagline-script" style="font-size: 1.3rem;">The best for your nest!</p>
           <hr class="brand-divider">
-          <div style="margin-top: auto; display: flex; flex-direction: column; gap: 4px;">
-            <a class="brand-contact" href="https://maps.google.com/?q=102+Ohio+Ave,+Folsom,+PA+19033" target="_blank" rel="noopener">102 Ohio Ave, Folsom, PA 19033</a>
-            <a class="brand-contact" href="tel:+16108105040">(610) 810-5040</a>
-            <a class="brand-contact" href="https://sabatinipropainting.com" target="_blank" rel="noopener">sabatinipropainting.com</a>
-            <a class="brand-contact" href="mailto:hello@sabatinipropainting.com">hello@sabatinipropainting.com</a>
-          </div>
+          <a class="brand-contact" style="margin-top: auto;" href="tel:+16108105040">(610) 810-5040</a>
         </div>
 
         <div class="chip-grid-v7">
 
-          <a class="chip-card chip-on-dark" href="our-team.html" style="background: #6E4423;">
+          <a class="chip-card chip-on-dark" href="our-team.html" style="background: #6E4423; --r: -1.5deg;">
             <span class="chip-name"><span class="chip-primary-code">SPP 6006</span>About Us</span>
             <span class="chip-locator">204-C6</span>
           </a>
 
-          <a class="chip-card bg-cream owners-photo" href="history.html">
+          <a class="chip-card bg-cream owners-photo" href="history.html" style="--r: 1deg;">
             <span class="chip-name"><span class="chip-primary-code">SPP 6001</span>Meet the Owners</span>
             <span class="chip-locator">142-C3</span>
             <span class="chip-photo-inset">
@@ -79,7 +74,7 @@
             </span>
           </a>
 
-          <a class="chip-card chip-on-dark" href="our-process.html">
+          <a class="chip-card chip-on-dark" href="our-process.html" style="--r: -1deg;">
             <video class="chip-video" autoplay muted loop playsinline preload="none" data-video-src="images/video/process-real.mp4"></video>
             <div class="chip-video-overlay bg-salmon"></div>
             <span class="chip-name"><span class="chip-primary-code">SPP 6002</span>Our Process</span>
@@ -87,17 +82,17 @@
           </a>
 
           <!-- Get Quote -- top right, per Rick's explicit call -->
-          <a class="chip-card chip-on-dark bg-brick" href="get-quote.html">
+          <a class="chip-card chip-on-dark bg-brick" href="get-quote.html" style="--r: 1.5deg;">
             <span class="chip-name"><span class="chip-primary-code">SPP 6005</span>Get Quote</span>
             <span class="chip-locator">255-C7</span>
           </a>
 
-          <a class="chip-card bg-skyblue" href="our-process.html">
+          <a class="chip-card bg-skyblue" href="our-process.html" style="--r: -1deg;">
             <span class="chip-name"><span class="chip-primary-code">SPP 6007</span>Services</span>
             <span class="chip-locator">118-C2</span>
           </a>
 
-          <a class="chip-card review-card" href="https://www.google.com/maps/place/Sabatini+Pro+Painting/@39.8799306,-75.3351085,17z/data=!3m1!4b1!4m6!3m5!1s0x89c6e7d8c8bd1b61:0x1130aaf7edb03d08!8m2!3d39.8799306!4d-75.3351085!16s%2Fg%2F11c1rtwc4n" target="_blank" rel="noopener">
+          <a class="chip-card review-card" href="https://www.google.com/maps/place/Sabatini+Pro+Painting/@39.8799306,-75.3351085,17z/data=!3m1!4b1!4m6!3m5!1s0x89c6e7d8c8bd1b61:0x1130aaf7edb03d08!8m2!3d39.8799306!4d-75.3351085!16s%2Fg%2F11c1rtwc4n" target="_blank" rel="noopener" style="--r: 1.5deg;">
             <span class="chip-name"><span class="chip-primary-code">SPP 6004</span>Reviews</span>
             <span class="chip-locator">301-C1</span>
             <div class="review-body" data-review-rotator>
@@ -112,7 +107,7 @@
 
           <!-- Gallery spans the last 2 columns of row 2 to fill all 8
                grid cells with 7 tiles -->
-          <a class="chip-card bg-lavender span-2" href="gallery.html">
+          <a class="chip-card bg-lavender span-2" href="gallery.html" style="--r: -1deg;">
             <span class="chip-name"><span class="chip-primary-code">SPP 6003</span>Gallery</span>
             <span class="chip-locator">176-C4</span>
           </a>
@@ -208,26 +203,27 @@
       </div>
     </div>
 
-  </div>
+    <!-- site-wide trust footer -- moved inside .fan-stage (v7 only) so
+         it lives on the fold instead of requiring a scroll past 100vh -->
+    <footer class="site-footer">
+      <span>License #PA124576 &middot; Insured</span>
+      <span class="footer-sep">|</span>
+      <span>Est. 2015</span>
+      <span class="footer-sep">|</span>
+      <span>Family-owned &amp; operated</span>
+      <span class="footer-sep">|</span>
+      <a href="https://www.google.com/maps/place/Sabatini+Pro+Painting/@39.8799306,-75.3351085,17z/data=!3m1!4b1!4m6!3m5!1s0x89c6e7d8c8bd1b61:0x1130aaf7edb03d08!8m2!3d39.8799306!4d-75.3351085!16s%2Fg%2F11c1rtwc4n" target="_blank" rel="noopener">4.9&#9733; from 212 Google Reviews &#8599;</a>
+      <span class="footer-sep">|</span>
+      <span>Two-year warranty on all painting jobs</span>
+      <span class="footer-sep">|</span>
+      <span>[Certifications / trade affiliations]</span>
+      <span class="footer-sep">|</span>
+      <a href="https://maps.google.com/?q=102+Ohio+Ave,+Folsom,+PA+19033" target="_blank" rel="noopener">102 Ohio Ave, Folsom, PA 19033</a>
+      <span class="footer-sep">|</span>
+      <a href="faq.html">FAQ</a>
+    </footer>
 
-  <!-- site-wide trust footer -->
-  <footer class="site-footer">
-    <span>License #PA124576 &middot; Insured</span>
-    <span class="footer-sep">|</span>
-    <span>Est. 2015</span>
-    <span class="footer-sep">|</span>
-    <span>Family-owned &amp; operated</span>
-    <span class="footer-sep">|</span>
-    <a href="https://www.google.com/maps/place/Sabatini+Pro+Painting/@39.8799306,-75.3351085,17z/data=!3m1!4b1!4m6!3m5!1s0x89c6e7d8c8bd1b61:0x1130aaf7edb03d08!8m2!3d39.8799306!4d-75.3351085!16s%2Fg%2F11c1rtwc4n" target="_blank" rel="noopener">4.9&#9733; from 212 Google Reviews &#8599;</a>
-    <span class="footer-sep">|</span>
-    <span>Two-year warranty on all painting jobs</span>
-    <span class="footer-sep">|</span>
-    <span>[Certifications / trade affiliations]</span>
-    <span class="footer-sep">|</span>
-    <a href="https://maps.google.com/?q=102+Ohio+Ave,+Folsom,+PA+19033" target="_blank" rel="noopener">102 Ohio Ave, Folsom, PA 19033</a>
-    <span class="footer-sep">|</span>
-    <a href="faq.html">FAQ</a>
-  </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>
