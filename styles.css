@@ -1417,46 +1417,20 @@ img { max-width: 100%; display: block; }
   .review-card .review-google { font-size: 0.42rem; margin-top: 2px; }
 }
 
-/* ---------- v3: photorealistic swatch renders (Higgsfield) ----------
-   Real background photos of physical paint swatch cards, standing in
-   for the flat CSS colors. Each render already has AI-approximated
-   text baked in (unreliable at small sizes) -- our real chip-name /
-   chip-locator sit on top inside a small frosted "label" scrim, both
-   to guarantee legibility over a photo and to visually cover that
-   baked-in text rather than doubling up with it. */
+/* ---------- v3: photorealistic swatch fills (Higgsfield) ----------
+   These renders are edge-to-edge painted-material texture with no
+   visible edges, background, or shadow -- the photo IS the swatch's
+   color fill, cropped to whatever shape the tile is via cover, same
+   as a flat CSS color would be. No baked-in text this time, so no
+   scrim/label hack needed -- chip-name/chip-locator sit directly on
+   top exactly like they do on a non-photo swatch. */
 
 .photo-swatch {
   background-size: cover;
   background-position: center;
 }
-.photo-swatch .chip-name,
-.photo-swatch .chip-locator {
-  background: rgba(255, 255, 255, 0.82);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
-  padding: 3px 8px;
-  border-radius: 4px;
-  color: #33312b;
-}
-.photo-swatch .chip-name .chip-primary-code { color: #4a473f; }
-.photo-swatch.chip-on-dark .chip-name,
-.photo-swatch.chip-on-dark .chip-locator {
-  background: rgba(20, 20, 20, 0.6);
-  color: rgba(255, 255, 255, 0.95);
-}
-.photo-swatch.chip-on-dark .chip-name .chip-primary-code { color: rgba(255, 255, 255, 0.85); }
-.photo-swatch .chip-name { top: 12px; left: 12px; }
-.photo-swatch .chip-locator { top: 12px; right: 11px; }
 
 .photo-swatch.review-card .review-body {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
+  background: rgba(255, 255, 255, 0.55);
   border-radius: var(--radius-swatch);
-  margin: 44px 8px 8px;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  position: absolute;
 }
