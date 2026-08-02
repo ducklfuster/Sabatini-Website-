@@ -8,9 +8,19 @@
 function loadResponsiveVideo() {
   const isMobile = window.matchMedia('(max-width: 700px)').matches;
   document.querySelectorAll('video[data-video-src]').forEach((video) => {
-    const inMobileBlock = !!video.closest('.mobile-only');
-    if (inMobileBlock !== isMobile) return; // not the active layout — leave unloaded
     if (video.querySelector('source')) return; // already loaded
+
+    // Only pages with BOTH a .desktop-only and .mobile-only version of
+    // this same video need the dedup check (that's what caused the
+    // double-download bug). A page with just one <video> — like the
+    // bento layout's single Job Stories swatch — has nothing to dedupe
+    // against, so it should just always load.
+    const inMobileBlock = video.closest('.mobile-only');
+    const inDesktopBlock = video.closest('.desktop-only');
+    if (inMobileBlock || inDesktopBlock) {
+      const shouldLoad = inMobileBlock ? isMobile : !isMobile;
+      if (!shouldLoad) return;
+    }
 
     const source = document.createElement('source');
     source.src = video.dataset.videoSrc;

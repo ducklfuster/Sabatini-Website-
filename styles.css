@@ -1062,7 +1062,10 @@ img { max-width: 100%; display: block; }
 }
 .chip-card.chip-on-dark .chip-name,
 .chip-card.chip-on-dark .chip-name .chip-primary-code,
-.chip-card.chip-on-dark .chip-locator { color: rgba(255,255,255,0.92); }
+.chip-card.chip-on-dark .chip-locator,
+.bento-tile.chip-on-dark .chip-name,
+.bento-tile.chip-on-dark .chip-name .chip-primary-code,
+.bento-tile.chip-on-dark .chip-locator { color: rgba(255,255,255,0.92); }
 
 .chip-card .chip-video {
   position: absolute;
@@ -1316,3 +1319,92 @@ img { max-width: 100%; display: block; }
 .row-span-2 { grid-row: span 2; }
 .stack { display: flex; flex-direction: column; gap: var(--space-2); }
 .between { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-3); flex-wrap: wrap; }
+
+/* ============================================================
+   Bento homepage (v3) — the thematterofdesign.com structural DNA
+   we started from: an asymmetric mosaic grid, edge-to-edge tiles,
+   thin gutters, everything on the fold on any device — no typography
+   borrowed from it, just the layout skeleton. Skinned entirely in
+   our paint-swatch language (sharp corners, code + name upper-left).
+   Named grid-areas stay constant between breakpoints; only the
+   template (columns/rows/areas) changes, so the HTML never changes. */
+
+.bento-page {
+  height: 100vh;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.bento-grid {
+  display: grid;
+  gap: var(--gutter);
+  padding: var(--gutter);
+  height: 100%;
+  grid-template-columns: 1fr 0.55fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "sidebar getquote"
+    "sidebar jobstories"
+    "gallery gallery"
+    "reviews about";
+}
+
+.bento-sidebar { grid-area: sidebar; }
+
+.bento-tile {
+  position: relative;
+  border-radius: var(--radius-swatch);
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+  transition: transform var(--dur-normal) var(--ease), filter var(--dur-normal) var(--ease);
+}
+.bento-tile:hover { transform: scale(1.015); filter: brightness(1.03); }
+.bento-tile .chip-name { font-size: clamp(0.85rem, 1.3vw, 1.1rem); }
+.bento-tile .chip-name .chip-primary-code { font-size: clamp(0.65rem, 1vw, 0.8rem); }
+.bento-tile .chip-locator { font-size: clamp(0.58rem, 0.9vw, 0.68rem); }
+.bento-tile .chip-video, .bento-tile .chip-video-overlay { position: absolute; inset: 0; }
+
+.bento-tile.review-card .review-body { top: 42px; }
+.bento-tile.review-card .review-quote { font-size: clamp(0.68rem, 1.1vw, 0.8rem); }
+
+.bento-sidebar .brand-card-name { font-size: clamp(1.1rem, 1.8vw, 1.5rem); }
+.bento-sidebar .tagline-script { font-size: clamp(1rem, 1.6vw, 1.4rem); }
+.bento-sidebar {
+  background: var(--cream);
+  border-radius: var(--radius-swatch);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.bento-sidebar .brand-contact { font-size: clamp(0.68rem, 1vw, 0.8rem); }
+
+@media (max-width: 900px) {
+  .bento-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr 1fr;
+    grid-template-areas:
+      "sidebar  sidebar"
+      "getquote jobstories"
+      "gallery  gallery"
+      "reviews  about";
+  }
+  .bento-sidebar { flex-direction: row; justify-content: flex-start; align-items: center; gap: var(--space-2); flex-wrap: wrap; padding: var(--space-2) var(--space-3); }
+  .bento-sidebar .logo-mark { width: 32px; height: 32px; }
+  .bento-sidebar .brand-card-name { font-size: 0.95rem; }
+  .bento-sidebar .tagline-script { display: none; } /* no room on the fold at this size */
+  .bento-sidebar .brand-divider { display: none; }
+  .bento-sidebar .brand-contact { display: none; } /* keep it to name + logo on phone-width fold */
+  .bento-tile .chip-name { font-size: 0.72rem; }
+  .bento-tile .chip-name .chip-primary-code { font-size: 0.56rem; margin-bottom: 1px; }
+  .bento-tile .chip-locator { font-size: 0.5rem; }
+  .bento-tile .chip-name, .bento-tile .chip-locator { top: 8px; }
+  .bento-tile .chip-name { left: 8px; }
+  .bento-tile .chip-locator { right: 7px; }
+  .review-card .review-body { top: 26px; padding: 2px 8px 6px; gap: 2px; }
+  .review-card .review-stars { font-size: 0.7rem; letter-spacing: 1px; }
+  .review-card .review-quote { font-size: 0.56rem; line-height: 1.2; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .review-card .review-author { font-size: 0.5rem; }
+  .review-card .review-google { font-size: 0.42rem; margin-top: 2px; }
+}
