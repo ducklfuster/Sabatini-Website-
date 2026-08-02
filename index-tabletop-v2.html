@@ -98,18 +98,21 @@
 
         <div class="mobile-swatch-grid tt2">
 
-          <!-- business card -- same square tile shape as its sibling
-               swatches now (post-it note, per Ale), not a wide banner.
-               Scoped with .tt2 so this doesn't touch index.html's
-               original card, which stays untouched as the leading
-               "tabletop v1" design. -->
+          <!-- business card -- same footprint/size as index.html's
+               original (2-column span), so Get Quote and every sibling
+               swatch reflow back to their original positions. Only the
+               card's own contents changed: small photo added next to
+               the name, everything below the tagline trimmed to just
+               the phone number. Scoped with .tt2 so this doesn't touch
+               index.html's original card, which stays untouched as the
+               leading "tabletop v1" design. -->
           <div class="mobile-card mobile-brand-card">
             <div class="mbc-header">
               <span class="mbc-photo"><img src="images/misc/owner-photo.jpg" alt="Alejandra Sabatini Guizada and Rick Sabatini"></span>
               <h1 class="brand-card-name">Sabatini Pro Painting</h1>
             </div>
             <p class="tagline-script">The best for your nest!</p>
-            <p class="mbc-owners">Alejandra &amp; Rick <span class="mbc-owners-tag">Owners</span></p>
+            <p class="mbc-owners">Alejandra Sabatini Guizada &amp; Rick Sabatini <span class="mbc-owners-tag">Owners</span></p>
             <a class="brand-contact phone-prominent" href="tel:+16108105040">(610) 810-5040</a>
           </div>
 

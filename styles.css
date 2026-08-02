@@ -1244,43 +1244,38 @@ img { max-width: 100%; display: block; }
 }
 .mobile-swatch-grid .mobile-brand-card { grid-column: span 2; align-self: start; }
 
-/* Tabletop v2 (index-tabletop-v2.html) only -- business card becomes a
-   normal single-cell swatch, same aspect-ratio as its chip-card
-   siblings (Ale wanted the "post-it note" square, not the 2-column
-   banner index.html still uses). Scoped to .tt2 so index.html's
-   original card/CSS above is completely untouched. */
+/* Tabletop v2 (index-tabletop-v2.html) only -- business card keeps the
+   exact same footprint as index.html's original (2-column span, auto
+   height, same padding/grid position -- Get Quote goes right back to
+   the top-right slot and every sibling swatch reflows to its original
+   position). The only actual change here is the content inside it:
+   a small photo added next to the name, and everything below the
+   tagline trimmed down to just the phone number. Scoped to .tt2 so
+   index.html's original card/CSS above is completely untouched. */
 .mobile-swatch-grid.tt2 .mobile-brand-card {
-  grid-column: span 1;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 0.72;
+  grid-column: span 2;
   align-self: start;
-  padding: 10px 9px;
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  overflow: hidden;
+  gap: 6px;
 }
 .mbc-header {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
 }
 .mbc-photo {
-  width: 26px;
-  height: 26px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
 }
 .mbc-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
-.mobile-swatch-grid.tt2 .brand-card-name { font-size: 0.76rem; line-height: 1.15; }
-.mobile-swatch-grid.tt2 .tagline-script { font-size: 0.6rem; margin-top: 0; }
 .mbc-owners {
-  font-size: 0.48rem;
-  line-height: 1.3;
+  font-size: 0.7rem;
   opacity: 0.6;
-  margin: 2px 0 0;
+  margin: 0;
 }
 .mbc-owners-tag {
   text-transform: uppercase;
@@ -1289,11 +1284,10 @@ img { max-width: 100%; display: block; }
   opacity: 0.85;
 }
 .mobile-swatch-grid.tt2 .brand-contact.phone-prominent {
-  font-size: 0.66rem;
-  line-height: 1.15;
+  font-size: 1rem;
   font-weight: 700;
   opacity: 1;
-  margin-top: auto;
+  margin-top: 4px;
 }
 
 /* Mobile swatches now reuse the exact same .chip-card/.chip-name
