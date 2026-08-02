@@ -1085,6 +1085,24 @@ img { max-width: 100%; display: block; }
   color: #6b6858;
   opacity: 0.8;
 }
+
+/* "Meet the Owners" swatch (index-tabletop-v3.html) -- the photo sits
+   inset inside the tile, not full-bleed like the Job Stories video, so
+   the apricot swatch color still shows as a frame around it (Rick's
+   explicit call: "keep the photo inside the swatch so we can still see
+   the swatch color"). */
+.chip-photo-inset {
+  position: absolute;
+  top: 54px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+.chip-photo-inset img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+.mobile-swatch-grid .chip-photo-inset { top: 34px; left: 8px; right: 8px; bottom: 8px; }
 .chip-card.chip-on-dark .chip-name,
 .chip-card.chip-on-dark .chip-name .chip-primary-code,
 .chip-card.chip-on-dark .chip-locator,
@@ -1296,6 +1314,24 @@ img { max-width: 100%; display: block; }
   flex-shrink: 0;
 }
 .mbc-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+/* small "Est. 2015" stamp -- .mobile-card already has position:relative
+   + overflow:hidden, so this just needs to sit inside that box */
+.mbc-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 3;
+  background: var(--rust);
+  color: var(--white);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  transform: rotate(4deg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
 .mbc-owners {
   font-size: 0.7rem;
   opacity: 0.6;
