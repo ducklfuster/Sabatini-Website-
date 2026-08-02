@@ -27,6 +27,14 @@ function loadResponsiveVideo() {
     source.type = 'video/mp4';
     video.appendChild(source);
     video.load();
+    // The `autoplay` attribute doesn't reliably resume playback after a
+    // JS-driven load() on every browser — call play() explicitly too.
+    // .catch() swallows the (rare, since it's muted) autoplay-blocked
+    // rejection instead of an uncaught promise error.
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(() => {});
+    }
   });
 }
 
