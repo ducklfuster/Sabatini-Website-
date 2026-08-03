@@ -6,7 +6,14 @@
 // with no <source> and preload="none"; this picks whichever one
 // actually matches the current layout and is the only one that loads.
 function loadResponsiveVideo() {
-  const isMobile = window.matchMedia('(max-width: 700px)').matches;
+  // Derive "mobile" from the page's own rendered .mobile-only visibility
+  // instead of a hardcoded width, since different homepage versions swap
+  // layouts at different breakpoints (e.g. v8's tablet fix moves this to
+  // 1024px while older versions still swap at 700px).
+  const mobileEl = document.querySelector('.mobile-only');
+  const isMobile = mobileEl
+    ? getComputedStyle(mobileEl).display !== 'none'
+    : window.matchMedia('(max-width: 700px)').matches;
   document.querySelectorAll('video[data-video-src]').forEach((video) => {
     if (video.querySelector('source')) return; // already loaded
 

@@ -8,25 +8,37 @@
   <link rel="icon" type="image/jpeg" href="images/logo.jpg">
   <script src="palette.js"></script>
   <style>
-    /* .fan-stage clips itself at 100vh on its own (styles.css); body is
-       left free to scroll so the site-footer below it is reachable */
-    @media (max-width: 1000px) {
-      .fan-stage { height: auto !important; min-height: 100vh; padding: var(--space-6) var(--space-3); }
-      /* v7's sidebar+grid layout doesn't gracefully shrink below ~1000px
-         (4 columns get too narrow) -- fall back to a stacked column,
-         same escape hatch the old centered layout used */
-      .v2-content-v7 { position: static !important; inset: auto !important; flex-direction: column !important; }
-      .fan-brand-card-v7 { width: 100% !important; height: auto !important; }
-      /* flex:1 collapses here since the now-static, auto-height parent
-         has no definite size to distribute -- give the grid real row
-         heights directly instead */
-      .chip-grid-v7 { flex: none !important; height: auto !important; grid-template-rows: none !important; grid-auto-rows: 220px !important; margin-top: var(--gutter); }
+    /* Rick's call: tablet should read as a bigger phone view, not a
+       squeezed-down version of the desktop sidebar+grid layout (which
+       used to fall back to an awkward stacked column here). Below
+       1024px this page now shows .mobile-only instead of the global
+       700px swap point everywhere else on the site -- scoped to
+       .wall-bg-v8 (unique to this file) so index.html and the other
+       tabletop versions keep their original 700px behavior untouched.
+       script.js's loadResponsiveVideo() reads actual computed display
+       rather than a hardcoded width, so it follows this override too. */
+    @media (max-width: 1024px) {
+      .wall-bg-v8.fan-stage { padding: 0; min-height: 0; }
+      .wall-bg-v8 .desktop-only.dt7 { display: none !important; }
+      .wall-bg-v8 .mobile-only { display: block !important; }
     }
-    @media (max-width: 700px) {
-      /* the 100vh min-height above was leaving a big dead gap of plain
-         wood-table background between the swatches and the footer on
-         phones -- let the mobile layout just be as tall as its content */
-      .fan-stage { padding: 0; min-height: 0; }
+    /* Tablet range only (phones already have the right proportions at
+       700px and below) -- widen the centered column and scale up the
+       swatch/card type so it reads as an enlarged phone view rather
+       than the same small column floating in empty space. */
+    @media (min-width: 701px) and (max-width: 1024px) {
+      .wall-bg-v8 .mobile-home { max-width: 720px; }
+      .wall-bg-v8 .mbc-photo { width: 76px; height: 76px; }
+      .wall-bg-v8 .mobile-brand-card .brand-card-name { font-size: 1.9rem; }
+      .wall-bg-v8 .mobile-brand-card .tagline-script { font-size: 1.4rem; }
+      .wall-bg-v8 .mbc-services-tag { font-size: 0.72rem; padding: 8px 12px; }
+      .wall-bg-v8 .mobile-swatch-grid .chip-name { font-size: 1.05rem; }
+      .wall-bg-v8 .mobile-swatch-grid .chip-name .chip-primary-code { font-size: 0.78rem; }
+      .wall-bg-v8 .mobile-swatch-grid .chip-locator { font-size: 0.72rem; }
+      .wall-bg-v8 .mobile-swatch-grid .review-quote { font-size: 0.75rem; }
+      .wall-bg-v8 .mobile-swatch-grid .review-stars { font-size: 0.95rem; }
+      .wall-bg-v8 .mobile-swatch-grid .review-author { font-size: 0.7rem; }
+      .wall-bg-v8 .mobile-swatch-grid .review-google { font-size: 0.58rem; }
     }
   </style>
 </head>
