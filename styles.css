@@ -1174,15 +1174,27 @@ img { max-width: 100%; display: block; }
      cream as the business card, so it reads as its own panel */
   background: var(--cream);
   border-radius: var(--radius-swatch);
+  /* .site-footer normally carries a 90px/64px margin-bottom to clear
+     the floating .sticky-cta pill on pages that have one -- v7 has no
+     sticky-cta and is fold-budgeted like the bento page, so (matching
+     the existing .bento-page .site-footer override) it keeps its
+     footer flush instead. This was the actual source of ~64px of
+     "dead space" showing up past the footer on mobile -- not a gap
+     that needed filling, a margin that needed removing. */
+  margin-bottom: 0;
 }
 
-/* v7 mobile only -- a little extra separation between row 1 (business
-   card + Get Quote) and the swatches below, on top of the grid's
-   normal 10px gap, not instead of it. Scoped to .tt7 (not .tt2, which
-   v2-v6 also share) so those versions are untouched. */
+/* v7 mobile only -- extra separation between row 1 (business card +
+   Get Quote) and the swatches below, on top of the grid's normal 10px
+   gap, not instead of it. Tuned so the page's total content height
+   (business card row + this gap + swatch rows + footer) lands right at
+   ~812px, matching a standard mobile viewport -- so the footer sits
+   flush at the very bottom of the fold instead of leaving blank space
+   past it. Scoped to .tt7 (not .tt2, which v2-v6 also share) so those
+   versions are untouched. */
 .mobile-swatch-grid.tt7 .mobile-brand-card,
 .mobile-swatch-grid.tt7 .mobile-brand-card + .chip-card {
-  margin-bottom: 14px;
+  margin-bottom: 128px;
 }
 .chip-card.chip-on-dark .chip-name,
 .chip-card.chip-on-dark .chip-name .chip-primary-code,
