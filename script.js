@@ -162,6 +162,38 @@ function buildFocusStack() {
   });
 }
 
+// Simple lightbox (gallery.html and any other page that wants it):
+// click a [data-lightbox-trigger], see its data-full image large, close
+// via the X button, clicking outside the image, or Escape. Deliberately
+// plain -- no categories, no transitions beyond a fade, per Rick's call
+// that the fancier gallery-v2 focus-stack was too much.
+function buildLightbox() {
+  const box = document.querySelector('[data-lightbox]');
+  if (!box) return;
+  const img = box.querySelector('[data-lightbox-img]');
+  const closeBtn = box.querySelector('[data-lightbox-close]');
+
+  const open = (src, alt) => {
+    img.src = src;
+    img.alt = alt || '';
+    box.classList.add('open');
+  };
+  const close = () => {
+    box.classList.remove('open');
+    img.src = '';
+  };
+
+  document.querySelectorAll('[data-lightbox-trigger]').forEach((trigger) => {
+    trigger.addEventListener('click', () => open(trigger.dataset.full, trigger.getAttribute('aria-label')));
+  });
+
+  closeBtn.addEventListener('click', close);
+  box.addEventListener('click', (e) => { if (e.target === box) close(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && box.classList.contains('open')) close();
+  });
+}
+
 // Real fan deck (v2 homepage): generates ~30 thin single-color strips
 // swept through a real color-family progression (blue -> teal -> green
 // -> olive -> gold -> brown -> mauve -> gray), with uneven lengths for
@@ -217,6 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
   buildReviewRotator();
   buildTrustTicker();
   buildFocusStack();
+  buildLightbox();
   loadResponsiveVideo();
 
   // Safety net: some mobile browsers still leave an autoplay muted video

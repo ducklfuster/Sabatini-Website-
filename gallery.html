@@ -17,7 +17,7 @@
       <div class="stack" style="max-width: 640px;">
         <div class="brand" style="margin-bottom: var(--space-3);"><span class="logo-mark"><img src="images/logo.jpg" alt="Sabatini Pro Painting logo"></span> Sabatini Pro Painting</div>
         <h1>Gallery</h1>
-        <p style="margin-top: var(--space-2); max-width: 60ch;">A look at recent work — every project its own color story.</p>
+        <p style="margin-top: var(--space-2); max-width: 60ch;">A look at recent work.</p>
       </div>
       <a class="btn-pill" href="get-quote.html" style="align-self: center;">Get Quote</a>
     </div>
@@ -29,39 +29,30 @@
     <div class="block bg-cream reveal">
       <div class="gallery-grid">
 
-        <div class="gallery-card bg-apricot">
-          <span class="kicker">Exterior</span>
-          <h3>Colonial Full Repaint</h3>
-        </div>
+        <button class="simple-photo" data-lightbox-trigger data-full="images/havertown/after-hallway.png" style="background-image: url('images/havertown/after-hallway.png');" aria-label="View larger: finished stairwell and hallway"></button>
 
-        <div class="gallery-card bg-navy" style="color: var(--cream);">
-          <span class="kicker" style="opacity: 0.7;">Interior</span>
-          <h3>Kitchen Cabinet Refinish</h3>
-        </div>
+        <button class="simple-photo" data-lightbox-trigger data-full="images/havertown/after-livingroom.png" style="background-image: url('images/havertown/after-livingroom.png');" aria-label="View larger: living room, natural light"></button>
 
-        <div class="gallery-card bg-salmon">
-          <span class="kicker">Interior</span>
-          <h3>Whole-Home Refresh</h3>
-        </div>
+        <button class="simple-photo" data-lightbox-trigger data-full="images/havertown/during-molding.png" style="background-image: url('images/havertown/during-molding.png');" aria-label="View larger: crown molding installation"></button>
 
-        <div class="gallery-card bg-skyblue">
-          <span class="kicker">Exterior</span>
-          <h3>Deck &amp; Fence Staining</h3>
-        </div>
+        <button class="simple-photo" data-lightbox-trigger data-full="images/havertown/detail-trim.png" style="background-image: url('images/havertown/detail-trim.png');" aria-label="View larger: trim detail"></button>
 
-        <div class="gallery-card bg-rust" style="color: var(--white);">
-          <span class="kicker" style="opacity: 0.75;">Commercial</span>
-          <h3>Office Suite Repaint</h3>
-        </div>
+        <button class="simple-photo" data-lightbox-trigger data-full="images/havertown/prep-ceiling.png" style="background-image: url('images/havertown/prep-ceiling.png');" aria-label="View larger: ceiling prep"></button>
 
-        <div class="gallery-card bg-lavender">
-          <span class="kicker">Interior</span>
-          <h3>Accent Wall &amp; Trim Detail</h3>
-        </div>
+        <button class="simple-photo" data-lightbox-trigger data-full="images/havertown/before-hallway.png" style="background-image: url('images/havertown/before-hallway.png');" aria-label="View larger: hallway before"></button>
 
       </div>
+      <p class="gallery-note">Real photos from the Havertown job for now — more to add as more jobs get photographed. Click any photo to see it larger.</p>
     </div>
 
+  </div>
+
+  <!-- simple lightbox: click a photo, see it big, click the X (or
+       outside, or press Escape) to close. No categories, no fancy
+       hover effects -- just a place to see the work. -->
+  <div class="lightbox" data-lightbox>
+    <button class="lightbox-close" data-lightbox-close aria-label="Close">&times;</button>
+    <img data-lightbox-img alt="">
   </div>
 
   <a class="sticky-cta" href="get-quote.html">Get Free Estimate</a>

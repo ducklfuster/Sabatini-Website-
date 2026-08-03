@@ -393,6 +393,66 @@ img { max-width: 100%; display: block; }
 .gallery-card .kicker { font-size: var(--size-overline); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.65; }
 .gallery-card h3 { font-size: 1.35rem; margin-top: 4px; }
 
+/* simple gallery photo tile (gallery.html) -- deliberately plain per
+   Rick's call: no categories, no hover-stack effect, just click a
+   photo to see it bigger. Reuses .gallery-grid for layout. */
+.simple-photo {
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 0;
+  border-radius: var(--radius-md);
+  aspect-ratio: 4 / 3;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--lavender);
+  cursor: pointer;
+  transition: transform var(--dur-normal) var(--ease);
+}
+.simple-photo:hover { transform: scale(1.02); }
+.gallery-note { margin-top: var(--space-3); font-size: var(--size-caption); opacity: 0.55; }
+
+/* simple lightbox -- click a photo, see it big, X (or click outside,
+   or Escape) closes it. Shared component, usable from any page. */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 8, 0.85);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-normal) var(--ease);
+}
+.lightbox.open { opacity: 1; pointer-events: auto; }
+.lightbox img {
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+.lightbox-close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+  border: none;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--dur-micro) var(--ease);
+}
+.lightbox-close:hover { background: rgba(255, 255, 255, 0.28); }
+
 /* ---------- reveal-on-scroll ---------- */
 
 /* Visible by default (no-JS / reduced-motion fallback). JS opts elements
