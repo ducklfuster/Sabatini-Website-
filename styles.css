@@ -2101,3 +2101,70 @@ img { max-width: 100%; display: block; }
   .jsv2-page .photo-carousel { height: auto; }
   .jsv2-page .carousel-main { flex: none; aspect-ratio: 4 / 3; }
 }
+
+/* ============================================================
+   Gallery v2 prototype (gallery-v2.html) only -- category
+   "focus-stack" picker modeled on Google Arts & Culture's editorial
+   row: cards recede in scale/position based on distance from whichever
+   one is centered (hover to recenter), vanilla JS + CSS transforms,
+   no library, consistent with how every other interactive piece on
+   this site (before/after slider, review rotator) is built. Scoped to
+   .focus-stack/.focus-card so nothing else is touched. */
+.focus-stack {
+  position: relative;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.focus-card {
+  position: absolute;
+  width: 200px;
+  height: 340px;
+  border-radius: var(--radius-swatch);
+  overflow: hidden;
+  background-color: var(--lavender);
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 450ms var(--ease), opacity 450ms var(--ease);
+  will-change: transform;
+}
+.focus-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 20, 14, 0.7), rgba(15, 20, 14, 0) 55%);
+}
+.focus-card-title {
+  position: absolute;
+  left: var(--space-2);
+  right: var(--space-2);
+  bottom: var(--space-2);
+  z-index: 1;
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1.05rem;
+  line-height: 1.2;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.focus-card-placeholder { background-color: var(--fog); }
+.focus-card-placeholder-label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  transform: translateY(-50%);
+  text-align: center;
+  font-size: 0.7rem;
+  font-style: italic;
+  opacity: 0.55;
+  padding: 0 var(--space-2);
+}
+
+@media (max-width: 700px) {
+  .focus-stack { height: 300px; }
+  .focus-card { width: 150px; height: 260px; }
+}

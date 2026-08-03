@@ -103,6 +103,48 @@ function buildTrustTicker() {
   });
 }
 
+// Gallery category "focus-stack" (gallery-v2.html prototype): modeled
+// on Google Arts & Culture's editorial row -- cards recede in scale/
+// position based on distance from whichever one is centered, and
+// hovering a different card recenters on it. Vanilla JS + CSS
+// transforms, no library, same category of technique as the
+// before/after slider elsewhere on this site.
+function buildFocusStack() {
+  const stacks = document.querySelectorAll('[data-focus-stack]');
+  if (!stacks.length) return;
+
+  const STEP = 120;       // horizontal offset per step of distance from center
+  const SCALE_FALLOFF = 0.13;
+  const MIN_SCALE = 0.5;
+  const OPACITY_FALLOFF = 0.15;
+  const MIN_OPACITY = 0.35;
+
+  stacks.forEach((stack) => {
+    const cards = Array.from(stack.querySelectorAll('.focus-card'));
+    if (!cards.length) return;
+
+    const layout = (centerIndex) => {
+      cards.forEach((card, i) => {
+        const distance = i - centerIndex;
+        const abs = Math.abs(distance);
+        const scale = Math.max(MIN_SCALE, 1 - abs * SCALE_FALLOFF);
+        const opacity = Math.max(MIN_OPACITY, 1 - abs * OPACITY_FALLOFF);
+        card.style.transform = `translateX(${distance * STEP}px) scale(${scale})`;
+        card.style.opacity = String(opacity);
+        card.style.zIndex = String(100 - abs * 2);
+      });
+    };
+
+    cards.forEach((card, i) => {
+      card.addEventListener('mouseenter', () => layout(i));
+      card.addEventListener('focus', () => layout(i));
+    });
+
+    // start centered on the first card
+    layout(0);
+  });
+}
+
 // Real fan deck (v2 homepage): generates ~30 thin single-color strips
 // swept through a real color-family progression (blue -> teal -> green
 // -> olive -> gold -> brown -> mauve -> gray), with uneven lengths for
@@ -157,6 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
   buildRealFanDeck();
   buildReviewRotator();
   buildTrustTicker();
+  buildFocusStack();
   loadResponsiveVideo();
 
   // Safety net: some mobile browsers still leave an autoplay muted video
