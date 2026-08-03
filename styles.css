@@ -1214,7 +1214,7 @@ img { max-width: 100%; display: block; }
    versions are untouched. */
 .mobile-swatch-grid.tt7 .mobile-brand-card,
 .mobile-swatch-grid.tt7 .mobile-brand-card + .chip-card {
-  margin-bottom: 128px;
+  margin-bottom: 98px;
 }
 .chip-card.chip-on-dark .chip-name,
 .chip-card.chip-on-dark .chip-name .chip-primary-code,
