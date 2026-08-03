@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabatini Pro Painting — Tabletop v8 (Wall Render)</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <script src="palette.js"></script>
+  <style>
+    /* .fan-stage clips itself at 100vh on its own (styles.css); body is
+       left free to scroll so the site-footer below it is reachable */
+    @media (max-width: 1000px) {
+      .fan-stage { height: auto !important; min-height: 100vh; padding: var(--space-6) var(--space-3); }
+      /* v7's sidebar+grid layout doesn't gracefully shrink below ~1000px
+         (4 columns get too narrow) -- fall back to a stacked column,
+         same escape hatch the old centered layout used */
+      .v2-content-v7 { position: static !important; inset: auto !important; flex-direction: column !important; }
+      .fan-brand-card-v7 { width: 100% !important; height: auto !important; }
+      /* flex:1 collapses here since the now-static, auto-height parent
+         has no definite size to distribute -- give the grid real row
+         heights directly instead */
+      .chip-grid-v7 { flex: none !important; height: auto !important; grid-template-rows: none !important; grid-auto-rows: 220px !important; margin-top: var(--gutter); }
+    }
+    @media (max-width: 700px) {
+      /* the 100vh min-height above was leaving a big dead gap of plain
+         wood-table background between the swatches and the footer on
+         phones -- let the mobile layout just be as tall as its content */
+      .fan-stage { padding: 0; min-height: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="fan-stage wall-bg-v8 tt2 tt7">
+
+    <!-- ================= DESKTOP ================= -->
+    <div class="desktop-only dt7">
+      <!-- v7: business card is now a fixed-width sidebar stretching the
+           full height of the stage ("to the floor" per Rick), and the
+           swatches are a real 3x2 CSS grid filling the rest of the
+           screen (bigger tiles than the old flex-wrap scatter -- was
+           4x2/7 tiles, now 3x2/6 tiles since Meet the Owners moved into
+           the business card). Small per-tile rotation is back (Rick
+           wants the "sprawled on a table" feel) -- kept subtle since
+           these tiles are much bigger than the old ones, so the same
+           angles would displace corners much further. Get Quote sits
+           top-right per Rick's explicit call. Scoped to .chip-grid-v7
+           so index.html and v2-v6's .chip-scatter/.chip-card look are
+           completely untouched. -->
+      <div class="v2-content-v7" style="position: absolute; inset: var(--space-4); z-index: 10; display: flex; gap: var(--gutter); align-items: stretch;">
+
+        <!-- business card -- full height. Phone moved up near the top
+             (Rick's call: it was pinned to the bottom of a mostly-empty
+             card) and the Meet the Owners photo now lives here instead
+             of as its own grid tile, filling the space that used to be
+             wasted. Photo still links to history.html, same as the old
+             swatch did. -->
+        <div class="fan-brand-card fan-brand-card-v7" style="position: static;">
+          <span class="logo-mark large"><img src="images/logo.jpg" alt="Sabatini Pro Painting logo"></span>
+          <h2 class="brand-card-name">Sabatini Pro Painting</h2>
+          <p class="tagline-script" style="font-size: 1.3rem;">The best for your nest!</p>
+          <a class="brand-contact fbc-phone" href="tel:+16108105040">(610) 810-5040</a>
+          <hr class="brand-divider">
+          <a class="fbc-photo" href="history.html">
+            <img src="images/misc/owner-photo.jpg" alt="Alejandra Sabatini Guizada and Rick Sabatini">
+            <span class="chip-photo-caption">Alejandra &amp; Rick &mdash; Meet the Owners</span>
+          </a>
+        </div>
+
+        <div class="chip-grid-v7">
+
+          <!-- Meet the Owners removed from the grid -- now lives inside
+               the business card instead (see above). -->
+          <a class="chip-card chip-on-dark" href="our-team.html" style="background: #6E4423; --r: -1.5deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6006</span>About Us</span>
+            <span class="chip-locator">204-C6</span>
+          </a>
+
+          <a class="chip-card chip-on-dark" href="our-process.html" style="--r: -1deg;">
+            <video class="chip-video" autoplay muted loop playsinline preload="none" data-video-src="images/video/process-real.mp4"></video>
+            <div class="chip-video-overlay bg-salmon"></div>
+            <span class="chip-name"><span class="chip-primary-code">SPP 6002</span>Our Process</span>
+            <span class="chip-locator">210-C4</span>
+          </a>
+
+          <!-- Get Quote -- top right, per Rick's explicit call -->
+          <a class="chip-card chip-on-dark bg-brick" href="get-quote.html" style="--r: 1.5deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6005</span>Get Quote</span>
+            <span class="chip-locator">255-C7</span>
+          </a>
+
+          <a class="chip-card bg-skyblue" href="our-process.html" style="--r: -1deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6007</span>Services</span>
+            <span class="chip-locator">118-C2</span>
+          </a>
+
+          <a class="chip-card review-card" href="https://www.google.com/maps/place/Sabatini+Pro+Painting/@39.8799306,-75.3351085,17z/data=!3m1!4b1!4m6!3m5!1s0x89c6e7d8c8bd1b61:0x1130aaf7edb03d08!8m2!3d39.8799306!4d-75.3351085!16s%2Fg%2F11c1rtwc4n" target="_blank" rel="noopener" style="--r: 1.5deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6004</span>Reviews</span>
+            <span class="chip-locator">301-C1</span>
+            <div class="review-body" data-review-rotator>
+              <div class="review-stars">★★★★★</div>
+              <div class="review-fade">
+                <p class="review-quote">&ldquo;On time, careful with our floors, and the paint job looks incredible.&rdquo;</p>
+                <div class="review-author">— Jamie R.</div>
+              </div>
+              <div class="review-google">See our Google reviews &#8599;</div>
+            </div>
+          </a>
+
+          <!-- Gallery is a normal single tile now -- with Meet the
+               Owners moved into the business card, the grid is 6 tiles
+               in a 3x2 layout (see .chip-grid-v7 in styles.css), no
+               span needed to fill out an 8-cell 4x2 grid anymore -->
+          <a class="chip-card bg-lavender" href="gallery.html" style="--r: -1deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6003</span>Gallery</span>
+            <span class="chip-locator">176-C4</span>
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ================= MOBILE ================= -->
+    <div class="mobile-only">
+      <div class="mobile-home">
+
+        <div class="mobile-swatch-grid tt2 tt7">
+
+          <!-- business card -- v4 drops the owners' names line, since
+               the "Meet the Owners" swatch below now covers that
+               (avoids saying the same thing twice on one screen).
+               Scoped with .tt2 so this doesn't touch index.html's
+               original card, which stays untouched as the leading
+               "tabletop v1" design. -->
+          <div class="mobile-card mobile-brand-card">
+            <span class="mbc-badge">Est. 2015</span>
+            <div class="mbc-header">
+              <span class="mbc-photo"><img src="images/logo.jpg" alt="Sabatini Pro Painting logo"></span>
+              <h1 class="brand-card-name">Sabatini Pro Painting</h1>
+            </div>
+            <p class="tagline-script">The best for your nest!</p>
+            <a class="brand-contact phone-prominent" href="tel:+16108105040">(610) 810-5040</a>
+          </div>
+
+          <!-- Get Quote — same size as the rest -->
+          <a class="chip-card chip-on-dark bg-brick" href="get-quote.html" style="--r: -2deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6005</span>Get Quote</span>
+            <span class="chip-locator">255-C7</span>
+          </a>
+
+          <!-- row 2 -- was "History", now relinked to our-team.html and
+               relabeled "About Us" (Meet the Owners below now owns the
+               history.html link). Rotation is -4deg here (not the
+               +5deg this tile used to carry as "History") because
+               rotation belongs to the GRID POSITION, not the swatch --
+               this slot's neighbor (Our Process, +3deg) needs an
+               opposite sign or they visually lean the same way. -->
+          <a class="chip-card chip-on-dark" href="our-team.html" style="--r: -4deg; background: #6E4423;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6006</span>About Us</span>
+            <span class="chip-locator">204-C6</span>
+          </a>
+
+          <a class="chip-card chip-on-dark" href="our-process.html" style="--r: 3deg;">
+            <video class="chip-video" autoplay muted loop playsinline preload="none" data-video-src="images/video/process-real.mp4"></video>
+            <div class="chip-video-overlay bg-salmon"></div>
+            <span class="chip-name"><span class="chip-primary-code">SPP 6002</span>Our Process</span>
+            <span class="chip-locator">210-C4</span>
+          </a>
+
+          <a class="chip-card bg-lavender" href="gallery.html" style="--r: -3deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6003</span>Gallery</span>
+            <span class="chip-locator">176-C4</span>
+          </a>
+
+          <!-- row 3 -- Meet the Owners, now links to history.html
+               instead of our-team.html (see desktop version above for
+               the reasoning). Rotation is +5deg here (History's old
+               slot value, not the -4deg this tile used to carry as
+               "Our Team") -- same reasoning as About Us above. -->
+          <a class="chip-card bg-cream owners-photo" href="history.html" style="--r: 5deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6001</span>Meet the Owners</span>
+            <span class="chip-locator">142-C3</span>
+            <span class="chip-photo-inset">
+              <img src="images/misc/owner-photo.jpg" alt="Alejandra Sabatini Guizada and Rick Sabatini">
+              <span class="chip-photo-caption">Alejandra &amp; Rick</span>
+            </span>
+          </a>
+
+          <!-- was "FAQ" -- moved into the footer; this slot is now
+               Services (see desktop version above -- interim link to
+               our-process.html until a real services page exists).
+               Kept FAQ's old -5deg rotation, since that's this slot's
+               original value and it still alternates correctly against
+               Meet the Owners (+5deg) beside it. -->
+          <a class="chip-card bg-skyblue" href="our-process.html" style="--r: -5deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6007</span>Services</span>
+            <span class="chip-locator">118-C2</span>
+          </a>
+
+          <a class="chip-card review-card" href="https://www.google.com/maps/place/Sabatini+Pro+Painting/@39.8799306,-75.3351085,17z/data=!3m1!4b1!4m6!3m5!1s0x89c6e7d8c8bd1b61:0x1130aaf7edb03d08!8m2!3d39.8799306!4d-75.3351085!16s%2Fg%2F11c1rtwc4n" target="_blank" rel="noopener" style="--r: 4deg;">
+            <span class="chip-name"><span class="chip-primary-code">SPP 6004</span>Reviews</span>
+            <span class="chip-locator">301-C1</span>
+            <div class="review-body" data-review-rotator>
+              <div class="review-stars">★★★★★</div>
+              <div class="review-fade">
+                <p class="review-quote">&ldquo;On time, careful with our floors, and the paint job looks incredible.&rdquo;</p>
+                <div class="review-author">— Jamie R.</div>
+              </div>
+              <div class="review-google">See our Google reviews &#8599;</div>
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- site-wide trust footer -- moved inside .fan-stage (v7 only) so
+         it lives on the fold instead of requiring a scroll past 100vh -->
+    <footer class="site-footer">
+      <span>License #PA124576 &middot; Insured</span>
+      <span class="footer-sep">|</span>
+      <span>Est. 2015</span>
+      <span class="footer-sep">|</span>
+      <span>Family-owned &amp; operated</span>
+      <span class="footer-sep">|</span>
+      <a href="https://www.google.com/maps/place/Sabatini+Pro+Painting/@39.8799306,-75.3351085,17z/data=!3m1!4b1!4m6!3m5!1s0x89c6e7d8c8bd1b61:0x1130aaf7edb03d08!8m2!3d39.8799306!4d-75.3351085!16s%2Fg%2F11c1rtwc4n" target="_blank" rel="noopener">4.9&#9733; from 212 Google Reviews &#8599;</a>
+      <span class="footer-sep">|</span>
+      <span>Two-year warranty on all painting jobs</span>
+      <span class="footer-sep">|</span>
+      <span>[Certifications / trade affiliations]</span>
+      <span class="footer-sep">|</span>
+      <a href="https://maps.google.com/?q=102+Ohio+Ave,+Folsom,+PA+19033" target="_blank" rel="noopener">102 Ohio Ave, Folsom, PA 19033</a>
+      <span class="footer-sep">|</span>
+      <a href="faq.html">FAQ</a>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

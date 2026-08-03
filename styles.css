@@ -936,6 +936,16 @@ img { max-width: 100%; display: block; }
   background-color: #5c3a1d; /* fallback while the photo loads */
 }
 
+/* v8 only -- same idea as .wood-table but using the cropped Higgsfield
+   wall render instead of the wood-table photo, per Rick's request */
+.wall-bg-v8 {
+  background-image: url('images/v10/wall-render-cropped.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #E4D9C8; /* fallback while the photo loads, matches the wall's cream tone */
+}
+
 .fan-stage {
   position: relative;
   height: 100vh;
