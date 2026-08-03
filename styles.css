@@ -1570,8 +1570,8 @@ img { max-width: 100%; display: block; }
   display: block;
   margin-top: 6px;
   padding: 6px 10px;
-  background: var(--apricot);
-  color: var(--ink);
+  background: var(--navy);
+  color: var(--cream);
   border-radius: var(--radius-swatch);
   font-size: 0.58rem;
   font-weight: 600;
