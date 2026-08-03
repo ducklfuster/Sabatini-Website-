@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabatini Pro Painting — v10 (Alejandra's Wall Mockup)</title>
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <style>
+    /* v10 is a completely different design direction from the tabletop
+       lineage (index.html / index-tabletop-v*.html) -- Alejandra's own
+       photo mockup, used as-is (full quality, not cropped or altered),
+       made clickable with precisely-positioned invisible hotspots
+       rather than rebuilding the type/layout in HTML. All positioning
+       below is in percentages of the image's own box, so it stays
+       aligned at any screen size since the image and the hotspots
+       scale together. */
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #EDE7DD;
+    }
+    .v10-frame {
+      position: relative;
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      line-height: 0;
+    }
+    .v10-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .v10-hotspot {
+      position: absolute;
+      display: block;
+      cursor: pointer;
+    }
+    /* faint hover feedback so it's clear these are clickable, without
+       covering Alejandra's design with a visible box normally */
+    .v10-hotspot:hover { background: rgba(255, 255, 255, 0.12); }
+  </style>
+</head>
+<body>
+
+  <div class="v10-frame">
+    <img src="images/v10/wall-mockup.jpg" alt="Sabatini Pro Painting — Quality, Detail, Lasting Beauty">
+
+    <a class="v10-hotspot" href="our-team.html" aria-label="Our Team" style="top: 8.4%; left: 56.4%; width: 32.2%; height: 12.6%;"></a>
+    <a class="v10-hotspot" href="our-process.html" aria-label="Our Process" style="top: 22.3%; left: 56.4%; width: 32.2%; height: 12.0%;"></a>
+    <a class="v10-hotspot" href="gallery.html" aria-label="Gallery" style="top: 35.8%; left: 56.4%; width: 32.2%; height: 12.0%;"></a>
+    <a class="v10-hotspot" href="https://www.google.com/maps/place/Sabatini+Pro+Painting/@39.8799306,-75.3351085,17z/data=!3m1!4b1!4m6!3m5!1s0x89c6e7d8c8bd1b61:0x1130aaf7edb03d08!8m2!3d39.8799306!4d-75.3351085!16s%2Fg%2F11c1rtwc4n" target="_blank" rel="noopener" aria-label="Reviews" style="top: 49.3%; left: 56.4%; width: 32.2%; height: 12.0%;"></a>
+    <a class="v10-hotspot" href="faq.html" aria-label="FAQ" style="top: 62.7%; left: 56.4%; width: 32.2%; height: 12.4%;"></a>
+
+    <a class="v10-hotspot" href="get-quote.html" aria-label="Get a Quote" style="top: 68.4%; left: 10.0%; width: 34.5%; height: 5.6%;"></a>
+  </div>
+
+</body>
+</html>
