@@ -2090,4 +2090,14 @@ img { max-width: 100%; display: block; }
   .jsv2-hero-photo { order: -1; }
   .jsv2-glance { grid-template-columns: 1fr; }
   .jsv2-photos-grid { grid-template-columns: 1fr; }
+  /* .carousel-main's flex:1 depends on .photo-carousel's height:100%
+     resolving against a definite row height -- that only exists on
+     desktop, where the grid row is sized by the ba-slider's
+     aspect-ratio next to it. Once the grid collapses to one column,
+     each item's row becomes auto-sized (by its own content), so
+     flex:1 has nothing real to grow into and the photo view collapses
+     to a sliver (measured ~96px tall on a 327px-wide container).
+     Giving it an explicit aspect-ratio here fixes that. */
+  .jsv2-page .photo-carousel { height: auto; }
+  .jsv2-page .carousel-main { flex: none; aspect-ratio: 4 / 3; }
 }
