@@ -1903,7 +1903,7 @@ img { max-width: 100%; display: block; }
   margin: 0;
 }
 .jsv2-hero-sub { margin-top: var(--space-2); max-width: 48ch; opacity: 0.85; }
-.jsv2-hero-ctas { display: flex; align-items: center; gap: var(--space-2); margin-top: var(--space-3); flex-wrap: wrap; }
+.jsv2-hero-ctas { display: flex; align-items: flex-start; gap: var(--space-2); margin-top: var(--space-3); flex-wrap: nowrap; }
 .jsv2-hero-photo {
   aspect-ratio: 4 / 3;
   border-radius: var(--radius-swatch);
@@ -1912,45 +1912,40 @@ img { max-width: 100%; display: block; }
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
 }
 
-/* the "Get Free Estimate" swatch CTA -- a real paint-chip card standing
-   in for what would normally be a pill button, per Rick's explicit
-   request that every CTA on this page reads as a swatch */
+/* the "Get Free Estimate" / "Call" swatch CTAs -- real paint-chip cards
+   (fixed width/height, chip-name anchored top-left, open color space
+   below, same as the homepage's actual swatches) standing in for what
+   would normally be pill buttons, per Rick's explicit request that
+   every CTA on this page reads as a swatch, sized to actually look
+   like a swatch rather than a padded button. */
 .jsv2-cta-swatch {
-  display: inline-flex;
-  flex-direction: column;
-  gap: 2px;
+  position: relative;
+  display: block;
+  width: 148px;
+  height: 168px;
+  flex-shrink: 0;
   background: var(--jsv2-cta);
-  color: var(--white);
-  padding: 10px 18px;
   border-radius: var(--radius-swatch);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
   transition: transform var(--dur-normal) var(--ease), box-shadow var(--dur-normal) var(--ease);
 }
 .jsv2-cta-swatch:hover { transform: scale(1.03); box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3); }
-.jsv2-cta-swatch .chip-primary-code {
-  font-size: 0.68rem;
-  font-weight: 500;
-  opacity: 0.8;
-  color: var(--white);
-}
-.jsv2-cta-label { font-weight: 700; font-size: 0.95rem; }
-.jsv2-cta-swatch-large { padding: 14px 26px; margin-top: var(--space-3); }
-.jsv2-cta-swatch-large .jsv2-cta-label { font-size: 1.05rem; }
+.jsv2-cta-swatch .chip-name { color: var(--white); max-width: 85%; }
+.jsv2-cta-swatch .chip-name .chip-primary-code { color: rgba(255, 255, 255, 0.75); }
+.jsv2-cta-swatch .chip-locator { color: rgba(255, 255, 255, 0.7); }
 
-.jsv2-cta-outline {
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid var(--jsv2-ink);
-  color: var(--jsv2-ink);
-  padding: 10px 20px;
-  border-radius: var(--radius-pill);
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: background var(--dur-normal) var(--ease);
-}
-.jsv2-cta-outline:hover { background: rgba(30, 54, 38, 0.08); }
+/* Call swatch -- same card shape, light sage instead of olive so the
+   two hero CTAs read as two distinct swatches, not one button repeated */
+.jsv2-cta-swatch-call { background: var(--jsv2-swatch-2); }
+.jsv2-cta-swatch-call .chip-name { color: var(--jsv2-ink); }
+.jsv2-cta-swatch-call .chip-name .chip-primary-code { color: rgba(30, 54, 38, 0.65); }
+.jsv2-cta-swatch-call .chip-locator { color: rgba(30, 54, 38, 0.6); }
+
+.jsv2-cta-swatch-large { width: 190px; height: 210px; margin: var(--space-3) auto 0; }
 
 .jsv2-cta-sticky {
+  width: auto;
+  height: auto;
   position: fixed;
   right: var(--space-3);
   bottom: var(--space-3);
@@ -1958,7 +1953,13 @@ img { max-width: 100%; display: block; }
   padding: 12px 22px;
   transform: rotate(-1.5deg);
 }
+.jsv2-cta-sticky .jsv2-cta-label { color: var(--white); font-weight: 700; font-size: 0.95rem; }
 .jsv2-cta-sticky:hover { transform: rotate(-1.5deg) scale(1.04); }
+
+@media (max-width: 400px) {
+  /* keep both hero swatches side by side even on the narrowest phones */
+  .jsv2-cta-swatch { width: 130px; height: 148px; }
+}
 
 /* job at a glance + challenge */
 .jsv2-glance {
