@@ -455,7 +455,6 @@ img { max-width: 100%; display: block; }
   transition: border-color var(--dur-micro) var(--ease);
 }
 .serve-table a:hover { border-bottom-color: var(--rust); }
-.services-table td:last-child { text-align: right; white-space: nowrap; }
 @media (max-width: 640px) {
   .serve-table td:first-child { white-space: normal; }
 }
