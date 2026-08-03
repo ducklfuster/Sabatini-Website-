@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery — Sabatini Pro Painting</title>
+  <title>Services &amp; Areas We Serve — Sabatini Pro Painting</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/jpeg" href="images/logo.jpg">
   <script src="palette.js"></script>
@@ -16,8 +16,8 @@
     <div class="block bg-lavender between reveal in">
       <div class="stack" style="max-width: 640px;">
         <div class="brand" style="margin-bottom: var(--space-3);"><span class="logo-mark"><img src="images/logo.jpg" alt="Sabatini Pro Painting logo"></span> Sabatini Pro Painting</div>
-        <h1>Gallery</h1>
-        <p style="margin-top: var(--space-2); max-width: 60ch;">A look at recent work.</p>
+        <h1>Services &amp; Areas We Serve</h1>
+        <p style="margin-top: var(--space-2); max-width: 60ch;">What we do, and where we do it.</p>
       </div>
       <a class="btn-pill" href="get-quote.html" style="align-self: center;">Get Quote</a>
     </div>
@@ -26,33 +26,34 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
     </button>
 
+    <!-- what we do -->
     <div class="block bg-cream reveal">
-      <div class="gallery-grid">
-
-        <button class="simple-photo" data-lightbox-trigger data-full="images/havertown/after-hallway.png" style="background-image: url('images/havertown/after-hallway.png');" aria-label="View larger: finished stairwell and hallway"></button>
-
-        <button class="simple-photo" data-lightbox-trigger data-full="images/havertown/after-livingroom.png" style="background-image: url('images/havertown/after-livingroom.png');" aria-label="View larger: living room, natural light"></button>
-
-        <button class="simple-photo" data-lightbox-trigger data-full="images/havertown/during-molding.png" style="background-image: url('images/havertown/during-molding.png');" aria-label="View larger: crown molding installation"></button>
-
-        <button class="simple-photo" data-lightbox-trigger data-full="images/havertown/detail-trim.png" style="background-image: url('images/havertown/detail-trim.png');" aria-label="View larger: trim detail"></button>
-
-        <button class="simple-photo" data-lightbox-trigger data-full="images/havertown/prep-ceiling.png" style="background-image: url('images/havertown/prep-ceiling.png');" aria-label="View larger: ceiling prep"></button>
-
-        <button class="simple-photo" data-lightbox-trigger data-full="images/havertown/before-hallway.png" style="background-image: url('images/havertown/before-hallway.png');" aria-label="View larger: hallway before"></button>
-
+      <p class="tile-tag" style="align-self: flex-start; margin-bottom: var(--space-2);">WHAT WE DO</p>
+      <div class="services-list">
+        <div class="services-item">Interior Painting</div>
+        <div class="services-item">Exterior Painting</div>
+        <div class="services-item">Cabinet Refinishing</div>
+        <div class="services-item">Drywall</div>
+        <div class="services-item">Commercial Carpentry</div>
+        <div class="services-item">Wallpaper Removal / Install</div>
       </div>
-      <p class="gallery-note">Real photos from the Havertown job for now — more to add as more jobs get photographed. Click any photo to see it larger.</p>
     </div>
 
-  </div>
+    <!-- where we serve -->
+    <div class="block bg-white reveal">
+      <p class="tile-tag" style="align-self: flex-start; margin-bottom: var(--space-2);">WHERE WE SERVE</p>
+      <p style="max-width: 60ch;">Proudly serving Delco, Montco &amp; the Main Line.</p>
+      <div class="services-towns">
+        <span class="chip">[Town 1]</span>
+        <span class="chip">[Town 2]</span>
+        <span class="chip">[Town 3]</span>
+        <span class="chip">[Town 4]</span>
+        <span class="chip">[Town 5]</span>
+        <span class="chip">[Town 6]</span>
+      </div>
+      <p style="margin-top: var(--space-3); font-size: var(--size-caption); opacity: 0.55;">Placeholder towns — swap in the real list of towns/areas served.</p>
+    </div>
 
-  <!-- simple lightbox: click a photo, see it big, click the X (or
-       outside, or press Escape) to close. No categories, no fancy
-       hover effects -- just a place to see the work. -->
-  <div class="lightbox" data-lightbox>
-    <button class="lightbox-close" data-lightbox-close aria-label="Close">&times;</button>
-    <img data-lightbox-img alt="">
   </div>
 
   <a class="sticky-cta" href="get-quote.html">Get Free Estimate</a>
