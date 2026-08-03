@@ -1331,7 +1331,7 @@ img { max-width: 100%; display: block; }
    versions are untouched. */
 .mobile-swatch-grid.tt7 .mobile-brand-card,
 .mobile-swatch-grid.tt7 .mobile-brand-card + .chip-card {
-  margin-bottom: 76px;
+  margin-bottom: 0;
 }
 .chip-card.chip-on-dark .chip-name,
 .chip-card.chip-on-dark .chip-name .chip-primary-code,
@@ -1531,19 +1531,25 @@ img { max-width: 100%; display: block; }
   flex-direction: column;
   gap: 6px;
 }
+/* Rick's designer friend's feedback: the duck crest is delightful but
+   was lost at 56px cropped tight to just the face -- shown full-size
+   (object-fit: contain, not cover) and much bigger, plus the header
+   goes vertical so the badge isn't squeezed by the name column. */
 .mbc-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
+  text-align: center;
+  gap: 6px;
 }
 .mbc-photo {
-  width: 56px;
-  height: 56px;
+  width: 88px;
+  height: 88px;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
 }
-.mbc-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+.mbc-photo img { width: 100%; height: 100%; object-fit: contain; display: block; }
 /* small "Est. 2015" stamp -- .mobile-card already has position:relative
    + overflow:hidden, so this just needs to sit inside that box */
 .mbc-badge {
@@ -1563,21 +1569,25 @@ img { max-width: 100%; display: block; }
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 }
 
-/* small swatch-chip link (not a pill, so it doesn't compete with the
-   Est. 2015 badge stamp) filling the previously-empty space below the
-   phone number on the mobile business card -- links to services.html */
+/* Was a bare 0.58rem line stuck right under the phone number -- read as
+   a stray afterthought, not a deliberate second action. Bigger type, an
+   icon to anchor it, and its own margin so it reads as "the other thing
+   you can do here" instead of a caption trailing off the phone line. */
 .mbc-services-tag {
-  display: block;
-  margin-top: 6px;
-  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  padding: 9px 12px;
   background: var(--navy);
   color: var(--cream);
   border-radius: var(--radius-swatch);
-  font-size: 0.58rem;
+  font-size: 0.7rem;
   font-weight: 600;
-  line-height: 1.3;
+  line-height: 1.35;
   transition: transform var(--dur-micro) var(--ease);
 }
+.mbc-services-icon { flex-shrink: 0; font-size: 0.9rem; }
 .mbc-services-tag:hover { transform: scale(1.02); }
 .mbc-owners {
   font-size: 0.7rem;
