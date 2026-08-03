@@ -135,8 +135,25 @@ function buildFocusStack() {
       });
     };
 
+    // Debounced hover: without this, any quick graze across a card
+    // triggers an instant full recenter, and since the geometry itself
+    // is mid-transition while the cursor is still moving, that can
+    // cascade into re-triggering on whatever card the animating shape
+    // happens to slide under next -- reads as "slippery" instead of
+    // deliberate. Requiring the pointer to sit still on a card for a
+    // beat before committing (and cancelling if it leaves early) fixes
+    // both: quick passes-through no longer switch anything, and a
+    // settle-and-recenter only fires once per real intent.
+    let pending = null;
+    const HOVER_DELAY = 160;
+
     cards.forEach((card, i) => {
-      card.addEventListener('mouseenter', () => layout(i));
+      const commit = () => {
+        clearTimeout(pending);
+        pending = setTimeout(() => layout(i), HOVER_DELAY);
+      };
+      card.addEventListener('mouseenter', commit);
+      card.addEventListener('mouseleave', () => clearTimeout(pending));
       card.addEventListener('focus', () => layout(i));
     });
 
