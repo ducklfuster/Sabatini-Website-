@@ -1837,3 +1837,265 @@ img { max-width: 100%; display: block; }
   opacity: 0.85;
   white-space: nowrap;
 }
+
+/* ============================================================
+   Job Story v2 (job-story-havertown-pa-v2.html) only.
+   Hedlund Painting's clean editorial job-story format, rebuilt in our
+   paint-swatch language, with a page-scoped monochromatic sage->forest
+   ramp pulled from Alejandra's mockup photo instead of our usual
+   multi-hue swatch palette -- page-scoped per Rick's explicit call,
+   not a site-wide repaint. Reuses existing shared components as-is
+   (.ba-slider, .photo-carousel, .chip, .job-card, .byline, .reveal) --
+   only new layout/color classes are added here, all prefixed .jsv2-
+   so nothing else on the site is touched.
+   ============================================================ */
+
+.jsv2-page {
+  --jsv2-bg: #EFEAE1;       /* wall background from the mockup */
+  --jsv2-swatch-1: #DAD5C9; /* lightest -- greige */
+  --jsv2-swatch-2: #A7AC99; /* light sage */
+  --jsv2-swatch-3: #7C8566; /* medium olive-sage */
+  --jsv2-swatch-4: #545A4C; /* dark charcoal-sage */
+  --jsv2-swatch-5: #1D281F; /* deepest -- near-black forest green */
+  --jsv2-ink: #1E3626;      /* heading/ink color */
+  --jsv2-gold: #C9A24B;     /* accent -- matches --apricot */
+  --jsv2-cta: #6B7A3E;      /* distinct olive CTA color from the mockup */
+
+  background: var(--jsv2-bg);
+  color: var(--jsv2-ink);
+}
+
+.jsv2-wrap { max-width: 1100px; margin: 0 auto; padding: 0 var(--space-3); }
+
+.jsv2-crumb {
+  padding-top: var(--space-4);
+  font-size: var(--size-caption);
+  opacity: 0.6;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-left: var(--space-3);
+  padding-right: var(--space-3);
+}
+.jsv2-crumb a { text-decoration: underline; text-underline-offset: 2px; }
+
+/* hero */
+.jsv2-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+  align-items: center;
+  padding: var(--space-4) 0 var(--space-6);
+}
+.jsv2-overline {
+  font-size: var(--size-overline);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--jsv2-gold);
+  margin: 0 0 var(--space-1);
+}
+.jsv2-hero h1 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  line-height: 1.08;
+  color: var(--jsv2-ink);
+  margin: 0;
+}
+.jsv2-hero-sub { margin-top: var(--space-2); max-width: 48ch; opacity: 0.85; }
+.jsv2-hero-ctas { display: flex; align-items: center; gap: var(--space-2); margin-top: var(--space-3); flex-wrap: wrap; }
+.jsv2-hero-photo {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-swatch);
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* the "Get Free Estimate" swatch CTA -- a real paint-chip card standing
+   in for what would normally be a pill button, per Rick's explicit
+   request that every CTA on this page reads as a swatch */
+.jsv2-cta-swatch {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  background: var(--jsv2-cta);
+  color: var(--white);
+  padding: 10px 18px;
+  border-radius: var(--radius-swatch);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+  transition: transform var(--dur-normal) var(--ease), box-shadow var(--dur-normal) var(--ease);
+}
+.jsv2-cta-swatch:hover { transform: scale(1.03); box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3); }
+.jsv2-cta-swatch .chip-primary-code {
+  font-size: 0.68rem;
+  font-weight: 500;
+  opacity: 0.8;
+  color: var(--white);
+}
+.jsv2-cta-label { font-weight: 700; font-size: 0.95rem; }
+.jsv2-cta-swatch-large { padding: 14px 26px; margin-top: var(--space-3); }
+.jsv2-cta-swatch-large .jsv2-cta-label { font-size: 1.05rem; }
+
+.jsv2-cta-outline {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--jsv2-ink);
+  color: var(--jsv2-ink);
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background var(--dur-normal) var(--ease);
+}
+.jsv2-cta-outline:hover { background: rgba(30, 54, 38, 0.08); }
+
+.jsv2-cta-sticky {
+  position: fixed;
+  right: var(--space-3);
+  bottom: var(--space-3);
+  z-index: 60;
+  padding: 12px 22px;
+  transform: rotate(-1.5deg);
+}
+.jsv2-cta-sticky:hover { transform: rotate(-1.5deg) scale(1.04); }
+
+/* job at a glance + challenge */
+.jsv2-glance {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space-5);
+  padding-bottom: var(--space-6);
+  align-items: start;
+}
+.jsv2-glance-card {
+  position: relative;
+  background: var(--jsv2-swatch-1);
+  border-radius: var(--radius-swatch);
+  padding: var(--space-3);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+.jsv2-glance-code {
+  display: block;
+  font-size: 0.68rem;
+  font-style: italic;
+  opacity: 0.6;
+  margin-bottom: var(--space-2);
+}
+.jsv2-glance-card dt {
+  font-size: var(--size-overline);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--jsv2-gold);
+  margin-top: var(--space-2);
+}
+.jsv2-glance-card dt:first-of-type { margin-top: 0; }
+.jsv2-glance-card dd { margin: 2px 0 0; font-size: var(--size-body-sm); }
+.jsv2-narrative h2 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: var(--size-h2);
+  margin: 0 0 var(--space-2);
+  color: var(--jsv2-ink);
+}
+.jsv2-narrative p { max-width: 65ch; }
+
+/* photos */
+.jsv2-photos { padding-bottom: var(--space-6); }
+.jsv2-section-label {
+  font-size: var(--size-overline);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--jsv2-gold);
+  margin: 0 0 var(--space-2);
+}
+.jsv2-photos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); align-items: stretch; }
+.jsv2-mockup-note { margin-top: var(--space-3); font-size: var(--size-caption); opacity: 0.55; }
+
+/* what we did */
+.jsv2-checklist-section { padding-bottom: var(--space-6); }
+.jsv2-checklist-section h2 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: var(--size-h2);
+  margin: 0 0 var(--space-3);
+  color: var(--jsv2-ink);
+}
+.jsv2-checklist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.jsv2-checklist li {
+  position: relative;
+  padding-left: 30px;
+  max-width: 70ch;
+}
+.jsv2-checklist li::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: var(--jsv2-cta);
+  font-weight: 700;
+}
+
+/* result */
+.jsv2-result { padding-bottom: var(--space-6); }
+.jsv2-result h2 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: var(--size-h2);
+  margin: 0 0 var(--space-2);
+  color: var(--jsv2-ink);
+}
+.jsv2-result p { max-width: 70ch; }
+.jsv2-color-chips { margin-top: var(--space-3); display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* testimonial -- full-width dark block, deepest step of the sage ramp */
+.jsv2-testimonial {
+  background: var(--jsv2-swatch-5);
+  color: var(--cream);
+  padding: var(--space-6) 0;
+}
+.jsv2-label-on-dark { color: var(--jsv2-gold); opacity: 1; }
+.jsv2-testimonial blockquote {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  line-height: 1.4;
+  margin: 0;
+  max-width: 65ch;
+}
+.jsv2-testimonial cite { display: block; margin-top: var(--space-2); font-style: normal; opacity: 0.75; }
+.jsv2-testimonial .byline { margin-top: var(--space-4); padding-top: var(--space-3); border-top: 1px solid rgba(245, 238, 218, 0.25); }
+.jsv2-testimonial .byline-name, .jsv2-testimonial .byline-role { color: var(--cream); }
+
+/* related job stories -- reuse .job-card/.gallery-grid, recolored */
+.jsv2-related { padding: var(--space-6) 0 var(--space-4); }
+.jsv2-related h2 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: var(--size-h2);
+  margin: 0 0 var(--space-3);
+  color: var(--jsv2-ink);
+}
+.jsv2-swatch-1 { background: var(--jsv2-swatch-1); }
+.jsv2-swatch-2 { background: var(--jsv2-swatch-2); color: var(--white); }
+.jsv2-swatch-4 { background: var(--jsv2-swatch-4); color: var(--white); }
+
+/* final CTA */
+.jsv2-final-cta { text-align: center; padding: var(--space-6) 0 var(--space-7); }
+.jsv2-final-cta h2 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: var(--size-h1);
+  color: var(--jsv2-ink);
+  margin: 0 0 var(--space-2);
+}
+.jsv2-final-cta p { max-width: 50ch; margin: 0 auto; opacity: 0.8; }
+
+@media (max-width: 900px) {
+  .jsv2-hero { grid-template-columns: 1fr; }
+  .jsv2-hero-photo { order: -1; }
+  .jsv2-glance { grid-template-columns: 1fr; }
+  .jsv2-photos-grid { grid-template-columns: 1fr; }
+}
