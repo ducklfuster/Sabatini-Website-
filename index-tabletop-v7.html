@@ -147,8 +147,12 @@
 
           <!-- row 2 -- was "History", now relinked to our-team.html and
                relabeled "About Us" (Meet the Owners below now owns the
-               history.html link) -->
-          <a class="chip-card chip-on-dark" href="our-team.html" style="--r: 5deg; background: #6E4423;">
+               history.html link). Rotation is -4deg here (not the
+               +5deg this tile used to carry as "History") because
+               rotation belongs to the GRID POSITION, not the swatch --
+               this slot's neighbor (Our Process, +3deg) needs an
+               opposite sign or they visually lean the same way. -->
+          <a class="chip-card chip-on-dark" href="our-team.html" style="--r: -4deg; background: #6E4423;">
             <span class="chip-name"><span class="chip-primary-code">SPP 6006</span>About Us</span>
             <span class="chip-locator">204-C6</span>
           </a>
@@ -167,8 +171,10 @@
 
           <!-- row 3 -- Meet the Owners, now links to history.html
                instead of our-team.html (see desktop version above for
-               the reasoning) -->
-          <a class="chip-card bg-cream owners-photo" href="history.html" style="--r: -4deg;">
+               the reasoning). Rotation is +5deg here (History's old
+               slot value, not the -4deg this tile used to carry as
+               "Our Team") -- same reasoning as About Us above. -->
+          <a class="chip-card bg-cream owners-photo" href="history.html" style="--r: 5deg;">
             <span class="chip-name"><span class="chip-primary-code">SPP 6001</span>Meet the Owners</span>
             <span class="chip-locator">142-C3</span>
             <span class="chip-photo-inset">
@@ -179,7 +185,10 @@
 
           <!-- was "FAQ" -- moved into the footer; this slot is now
                Services (see desktop version above -- interim link to
-               our-process.html until a real services page exists) -->
+               our-process.html until a real services page exists).
+               Kept FAQ's old -5deg rotation, since that's this slot's
+               original value and it still alternates correctly against
+               Meet the Owners (+5deg) beside it. -->
           <a class="chip-card bg-skyblue" href="our-process.html" style="--r: -5deg;">
             <span class="chip-name"><span class="chip-primary-code">SPP 6007</span>Services</span>
             <span class="chip-locator">118-C2</span>
