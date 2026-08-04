@@ -47,25 +47,28 @@
     .prologue::after{content:"";position:absolute;inset:0;
       background:linear-gradient(to top,rgba(20,19,16,.9),rgba(20,19,16,.2) 55%,rgba(20,19,16,.5));}
     .prologue__inner{position:relative;z-index:2;max-width:1120px;margin:0 auto;width:100%;padding:0 32px 88px;}
-    .prologue h1{font-family:var(--f-display);text-transform:uppercase;font-size:clamp(2.8rem,7.5vw,6.6rem);line-height:.9;margin:16px 0 0;}
+    .prologue h1{font-family:var(--f-display);text-transform:uppercase;font-size:clamp(2.8rem,7.5vw,6.4rem);line-height:.9;margin:16px 0 0;}
     .prologue .dek{font-family:var(--f-serif);font-style:italic;font-size:clamp(1.2rem,2.4vw,1.6rem);
       max-width:40ch;margin-top:24px;color:#efe8da;}
 
     .lede{max-width:680px;margin:0 auto;padding:104px 32px 0;}
-    .lede p{font-family:var(--f-serif);font-size:clamp(1.35rem,2.4vw,1.7rem);line-height:1.5;font-weight:400;}
+    .lede p{font-family:var(--f-serif);font-size:clamp(1.3rem,2.3vw,1.6rem);line-height:1.5;font-weight:400;}
     .lede p .drop{float:left;font-family:var(--f-display);font-size:4.6rem;line-height:.72;padding:8px 14px 0 0;color:var(--rust);}
 
     .sec{max-width:680px;margin:0 auto;padding:78px 32px 0;}
     .sec .kicker{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;color:var(--rust);font-weight:600;}
-    .sec h2{font-family:var(--f-serif);font-weight:500;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.18;margin:12px 0 0;}
+    .sec h2{font-family:var(--f-serif);font-weight:500;font-size:clamp(1.7rem,3.2vw,2.3rem);line-height:1.18;margin:12px 0 0;}
 
-    .text{max-width:680px;margin:0 auto;padding:22px 32px 0;}
-    .text p{margin:0 0 22px;}
+    .text{max-width:680px;margin:0 auto;padding:20px 32px 0;}
+    .text p{margin:0 0 20px;}
     .text p:last-child{margin-bottom:0;}
-    .text .lead{font-family:var(--f-serif);font-size:1.28rem;line-height:1.5;color:var(--ink);}
-    .text em{font-style:italic;color:var(--rust-deep);}
-    .pull{font-family:var(--f-serif);font-style:italic;font-weight:500;color:var(--rust-deep);
-      font-size:1.5rem;line-height:1.4;margin:6px 0 20px;}
+    .text em{font-style:italic;}
+
+    /* Alejandra's voice */
+    .voice{max-width:680px;margin:28px auto 0;padding:22px 28px;border-left:3px solid var(--rust);background:rgba(156,74,46,.05);}
+    .voice .who{display:block;font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.16em;font-size:.68rem;color:var(--rust);font-weight:600;margin-bottom:12px;}
+    .voice p{font-size:1.06rem;line-height:1.72;margin:0 0 12px;}
+    .voice p:last-child{margin-bottom:0;}
 
     .full{margin:60px auto 0;background:var(--ink);max-width:1200px;}
     .full img{width:100%;height:auto;max-height:92vh;object-fit:contain;margin:0 auto;}
@@ -77,18 +80,19 @@
     .c1{grid-column:1/7;grid-row:1/14;transform:rotate(-1.5deg);z-index:1;}
     .c2{grid-column:7/13;grid-row:3/13;transform:rotate(1.2deg);z-index:2;}
     .c3{grid-column:4/10;grid-row:12/23;transform:rotate(-.6deg);z-index:3;}
-    .collage__quote{position:absolute;right:5%;bottom:5%;max-width:290px;z-index:6;
-      background:var(--cream-lift);padding:24px 26px;border:1px solid var(--sand);
+    .collage__quote{position:absolute;right:5%;bottom:5%;max-width:270px;z-index:6;
+      background:var(--cream-lift);padding:20px 24px;border:1px solid var(--sand);
       box-shadow:0 30px 60px -34px rgba(20,19,16,.6);transform:rotate(-2deg);}
-    .collage__quote p{font-family:var(--f-serif);font-style:italic;font-size:1.15rem;line-height:1.4;margin:0;}
+    .collage__quote p{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.06em;font-size:.82rem;line-height:1.5;margin:0;color:var(--slate);}
     @media(max-width:760px){
       .collage__grid{display:flex;flex-direction:column;gap:14px;}
       .collage__grid img{transform:none!important;}
       .collage__quote{position:static;max-width:none;transform:none;margin-top:-30px;}
     }
 
-    .end{background:var(--char);color:var(--cream);text-align:center;padding:120px 32px;margin-top:80px;}
-    .end h2{font-family:var(--f-serif);font-weight:500;font-size:clamp(1.7rem,3.6vw,2.6rem);line-height:1.32;max-width:26ch;margin:0 auto 40px;}
+    .end{background:var(--char);color:var(--cream);text-align:center;padding:110px 32px;margin-top:80px;}
+    .end p{max-width:600px;margin:0 auto 16px;font-size:1.15rem;line-height:1.7;color:#e4ddce;}
+    .end p:last-of-type{margin-bottom:40px;}
     .btn-pill{display:inline-block;background:var(--rust);color:#fff;text-decoration:none;font-family:var(--f-cond);
       text-transform:uppercase;letter-spacing:.15em;font-size:.82rem;font-weight:600;padding:19px 44px;border-radius:999px;transition:transform .3s var(--ease),background .3s;}
     .btn-pill:hover{transform:translateY(-2px);background:var(--rust-lt);}
@@ -116,56 +120,63 @@
     <img src="images/story/hero_333.jpg" alt="Rick and Alejandra and family">
     <div class="prologue__inner">
       <span class="overline" style="color:#f0b79c">Our Story</span>
-      <h1>It was never<br>really about paint.</h1>
-      <p class="dek">The story of two people building a life — who found out the company was just one of the things they were building.</p>
+      <h1>How we got here.</h1>
+      <p class="dek">The long version — falling in love, figuring it out, and slowly realizing what we were building.</p>
     </div>
   </section>
 
   <!-- LEDE -->
   <div class="lede reveal">
-    <p><span class="drop">T</span>his isn't really the story of a painting company. It's the story of two people building a life — who found out somewhere along the way that the company was just one of the things they were building. A consequence of the story, not the story itself. And if I've learned one thing, it's that nothing here is arbitrary. Everything means something.</p>
+    <p><span class="drop">P</span>eople ask how the painting company got started. The honest answer is that it didn't, exactly. Ale and I were trying to build a life, and the company turned out to be one of the things we built along the way. I don't think I understood that at the time. I'm not sure I understood it until pretty recently.</p>
   </div>
 
   <!-- CHILDHOOD -->
   <div class="sec reveal">
     <span class="kicker">Where it starts</span>
-    <h2>Four colors that weren't mine.</h2>
+    <h2>Four colors I didn't pick.</h2>
   </div>
   <div class="text reveal">
-    <p>I grew up in a tense house — the kind where a kid learns early to find the one small piece of the world he can actually control. I found some of it in paint. When I was eight, I asked to paint my own room and got handed four colors I never chose. A couple of years later I spray-painted my bike in secret, just to have one thing that looked like <em>me</em> instead of like everyone else's expectations. I got punished for it.</p>
-    <p>What I didn't understand yet was that I'd already found the thing that would run through the rest of my life: when I changed the world around me, it changed how I felt inside it. That's where all of it begins — the eye for beauty, for order, for putting something right — long before there was ever a business to point it at.</p>
+    <p>I grew up in a tense house — the kind where you learn early to find the one thing you can actually control. For me, some of that was a guitar. Some of it was paint.</p>
+    <p>When I was eight I asked to paint my own room, and I got handed four colors I hadn't picked. A year or two later I spray-painted my bike out in the yard, in secret, because I wanted one thing that looked like mine. I got in trouble for it. I didn't think much of it at the time. It was just a bike.</p>
   </div>
 
   <!-- MUSIC -->
   <div class="sec reveal">
-    <span class="kicker">The thread under everything</span>
-    <h2>The fundamentals nobody claps for.</h2>
+    <span class="kicker">Music</span>
+    <h2>Pepper Brown.</h2>
   </div>
   <div class="text reveal">
-    <p>For a long time I was sure music was what I was actually for, and that painting houses was just what paid the bills until I got there. I fell in love with everything underneath a song — the symbolism, the pacing, the way a lyric could become a place you could stand inside. I started thinking cinematically: whole scenes running while I drove, songs turning into rooms, rooms turning into stories.</p>
-    <p>A guitar teacher named Pepper Brown taught me the thing that outlasted the music itself. Greatness isn't the flashy solo, he said. It's practicing the fundamentals ten thousand times when nobody is watching. I didn't know it then, but that one idea would become how I think about everything — how I'd build systems, run a business, notice what makes something beautiful and then build toward it on purpose.</p>
-    <p class="pull">The dream didn't die. The medium changed. The impulse under it never did.</p>
+    <p>For a long time I thought music was the thing I was actually meant to do, and that painting houses was just what paid the bills until I got there. I loved everything underneath a song — the way a few words could put you inside a room. I'd be driving and hear whole scenes.</p>
+    <p>I had a guitar teacher named Pepper Brown. He told me once that the good players aren't the ones with the flashy solos. They're the ones who'll play the boring stuff ten thousand times when nobody's around to hear it. I didn't do anything with that for years. It just stuck.</p>
+    <p>For a while I figured the music was the dream and the painting was the detour. It took me a long time to notice I had that backwards.</p>
   </div>
 
   <!-- ALE -->
   <div class="sec reveal">
     <span class="kicker">Ale</span>
-    <h2>Nine months.</h2>
+    <h2>The year we met.</h2>
   </div>
   <div class="text reveal">
-    <p>Ale grew up a world away from me — born in Bolivia, raised in Italy from the time she was eight, in the United States by twenty-four, working as an au pair. That's when we met. Neither of us needed much convincing; we'd both grown up watching a parent start with nothing and refuse to quit until it became something real. So we already knew what building a life would cost.</p>
-    <p>Nine months after we met, we were married. We didn't have a plan. We had each other, and a conviction that whatever we made, we'd make it for real.</p>
+    <p>Ale grew up a long way from South Jersey. She was born in Bolivia, moved to Italy when she was seven, and came to the States at twenty-four to work as an au pair for a year. That's the year we met. She was going to teach me Spanish and Italian; I was going to help with her English. It turned into dinners, and then it turned into everything else. Nine months after we met, we got married.</p>
+  </div>
+  <div class="voice reveal">
+    <span class="who">Alejandra</span>
+    <p>When I left Bolivia for Italy at seven, I thought we were going on an adventure. You don't understand everything at that age. You just know people speak a different language now, and your parents are going to be working a lot. I watched mine build a whole life from nothing.</p>
+    <p>By the time I was twenty-four I wanted to try building one of my own, so I came here for a year. I wasn't scared. I was excited. And then there was Rick, who never once tried to be anyone other than exactly who he was. That's the thing I fell for.</p>
   </div>
 
-  <!-- CHESTER -->
+  <!-- THE BEGINNING -->
   <div class="sec reveal">
     <span class="kicker">The beginning</span>
-    <h2>The only way I could see.</h2>
+    <h2>An $800 van.</h2>
   </div>
   <div class="text reveal">
-    <p>The business wasn't really a plan. Ale had just moved in, and I'd just lost my job. Painting together was the only way I could see to make any of it work — to keep providing, and to keep her. It didn't start as ambition. It started as necessity: two people who needed each other to show up for a life we'd only just started building.</p>
-    <p class="pull">It didn't start as a company. It started as a way to keep her.</p>
-    <p>We shared a small room with roommates in Chester, Pennsylvania, and got to jobs in an $800 1998 Ford Econoline. Our first year finished about a thousand dollars in the hole — more went out than came in — kept alive by a small loan from Ale's father that we paid back inside the year. The future was completely uncertain. So were the first real lessons.</p>
+    <p>The business wasn't a plan. Ale had just moved in and I'd just lost my job, and painting was the only thing I could think of that might keep us going — and, honestly, keep her here. So that's what we did.</p>
+    <p>We were renting a room from roommates in Chester, Pennsylvania. We got to jobs in an $800 1998 Ford Econoline. Our first year we finished about a thousand dollars in the hole — we actually counted — and got through it on a small loan from Ale's dad that we paid back inside the year.</p>
+  </div>
+  <div class="voice reveal">
+    <span class="who">Alejandra</span>
+    <p>When Rick lost his job and we decided to start painting, I wasn't scared. I've never really led with fear. He was so excited to learn a trade and build something of our own, and I just wanted us to build it together. That was what the American dream meant to me — work hard enough, and you can make a life you didn't think you could.</p>
   </div>
   <div class="collage reveal">
     <div class="collage__grid">
@@ -173,37 +184,42 @@
       <img class="c2" src="images/story/ch1_48.jpg" alt="Coffee on an early job">
       <img class="c3" src="images/story/ch3_47.jpg" alt="Rick and Alejandra in respirators">
     </div>
-    <div class="collage__quote"><p>The $800 Econoline years.</p></div>
+    <div class="collage__quote"><p>The van, the two of us, year one.</p></div>
   </div>
 
   <!-- TRUST -->
   <div class="sec reveal">
-    <span class="kicker">What the work taught us</span>
+    <span class="kicker">The early jobs</span>
     <h2>One bathroom.</h2>
   </div>
   <div class="text reveal">
-    <p>One of the first lessons came from a woman on a fixed income who wanted a single bedroom painted, the rest "someday." Driving home, I caught myself wondering why she'd spend money on paint at all. The answer changed how I see the work: people aren't buying paint. They're trying to make the world around them match who they are inside. Leaving a lazy line isn't a small shortcut — it's telling someone they weren't worth the extra ten minutes.</p>
-    <p>Another customer hired us for one bathroom. What we didn't know was that it was a test — she never handed a big job to a company she hadn't tried first. We treated that bathroom like it was the whole house, so she gave us the whole house. Then her cabinets. Years later it had turned into an eight-year relationship and a real friendship. One bathroom, done like it mattered, opened a door we never could have seen coming.</p>
-    <p class="pull">Trust compounds. So does character.</p>
+    <p>One of the first jobs was an older woman on a fixed income who wanted a single bedroom done, the rest "someday." I remember driving home wondering why she'd spend the money on paint when there were bigger things she could have spent it on. I didn't have a clean answer. I just knew I didn't want to be the guy who did a lazy job on the one room she'd saved up for.</p>
+    <p>Another woman hired us for one bathroom. We found out later it was on purpose — she never gave a big job to anyone she hadn't tried on a small one first. We did that bathroom like it was the whole house. She gave us the whole house, then her kitchen cabinets. It turned into about eight years of work, and her son and I are still friends.</p>
   </div>
 
   <!-- SEPARATION -->
   <div class="sec reveal">
-    <span class="kicker">Apart, then home</span>
+    <span class="kicker">Apart</span>
     <h2>A year and a half.</h2>
   </div>
   <div class="text reveal">
-    <p>Then Ale went to visit her family and couldn't get back — a visa issue turned a trip into a year and a half apart. The uncertainty never moved us. She came home on a Thursday. We moved into a little apartment in Chester on Friday. By the next week we were back to work, together. The story just kept going.</p>
+    <p>Then Ale went to visit her family and couldn't come back. A visa problem turned a short trip into a year and a half. We spent it on the phone, in different time zones.</p>
+    <p>She landed on a Thursday. We moved into a little apartment in Chester on Friday. Monday we were back to work.</p>
+  </div>
+  <div class="voice reveal">
+    <span class="who">Alejandra</span>
+    <p>Starting the business wasn't the hard part. The hard part was leaving. Going back to Italy, not knowing how long we'd be apart or whether Rick could keep it all going without me — that was the worst of it. Months turned into more than a year.</p>
+    <p>When I finally came home, it felt like we were starting over, except steadier. We were more sure of what we wanted.</p>
   </div>
 
   <!-- COVID -->
   <div class="sec reveal">
     <span class="kicker">2020</span>
-    <h2>Everything, the same week.</h2>
+    <h2>The same week.</h2>
   </div>
   <div class="text reveal">
-    <p>In the spring of 2020 the world shut its doors — and the same week, Ale told me she was pregnant. A quirk of timing had just left us out of the relief a lot of our competitors got; some of them bought new trucks with it while we kept working exactly as hard as before, on our own.</p>
-    <p>Music slipped quietly into the background. Responsibility took its place. For the first time, I understood I wasn't building work anymore. I was building a future.</p>
+    <p>In the spring of 2020, everything shut down. The same week, Ale told me she was pregnant. We'd just switched the business to an LLC, and through some bad timing that left us out of the relief checks a lot of other shops got. A few of them bought new trucks with theirs. We just kept working.</p>
+    <p>Ale had to come off the jobs, which meant I suddenly needed real help, in the middle of a year when nobody knew what was coming. I stopped thinking about music around then. I didn't decide to. There just wasn't room for it.</p>
   </div>
 
   <!-- EZRA -->
@@ -212,7 +228,8 @@
     <h2>Help.</h2>
   </div>
   <div class="text reveal">
-    <p>When our son was born, we named him Ezra on purpose — it means <em>help</em> — because that's exactly what it felt like we'd been given. The company stopped being an experiment the day he arrived. It became a responsibility with a face.</p>
+    <p>Our son was born and we named him Ezra. It means <em>help</em>. That's honestly what it felt like we'd been given.</p>
+    <p>We brought him home, and the next morning I went back to work. Ale stayed home figuring out how to be a mother with no manual for it. I don't think either of us slept much that year.</p>
   </div>
   <div class="full reveal">
     <img src="images/story/ch2_203.jpg" alt="Alejandra holding newborn Ezra">
@@ -221,32 +238,32 @@
 
   <!-- HUMILITY -->
   <div class="sec reveal">
-    <span class="kicker">Humility</span>
-    <h2>The phone call that humbled me.</h2>
+    <span class="kicker">Learning the hard way</span>
+    <h2>The phone call.</h2>
   </div>
   <div class="text reveal">
-    <p>Craft and effort had carried us that far, and I could feel it wasn't going to be enough. I'd never managed anyone in my life. So I went looking for people who actually knew how to run a company — and got humbled fast by a phone call, an honest audit of my own business that showed me exactly how far from professional we really were.</p>
-    <p>I flew the family to a conference in Florida, came home ashamed of where we stood and lit up by what was possible, and spent the next few years learning — slowly, badly at first — how to build an actual organization instead of just good paint jobs.</p>
+    <p>For a while I figured being good at the work and willing to outwork everyone would be enough. It wasn't. I'd never managed a single person in my life, and it showed.</p>
+    <p>So I went looking for people who actually knew how to run a company. One of them took an honest look at my books and my systems and, pretty kindly, told me how far from professional we really were. It stung. Then the three of us flew down to a painting conference in Florida, and I came home embarrassed and more excited than I'd been in years. A guy named Brendan and the people around the APC started showing me how to build an actual business instead of just doing good work and hoping.</p>
   </div>
 
   <!-- FAILURE -->
   <div class="sec reveal">
-    <span class="kicker">Failure</span>
+    <span class="kicker">A bad one</span>
     <h2>A house full of dust.</h2>
   </div>
   <div class="text reveal">
-    <p>Growth surfaces problems you never had before. On one job, while I was away, a piece of equipment failed mid-task. Instead of stopping to replace it, the crew improvised — and filled a family's house with dust, bad enough that they couldn't stay there with their infant. We paid for the hotel, the cleaning, and refunded the job well past our own costs. We lost money, and that family will probably never call us again.</p>
-    <p>But the rule that came out of it is absolute now: if equipment fails, you replace it immediately, whatever it costs, no exceptions. Protecting the profit on a job at the expense of someone's experience isn't smart business. It's the opposite of it.</p>
+    <p>Getting bigger created problems I'd never had before. On one job, while I was away, a machine broke down partway through. Instead of stopping to swap it out, the crew tried to work around it, and they filled the family's house with dust. The family had a newborn. They couldn't stay there.</p>
+    <p>We paid for their hotel, paid to have the place cleaned, refunded the job, replaced the equipment, and told each other we'd never let it happen again. They probably won't call us back. I don't blame them.</p>
   </div>
 
   <!-- STANDARDS -->
   <div class="sec reveal">
-    <span class="kicker">Standards</span>
+    <span class="kicker">Finding the right people</span>
     <h2>Falta gente.</h2>
   </div>
   <div class="text reveal">
-    <p>We learned the hardest lesson slowly: you can teach skill, but you can't teach character. A wave of new hires didn't work out, and I found myself nearly back to running everything alone. Around then Ale's father, Teofilo, was visiting from Bolivia and worked beside me on a huge job, telling me over and over in Spanish — <em>falta gente.</em> You need people. You need <em>good</em> people.</p>
-    <p>On his last day, a man named Virgilio came in to try out. He never left. To this day he's the only painter I'd put on my own level — not for raw skill, but because he understands, really understands, what we're trying to do here. He's been the standard for every hire since.</p>
+    <p>A run of new hires didn't work out, and I ended up nearly back to doing everything myself. Around then Ale's dad, Teofilo, came up from Bolivia to meet Ezra, and he spent a few days working next to me on a big job. He kept saying the same thing in Spanish — <em>falta gente.</em> You need people. Good people.</p>
+    <p>The Monday after he flew home, a guy named Virgilio showed up to try out. He never left. He's the only painter I've worked with who I'd put on my own level — not because of his hands, though those are good too, but because he gets what we're trying to do. Everyone we've hired since, I've measured against him.</p>
   </div>
   <div class="collage reveal">
     <div class="collage__grid">
@@ -254,7 +271,7 @@
       <img class="c2" src="images/story/y2023_19.jpg" alt="Crew leads on the job">
       <img class="c3" src="images/story/y2024_65.jpg" alt="A crew portrait">
     </div>
-    <div class="collage__quote"><p>Skill can be taught. Character can't.</p></div>
+    <div class="collage__quote"><p>The crew. We measure everyone against Virgilio.</p></div>
   </div>
 
   <!-- THE WEIGHT -->
@@ -263,38 +280,37 @@
     <h2>The weight.</h2>
   </div>
   <div class="text reveal">
-    <p>There were real moments — even after we had a good team, even after it looked like it was working — when I was scared enough to want to quit. That never fully went away. Early on, quitting would only have cost my own family. Later it would have cost the people who worked for me and their families too, and that changed everything about what I was willing to endure.</p>
-    <p>The other half was a stubborn conviction I couldn't put down. I could feel the ingredients were already there — passion, skill, care. What was missing wasn't talent. It was intentionality. Every time the urge to walk away showed up, the answer was never that it disappeared. It was that I had to find more courage than I felt like having, because it wasn't only my risk to carry anymore.</p>
-    <p class="pull">It had started as a way to keep one person in my life. It never stopped being that — the circle around it just kept getting bigger.</p>
+    <p>There were stretches — even after we had a good team, even after it looked like it was working — where I wanted to quit. That feeling never completely went away. Early on, walking away would only have hurt my own family. Later there were other families counting on the business staying open, and that made it a different kind of scared.</p>
+    <p>What kept me in it wasn't confidence. Most days I didn't feel like I had enough of whatever it was supposed to take. I just knew it wasn't only my risk anymore. The thing had started as a way to keep one person in my life. It just kept adding people.</p>
   </div>
 
   <!-- FUNDAMENTALS -->
   <div class="sec reveal">
-    <span class="kicker">What it all came down to</span>
-    <h2>Ordinary things, done extraordinarily well.</h2>
+    <span class="kicker">What it came down to</span>
+    <h2>The boring parts.</h2>
   </div>
   <div class="text reveal">
-    <p>And there it was again — the thing Pepper Brown told me about a guitar, twenty years before I understood where it was going. Extraordinary isn't a grand gesture. It's ordinary things — covering the floor, communicating clearly, showing up the same way every single time — done consistently, deliberately, and exceptionally well.</p>
-    <p>The more I focused on the customer's actual experience instead of just the work, the easier everything else got — because I finally understood that everything else rose and fell on that one thing.</p>
+    <p>Somewhere in all of that I realized I'd circled back to what Pepper Brown told me about the guitar. The work that makes people trust you isn't the impressive stuff. It's covering the floors, calling when you say you will, and doing the boring parts right every time, whether anyone's watching or not.</p>
+    <p>I got a little obsessed with that — less with the painting, more with what it actually feels like to be the person whose house it is. Everything got easier once I did.</p>
   </div>
 
   <!-- ALBA -->
   <div class="sec reveal">
-    <span class="kicker">Alba</span>
+    <span class="kicker">2022–2023</span>
     <h2>Dawn.</h2>
   </div>
   <div class="text reveal">
-    <p>In 2023 we had a daughter. We named her Alba — <em>dawn, sunrise</em> — because that's what it felt like. One more reminder that nothing in our life had ever really been arbitrary.</p>
+    <p>In 2022 we bought our first house. In 2023 we had a daughter and named her Alba — it means <em>dawn</em>. Ale's mom came up to help with the kids. For the first time in a while, it felt less like getting through something and more like a life.</p>
   </div>
 
   <!-- QUACK -->
   <div class="sec reveal">
-    <span class="kicker">What comes next</span>
+    <span class="kicker">The name</span>
     <h2>Why Quack?</h2>
   </div>
   <div class="text reveal">
-    <p>Eventually the whole philosophy earned a name of its own. The duck was on the truck before it was ever a plan — <em>the best for your nest</em> — a small joke that turned out to say exactly what we mean. This is about your home, your people, the place you come back to.</p>
-    <p>Quack isn't us becoming something else. It's us finally naming what we've been the whole time. Same two people. Same standard.</p>
+    <p>The duck showed up on the truck years ago, mostly as a joke — <em>the best for your nest.</em> It stuck. Lately we've been putting a real name to it: Quack.</p>
+    <p>It's not a new direction. It's just the clearest name we've found for how we've been trying to work the whole time. Same two people. Same idea we started with.</p>
   </div>
   <div class="full reveal">
     <img src="images/story/cine_74.jpg" alt="Looking ahead">
@@ -302,7 +318,12 @@
 
   <!-- END -->
   <section class="end">
-    <h2>The mission was never really to paint houses. It's to honor the trust a person places in a stranger who walks into their home — and leave things better than we found them. The same instinct an eight-year-old had with a can of spray paint, grown all the way up.</h2>
+    <p>I didn't set out to build a company. I fell in love, got married, had a few hard years, became a father, and slowly figured out what I'd actually been building the whole time.</p>
+    <p>Mostly I want the person who lets us into their home to feel the way Ale and I would want to feel — that the people doing the work care about it as much as we did when it was just the two of us.</p>
+    <div class="voice" style="text-align:left;max-width:600px;margin:34px auto 44px;">
+      <span class="who" style="color:var(--rust-lt);">Alejandra</span>
+      <p style="color:#e4ddce;">At the end of the day, all of it — the family, the business, the way we treat people — is about making two kids proud. A little Ale and a little Rick, who watched their parents work hard and believed they could build something that mattered.</p>
+    </div>
     <a class="btn-pill" href="get-quote.html">Get a Free Estimate</a>
     <a class="back2" href="meet-the-owners-v2.html">← Back to Meet the Owners</a>
   </section>
