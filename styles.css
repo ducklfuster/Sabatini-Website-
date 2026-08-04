@@ -1343,7 +1343,7 @@ img { max-width: 100%; display: block; }
    versions are untouched. */
 .mobile-swatch-grid.tt7 .mobile-brand-card,
 .mobile-swatch-grid.tt7 .mobile-brand-card + .chip-card {
-  margin-bottom: 12px;
+  margin-bottom: 0;
 }
 .chip-card.chip-on-dark .chip-name,
 .chip-card.chip-on-dark .chip-name .chip-primary-code,
@@ -1555,13 +1555,25 @@ img { max-width: 100%; display: block; }
   gap: 6px;
 }
 .mbc-photo {
-  width: 156px;
-  height: 156px;
+  width: 132px;
+  height: 132px;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
 }
 .mbc-photo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+/* the "what we do" line the logo doesn't already say -- the crest itself
+   covers name + "Best for your nest", so this fills the one gap: a plain
+   value-prop statement, not a repeat of Est. 2015 or the footer's
+   family-owned/insured facts. */
+.mbc-tagline {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  color: var(--navy);
+  margin-top: 0;
+}
 /* small "Est. 2015" stamp -- .mobile-card already has position:relative
    + overflow:hidden, so this just needs to sit inside that box */
 .mbc-badge {

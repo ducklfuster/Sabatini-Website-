@@ -21,14 +21,14 @@
       .wall-bg-v8.fan-stage { padding: 0; min-height: 0; }
       .wall-bg-v8 .desktop-only.dt7 { display: none !important; }
       .wall-bg-v8 .mobile-only { display: block !important; }
-      /* name/tagline text dropped from the card entirely (Rick's call --
+      /* name/script-tagline text dropped from the card (Rick's call --
          the logo already carries both, painted right into the crest) in
-         favor of a much bigger logo, so there's less to scope here now.
+         favor of a bigger logo + a plain "what we do" line (.mbc-tagline).
          .mobile-brand-card/.brand-divider are also used by index.html's
          original untouched mobile card, so any card-only tweaks still
          need to live here rather than on the shared base rules. */
-      .wall-bg-v8 .mobile-brand-card { padding: 14px 16px; }
-      .wall-bg-v8 .mobile-home { padding: 14px var(--space-3); }
+      .wall-bg-v8 .mobile-brand-card { padding: 10px 14px; }
+      .wall-bg-v8 .mobile-home { padding: 6px var(--space-3); }
     }
     /* Tablet range only (phones already have the right proportions at
        700px and below) -- widen the centered column and scale up the
@@ -37,6 +37,7 @@
     @media (min-width: 701px) and (max-width: 1024px) {
       .wall-bg-v8 .mobile-home { max-width: 720px; }
       .wall-bg-v8 .mbc-photo { width: 220px; height: 220px; }
+      .wall-bg-v8 .mbc-tagline { font-size: 1.25rem; }
       .wall-bg-v8 .mbc-services-tag { font-size: 0.85rem; padding: 10px 14px; }
       .wall-bg-v8 .mobile-swatch-grid .chip-name { font-size: 1.05rem; }
       .wall-bg-v8 .mobile-swatch-grid .chip-name .chip-primary-code { font-size: 0.78rem; }
@@ -159,6 +160,7 @@
             <span class="mbc-badge">Est. 2015</span>
             <div class="mbc-header">
               <span class="mbc-photo"><img src="images/logo.jpg" alt="Sabatini Pro Painting logo"></span>
+              <p class="mbc-tagline">Quality painting, inside and out.</p>
               <h1 class="sr-only">Sabatini Pro Painting &mdash; The best for your nest!</h1>
             </div>
             <hr class="brand-divider">
