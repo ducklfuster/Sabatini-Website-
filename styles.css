@@ -93,6 +93,18 @@ a { color: inherit; text-decoration: none; }
 
 img { max-width: 100%; display: block; }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ---------- layout shell ---------- */
 
 .mosaic {
@@ -1331,7 +1343,7 @@ img { max-width: 100%; display: block; }
    versions are untouched. */
 .mobile-swatch-grid.tt7 .mobile-brand-card,
 .mobile-swatch-grid.tt7 .mobile-brand-card + .chip-card {
-  margin-bottom: 0;
+  margin-bottom: 12px;
 }
 .chip-card.chip-on-dark .chip-name,
 .chip-card.chip-on-dark .chip-name .chip-primary-code,
@@ -1543,8 +1555,8 @@ img { max-width: 100%; display: block; }
   gap: 6px;
 }
 .mbc-photo {
-  width: 88px;
-  height: 88px;
+  width: 156px;
+  height: 156px;
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
