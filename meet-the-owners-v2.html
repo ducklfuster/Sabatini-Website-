@@ -213,9 +213,22 @@
       align-items:start;max-width:1140px;margin:60px auto 0;padding:0 32px;
     }
     .tl-primary{display:flex;flex-direction:column;gap:14px;}
+    .tl-figwrap{position:relative;}
     .tl-figure{overflow:hidden;background:var(--ink);aspect-ratio:4/3;position:relative;}
     .tl-figure img{width:100%;height:100%;object-fit:contain;
       transition:opacity .45s var(--ease);}
+    .tl-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:6;
+      width:46px;height:46px;border-radius:50%;border:none;cursor:pointer;
+      background:var(--cream);color:var(--ink);font-size:1.7rem;line-height:1;padding:0 0 4px;
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 6px 20px -6px rgba(20,19,16,.55);transition:background .25s,color .25s,transform .2s;}
+    .tl-arrow:hover{background:var(--rust);color:#fff;}
+    .tl-arrow:active{transform:translateY(-50%) scale(.92);}
+    .tl-prev{left:-16px;} .tl-next{right:-16px;}
+    .tl-counter{position:absolute;bottom:10px;right:10px;z-index:6;
+      font-family:var(--f-cond);letter-spacing:.1em;font-size:.7rem;font-weight:600;
+      color:var(--cream);background:rgba(20,19,16,.62);padding:4px 9px;border-radius:999px;}
+    @media(max-width:520px){.tl-prev{left:6px;}.tl-next{right:6px;}}
     .tl-cap{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.12em;
       font-size:.72rem;color:var(--stone);min-height:1.2em;}
     .tl-side{padding-top:4px;}
@@ -393,7 +406,12 @@
 
     <div class="tl-stage">
       <div class="tl-primary">
-        <div class="tl-figure"><img id="tlImg" src="images/story/ch1_43.jpg" alt=""></div>
+        <div class="tl-figwrap">
+          <button class="tl-arrow tl-prev" id="tlPrev" aria-label="Previous photo">&#8249;</button>
+          <div class="tl-figure"><img id="tlImg" src="images/story/ch1_43.jpg" alt=""></div>
+          <button class="tl-arrow tl-next" id="tlNext" aria-label="Next photo">&#8250;</button>
+          <span class="tl-counter" id="tlCounter">1 / 5</span>
+        </div>
         <p class="tl-cap" id="tlCap">The office, 2018.</p>
       </div>
       <div class="tl-side">
@@ -551,35 +569,47 @@
 
     const $img=document.getElementById('tlImg'),  $cap=document.getElementById('tlCap'),
           $chap=document.getElementById('tlChap'), $title=document.getElementById('tlTitle'),
-          $text=document.getElementById('tlText'), $thumbs=document.getElementById('tlThumbs');
+          $text=document.getElementById('tlText'), $thumbs=document.getElementById('tlThumbs'),
+          $counter=document.getElementById('tlCounter');
+    let curYear=0, curPhoto=0;
 
-    function setPrimary(p, thumbEl){
+    function render(){
+      const d=TL[curYear], p=d.photos[curPhoto], n=d.photos.length;
       $img.classList.add('tl-fade'); $cap.classList.add('tl-fade');
       setTimeout(()=>{
         $img.src=p.src; $img.alt=p.cap||''; $cap.textContent=p.cap||'';
         $img.classList.remove('tl-fade'); $cap.classList.remove('tl-fade');
-      },200);
-      $thumbs.querySelectorAll('.tl-thumb').forEach(t=>t.classList.remove('active'));
-      if(thumbEl) thumbEl.classList.add('active');
+      },180);
+      $counter.textContent=(curPhoto+1)+' / '+n;
+      $thumbs.querySelectorAll('.tl-thumb').forEach((t,i)=>t.classList.toggle('active',i===curPhoto));
     }
 
     function loadYear(i){
+      curYear=i; curPhoto=0;
       const d=TL[i];
       [$chap,$title,$text].forEach(n=>n.classList.add('tl-fade'));
       setTimeout(()=>{
         $chap.textContent=d.chap; $title.textContent=d.title; $text.textContent=d.text;
         [$chap,$title,$text].forEach(n=>n.classList.remove('tl-fade'));
-      },200);
+      },180);
       $thumbs.innerHTML='';
       d.photos.forEach((p,idx)=>{
         const b=document.createElement('button');
-        b.className='tl-thumb'+(idx===0?' active':'');
+        b.className='tl-thumb';
         b.innerHTML='<img src="'+p.src+'" alt="">';
-        b.addEventListener('click',()=>setPrimary(p,b));
+        b.addEventListener('click',()=>{ curPhoto=idx; render(); });
         $thumbs.appendChild(b);
       });
-      setPrimary(d.photos[0], $thumbs.firstChild);
+      render();
     }
+
+    function step(dir){
+      const n=TL[curYear].photos.length;
+      curPhoto=(curPhoto+dir+n)%n;
+      render();
+    }
+    document.getElementById('tlPrev').addEventListener('click',()=>step(-1));
+    document.getElementById('tlNext').addEventListener('click',()=>step(1));
 
     document.getElementById('tlRail').addEventListener('click',ev=>{
       const b=ev.target.closest('.tl-year'); if(!b) return;

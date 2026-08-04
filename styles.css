@@ -1261,7 +1261,7 @@ img { max-width: 100%; display: block; }
    .chip-scatter/.fan-brand-card/rotated .chip-card are all completely
    untouched. */
 .fan-brand-card-v7 {
-  width: 320px;
+  width: 296px;
   flex-shrink: 0;
   height: 100%;
 }
@@ -1289,7 +1289,7 @@ img { max-width: 100%; display: block; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 26px;
+  gap: 36px;
 }
 .chip-grid-v7 .chip-card {
   width: 100%;
