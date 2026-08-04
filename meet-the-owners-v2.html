@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet the Owners — Sabatini Pro Painting</title>
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Courier+Prime:ital@0;1&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       STORY DNA — Heritage Editorial (see design/story-dna.json)
+       ============================================================ */
+    :root{
+      --cream:#E9E1D2;
+      --cream-lift:#FBF8F2;
+      --sand:#D8CEBC;
+      --taupe:#B9AE99;
+      --stone:#8A8171;
+      --slate:#57534A;
+      --ink:#1B1A17;
+      --char:#211F1B;
+      --rust:#9C4A2E;
+      --rust-deep:#803a22;
+
+      --f-display:"Anton", "Arial Narrow", sans-serif;
+      --f-cond:"Oswald", sans-serif;
+      --f-serif:"Fraunces", Georgia, serif;
+      --f-type:"Courier Prime", "Courier New", monospace;
+      --f-hand:"Caveat", cursive;
+      --f-body:"Oswald", system-ui, sans-serif; /* placeholder body; swap for site sans */
+
+      --ease:cubic-bezier(0.16,1,0.3,1);
+      --maxw:1280px;
+    }
+
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      background:var(--cream);
+      color:var(--ink);
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:17px;
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+    img{display:block;max-width:100%;}
+    a{color:inherit;}
+
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+    .overline{
+      font-family:var(--f-cond);
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      font-size:.72rem;
+      font-weight:600;
+      color:var(--rust);
+    }
+    .display{
+      font-family:var(--f-display);
+      text-transform:uppercase;
+      line-height:.9;
+      letter-spacing:.005em;
+      font-weight:400;
+    }
+    .serif{font-family:var(--f-serif);}
+
+    /* ---------- top bar ---------- */
+    header.bar{
+      position:absolute;top:0;left:0;right:0;z-index:20;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:22px 32px;
+    }
+    header.bar .brand{
+      font-family:var(--f-display);text-transform:uppercase;
+      letter-spacing:.04em;font-size:1.1rem;color:var(--ink);
+      display:flex;align-items:center;gap:10px;
+    }
+    header.bar .brand img{width:34px;height:34px;border-radius:50%;object-fit:cover;}
+    header.bar nav{display:flex;gap:26px;font-family:var(--f-cond);
+      text-transform:uppercase;letter-spacing:.13em;font-size:.74rem;font-weight:600;}
+    header.bar nav a{text-decoration:none;opacity:.85;}
+    header.bar nav a:hover{opacity:1;color:var(--rust);}
+    @media(max-width:820px){header.bar nav{display:none;}}
+
+    /* ============================================================
+       1 — HERO (split: portrait + text)
+       ============================================================ */
+    .hero{
+      min-height:100vh;display:grid;grid-template-columns:1.05fr 1fr;
+      align-items:stretch;
+    }
+    .hero__media{position:relative;overflow:hidden;background:var(--ink);}
+    .hero__media img{width:100%;height:100%;object-fit:cover;object-position:center 30%;}
+    .hero__text{
+      display:flex;flex-direction:column;justify-content:center;
+      padding:120px 8vw 80px;
+    }
+    .hero__text .overline{margin-bottom:22px;}
+    .hero__text h1{
+      margin:0;font-size:clamp(3rem,6.5vw,6.2rem);
+    }
+    .hero__text h1 span{display:block;color:var(--rust);}
+    .hero__lede{
+      font-family:var(--f-serif);font-size:1.25rem;line-height:1.5;
+      max-width:38ch;margin-top:28px;color:var(--slate);
+    }
+    .hero__scroll{
+      margin-top:48px;font-family:var(--f-cond);text-transform:uppercase;
+      letter-spacing:.18em;font-size:.72rem;color:var(--stone);
+      display:flex;align-items:center;gap:12px;
+    }
+    .hero__scroll::before{content:"";width:44px;height:1px;background:var(--stone);}
+    @media(max-width:860px){
+      .hero{grid-template-columns:1fr;}
+      .hero__media{height:62vh;order:-1;}
+      .hero__text{padding:56px 32px 64px;}
+    }
+
+    /* ============================================================
+       2 — INTRO
+       ============================================================ */
+    .intro{padding:130px 0 110px;text-align:center;}
+    .intro p{
+      font-family:var(--f-serif);
+      font-size:clamp(1.5rem,3vw,2.35rem);
+      line-height:1.4;font-weight:400;
+      max-width:22ch;margin:0 auto;
+    }
+    .intro .lead-in{max-width:none;}
+    .intro em{font-style:italic;color:var(--rust);}
+
+    /* ============================================================
+       3 — STORY EXCERPT + click-out  (Huckberry) + ANNOTATION (YETI)
+       ============================================================ */
+    .excerpt{
+      display:grid;grid-template-columns:1fr 1fr;gap:0;
+      align-items:center;background:var(--char);color:var(--cream);
+    }
+    .excerpt__media{position:relative;align-self:stretch;overflow:visible;padding:70px 0 70px 0;}
+    .excerpt__frame{position:relative;height:100%;min-height:520px;overflow:hidden;}
+    .excerpt__frame img{width:100%;height:100%;object-fit:cover;}
+    /* hand-drawn annotation that spills off the photo */
+    .annot{position:absolute;right:-64px;top:38px;width:230px;height:200px;
+      pointer-events:none;overflow:visible;z-index:5;}
+    .annot svg{width:100%;height:100%;overflow:visible;}
+    .annot .draw{
+      fill:none;stroke:var(--rust);stroke-width:3.4;
+      stroke-linecap:round;stroke-linejoin:round;
+      stroke-dasharray:900;stroke-dashoffset:900;
+      transition:stroke-dashoffset 1s var(--ease) .2s;
+    }
+    .annot.in .draw{stroke-dashoffset:0;}
+    .annot .label{
+      font-family:var(--f-hand);font-size:1.9rem;fill:var(--rust);
+      opacity:0;transition:opacity .5s ease .9s;
+    }
+    .annot.in .label{opacity:1;}
+
+    .excerpt__body{padding:90px 8vw;}
+    .excerpt__body .overline{color:#d98b6c;}
+    .excerpt__body h2{
+      font-family:var(--f-serif);font-weight:500;
+      font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.18;
+      margin:16px 0 26px;
+    }
+    .excerpt__body p{color:#d9d2c4;max-width:46ch;font-size:1.06rem;}
+    .readlink{
+      display:inline-flex;align-items:center;gap:12px;margin-top:34px;
+      font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.15em;
+      font-size:.8rem;font-weight:600;color:var(--cream);text-decoration:none;
+      border-bottom:1px solid rgba(233,225,210,.35);padding-bottom:8px;
+    }
+    .readlink .arw{transition:transform .4s var(--ease);}
+    .readlink:hover{color:#f0b79c;}
+    .readlink:hover .arw{transform:translateX(6px);}
+    @media(max-width:860px){
+      .excerpt{grid-template-columns:1fr;}
+      .excerpt__media{padding:40px 32px;}
+      .excerpt__frame{min-height:360px;}
+      .annot{right:8px;top:12px;width:160px;height:140px;}
+      .excerpt__body{padding:56px 32px 72px;}
+    }
+
+    /* ============================================================
+       4 — TIMELINE (Filson)
+       ============================================================ */
+    .timeline{padding:120px 0 130px;}
+    .timeline__head{text-align:center;margin-bottom:14px;}
+    .timeline__head h2{margin:12px 0 0;font-size:clamp(2.4rem,5vw,4.2rem);}
+    .tl-rail{
+      display:flex;justify-content:center;gap:0;flex-wrap:wrap;
+      border-bottom:1px solid var(--taupe);
+      max-width:960px;margin:44px auto 0;
+    }
+    .tl-year{
+      background:none;border:0;cursor:pointer;
+      font-family:var(--f-display);font-size:clamp(1.15rem,2.4vw,1.9rem);
+      color:var(--taupe);padding:10px 26px 18px;position:relative;
+      transition:color .3s var(--ease);letter-spacing:.02em;
+    }
+    .tl-year:hover{color:var(--slate);}
+    .tl-year.active{color:var(--ink);}
+    .tl-year.active::after{
+      content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;
+      background:var(--rust);
+    }
+    .tl-stage{
+      display:grid;grid-template-columns:1.2fr 1fr;gap:52px;
+      align-items:start;max-width:1140px;margin:60px auto 0;padding:0 32px;
+    }
+    .tl-primary{display:flex;flex-direction:column;gap:14px;}
+    .tl-figure{overflow:hidden;background:var(--ink);aspect-ratio:4/3;position:relative;}
+    .tl-figure img{width:100%;height:100%;object-fit:contain;
+      transition:opacity .45s var(--ease);}
+    .tl-cap{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.12em;
+      font-size:.72rem;color:var(--stone);min-height:1.2em;}
+    .tl-side{padding-top:4px;}
+    .tl-copy .chapter{font-family:var(--f-cond);text-transform:uppercase;
+      letter-spacing:.16em;font-size:.75rem;color:var(--rust);font-weight:600;}
+    .tl-copy h3{font-family:var(--f-serif);font-weight:500;
+      font-size:clamp(1.5rem,2.8vw,2.15rem);line-height:1.2;margin:14px 0 16px;}
+    .tl-copy p{color:var(--slate);max-width:42ch;}
+    .tl-thumbs{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;}
+    .tl-thumb{width:62px;height:62px;overflow:hidden;cursor:pointer;padding:0;border:2px solid transparent;
+      background:var(--sand);opacity:.62;transition:opacity .25s var(--ease),border-color .25s var(--ease);}
+    .tl-thumb img{width:100%;height:100%;object-fit:cover;}
+    .tl-thumb:hover{opacity:1;}
+    .tl-thumb.active{opacity:1;border-color:var(--rust);}
+    .tl-fade{opacity:0;}
+    @media(max-width:860px){
+      .tl-stage{grid-template-columns:1fr;gap:28px;}
+      .tl-year{padding:10px 16px 16px;}
+    }
+
+    /* ============================================================
+       5 — PHILOSOPHY STRIP (full-bleed charcoal)
+       ============================================================ */
+    .philo{
+      background:var(--ink);color:var(--cream);
+      padding:150px 0;text-align:center;
+    }
+    .philo .overline{color:#d98b6c;}
+    .philo p{
+      font-family:var(--f-serif);font-weight:400;
+      font-size:clamp(1.9rem,4.4vw,3.6rem);line-height:1.22;
+      max-width:16ch;margin:26px auto 0;
+    }
+    .philo p b{font-weight:500;color:#f0b79c;}
+
+    /* ============================================================
+       6 — LETTER (drop-in slot for Alejandra's words)
+       ============================================================ */
+    .letter{padding:120px 0;}
+    .letter__card{
+      max-width:760px;margin:0 auto;background:var(--cream-lift);
+      padding:72px clamp(32px,7vw,92px);position:relative;
+      border:1px solid var(--sand);
+    }
+    .letter__card .overline{margin-bottom:26px;display:block;}
+    .letter__card p{
+      font-family:var(--f-type);font-size:1.02rem;line-height:1.85;
+      color:var(--slate);
+    }
+    .letter__card p + p{margin-top:22px;}
+    .sig{font-family:var(--f-hand);font-size:2.4rem;color:var(--ink);
+      margin-top:34px;line-height:1;}
+    .sig small{display:block;font-family:var(--f-cond);text-transform:uppercase;
+      letter-spacing:.16em;font-size:.68rem;color:var(--stone);margin-top:10px;}
+    .draft-flag{position:absolute;top:16px;right:16px;background:var(--rust);
+      color:#fff;font-family:var(--f-cond);text-transform:uppercase;
+      letter-spacing:.12em;font-size:.6rem;padding:5px 10px;font-weight:600;}
+
+    /* ============================================================
+       7 — TEAM BRIDGE
+       ============================================================ */
+    .bridge{background:var(--char);color:var(--cream);padding:96px 32px;text-align:center;}
+    .bridge__inner{max-width:1040px;margin:0 auto;}
+    .bridge__inner .overline{color:#f0b79c;display:block;margin-bottom:26px;}
+    .bridge img{width:100%;height:auto;display:block;margin:0 0 34px;}
+    .bridge__inner h2{font-family:var(--f-serif);font-weight:500;
+      font-size:clamp(1.9rem,4vw,3rem);line-height:1.18;margin:0 auto 24px;max-width:22ch;}
+    .bridge .readlink{color:var(--cream);border-color:rgba(233,225,210,.5);}
+
+    /* ============================================================
+       8 — CTA
+       ============================================================ */
+    .cta{padding:130px 0;text-align:center;}
+    .cta .display{font-size:clamp(2.6rem,6vw,5rem);margin:0 0 12px;}
+    .cta p{color:var(--slate);max-width:40ch;margin:0 auto 40px;font-family:var(--f-serif);font-size:1.2rem;}
+    .btn-pill{
+      display:inline-block;background:var(--ink);color:var(--cream);
+      text-decoration:none;font-family:var(--f-cond);text-transform:uppercase;
+      letter-spacing:.15em;font-size:.82rem;font-weight:600;
+      padding:20px 46px;border-radius:999px;transition:background .3s var(--ease),transform .3s var(--ease);
+    }
+    .btn-pill:hover{background:var(--rust);transform:translateY(-2px);}
+
+    /* footer */
+    footer.foot{background:var(--char);color:var(--taupe);
+      font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.1em;
+      font-size:.68rem;padding:34px 32px;display:flex;flex-wrap:wrap;
+      gap:10px 18px;align-items:center;justify-content:center;text-align:center;}
+    footer.foot a{color:var(--taupe);}
+    footer.foot .sep{opacity:.4;}
+
+    /* scroll reveal */
+    .reveal{opacity:0;transform:translateY(28px);
+      transition:opacity .9s var(--ease),transform .9s var(--ease);}
+    .reveal.in{opacity:1;transform:none;}
+
+    @media(prefers-reduced-motion:reduce){
+      *{transition:none!important;animation:none!important;}
+      .reveal{opacity:1;transform:none;}
+      .annot .draw{stroke-dashoffset:0;} .annot .label{opacity:1;}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="bar">
+    <div class="brand"><img src="images/logo.jpg" alt="">Sabatini</div>
+    <nav>
+      <a href="#story">Our Story</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#team">The Team</a>
+      <a href="get-quote.html">Get Quote</a>
+    </nav>
+  </header>
+
+  <!-- 1 · HERO -->
+  <section class="hero">
+    <div class="hero__media">
+      <img src="images/misc/owner-photo.jpg" alt="Rick and Alejandra Sabatini">
+    </div>
+    <div class="hero__text">
+      <span class="overline">Meet the Owners</span>
+      <h1 class="display">Rick <span>&amp; Alejandra</span></h1>
+      <p class="hero__lede">Two people, one van, and a standard we refused to lower. This is the story of how a paint-splattered start became the crew you'd invite into your home.</p>
+      <span class="hero__scroll">Scroll to begin</span>
+    </div>
+  </section>
+
+  <!-- 2 · INTRO -->
+  <section class="intro wrap">
+    <p class="reveal">We didn't set out to build a painting company. We set out to build something we'd be <em>proud</em> to put our name on.</p>
+  </section>
+
+  <!-- 3 · STORY EXCERPT + click-out -->
+  <section class="excerpt" id="story">
+    <div class="excerpt__media">
+      <div class="excerpt__frame">
+        <img src="images/history/year-one-van.jpg" alt="Rick and Alejandra in the work van, year one">
+      </div>
+      <div class="annot" data-annot>
+        <svg viewBox="0 0 230 200" aria-hidden="true">
+          <path class="draw" d="M14,150 C4,96 60,64 120,70 C176,76 206,110 196,146 C188,178 150,192 96,188 C58,185 22,176 14,150 Z"/>
+          <path class="draw" d="M150,44 C150,44 132,60 120,68" />
+          <path class="draw" d="M120,68 L114,52 M120,68 L134,60" />
+          <text class="label" x="120" y="30" text-anchor="middle">day one.</text>
+        </svg>
+      </div>
+    </div>
+    <div class="excerpt__body">
+      <span class="overline">Our Story</span>
+      <h2>We finished our first year with less money than we started with.</h2>
+      <p>The van smelled like primer. We ate lunch in the front seats and did estimates on the tailgate. Some nights we weren't sure the phone would ring the next morning — but we never once cut a corner to make a job easier.</p>
+      <p>That was the deal we made with ourselves: if our name was going on the wall, the wall would be right.</p>
+      <a class="readlink" href="our-story-v11.html">Read our full story <span class="arw">→</span></a>
+    </div>
+  </section>
+
+  <!-- 4 · TIMELINE -->
+  <section class="timeline" id="timeline">
+    <div class="timeline__head wrap">
+      <span class="overline">The Road So Far</span>
+      <h2 class="display">Our Timeline</h2>
+    </div>
+
+    <div class="tl-rail" id="tlRail">
+      <button class="tl-year active" data-i="0">2018</button>
+      <button class="tl-year" data-i="1">2019</button>
+      <button class="tl-year" data-i="2">2020</button>
+      <button class="tl-year" data-i="3">2021</button>
+      <button class="tl-year" data-i="4">2022</button>
+      <button class="tl-year" data-i="5">2023</button>
+      <button class="tl-year" data-i="6">2024</button>
+      <button class="tl-year" data-i="7">Today</button>
+    </div>
+
+    <div class="tl-stage">
+      <div class="tl-primary">
+        <div class="tl-figure"><img id="tlImg" src="images/story/ch1_43.jpg" alt=""></div>
+        <p class="tl-cap" id="tlCap">The office, 2018.</p>
+      </div>
+      <div class="tl-side">
+        <div class="tl-copy">
+          <span class="chapter" id="tlChap">Chapter One · The First Year</span>
+          <h3 id="tlTitle">A van, a ladder, and a lot to prove.</h3>
+          <p id="tlText">We started with almost nothing but a refusal to do sloppy work. Every job was a referral waiting to happen — or a reason someone would never call us again.</p>
+        </div>
+        <div class="tl-thumbs" id="tlThumbs"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · PHILOSOPHY -->
+  <section class="philo reveal">
+    <div class="wrap">
+      <span class="overline">What We Believe</span>
+      <p>Skill matters. <b>Character matters more.</b> We can teach someone to paint. We can't teach them to care.</p>
+    </div>
+  </section>
+
+  <!-- 6 · LETTER -->
+  <section class="letter">
+    <div class="letter__card reveal">
+      <span class="draft-flag">Placeholder</span>
+      <span class="overline">A Note From Us</span>
+      <p>[ This is the drop-in slot for Alejandra's letter. ] When she's ready, her words land right here — a short, personal note, in her voice, that closes the page on a human beat before we ask for anything.</p>
+      <p>Until then this placeholder holds the space so we can see the rhythm: a few honest sentences, a signature, and then the invitation.</p>
+      <div class="sig">Rick &amp; Alejandra
+        <small>Owners, Sabatini Pro Painting</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 · TEAM BRIDGE -->
+  <section class="bridge" id="team">
+    <div class="bridge__inner">
+      <span class="overline">The Proof</span>
+      <img src="images/misc/crew-photo.jpg" alt="The Sabatini crew">
+      <h2>The people who actually walk into your home.</h2>
+      <a class="readlink" href="our-team.html">Meet the team <span class="arw">→</span></a>
+    </div>
+  </section>
+
+  <!-- 8 · CTA -->
+  <section class="cta">
+    <div class="wrap reveal">
+      <h2 class="display">Let's talk about your home.</h2>
+      <p>Free estimate. Honest number. No pressure.</p>
+      <a class="btn-pill" href="get-quote.html">Get a Free Estimate</a>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <span>License #PA124576 · Insured</span><span class="sep">|</span>
+    <span>Est. 2015</span><span class="sep">|</span>
+    <span>Family-owned &amp; operated</span><span class="sep">|</span>
+    <span>4.9★ · 212 Google Reviews</span><span class="sep">|</span>
+    <span>Folsom, PA</span>
+  </footer>
+
+  <script>
+    /* ---- scroll reveal + annotation draw ---- */
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:.18});
+    document.querySelectorAll('.reveal,[data-annot]').forEach(el=>io.observe(el));
+
+    /* ---- timeline: multiple captioned photos per year ---- */
+    const TL = [
+      { chap:'The First Year',
+        title:'A van, a ladder, and a lot to prove.',
+        text:'We finished our first year with less money than we started with — and a standard we refused to lower. Every job was a referral waiting to happen.',
+        photos:[
+          {src:'images/story/ch1_43.jpg', cap:'The office, 2018.'},
+          {src:'images/story/ch1_48.jpg', cap:'Lunch was two seats and a coffee.'},
+          {src:'images/story/ch1_37.jpg', cap:'One of the first crews.'},
+          {src:'images/story/ch3_47.jpg', cap:'Learning the dust the hard way.'},
+          {src:'images/story/ch1_1.jpg',  cap:'“I’ll get back to you.”'}
+        ]},
+      { chap:'Finding Our Feet',
+        title:'Bigger jobs. Higher standards.',
+        text:'The work started reaching higher — literally. We took on rooms with a view and learned that scale only matters if the finish holds up close.',
+        photos:[
+          {src:'images/story/cine_74.jpg', cap:'Two people, one standard.'},
+          {src:'images/story/ch5_80.jpg', cap:'A room with a view, 2019.'},
+          {src:'images/story/ch5_82.jpg', cap:'Cutting in, high above the city.'},
+          {src:'images/story/home_88.jpg', cap:'Chester supervised.'},
+          {src:'images/story/home_122.jpg', cap:'Off the clock.'}
+        ]},
+      { chap:'The COVID Moment',
+        title:'The world moved indoors.',
+        text:'Suddenly everyone was home, looking at their walls — and we found out we were going to be parents. We grew fast, and learned what leadership actually costs.',
+        photos:[
+          {src:'images/story/ch2_180.jpg', cap:'Small business, strong. 2020.'},
+          {src:'images/story/ch2_186.jpg', cap:'Estimates over a screen.'},
+          {src:'images/story/ch2_191.jpg', cap:'Masked up, still working.'},
+          {src:'images/story/ch2_196.jpg', cap:'Autumn, and a secret.'},
+          {src:'images/story/home_195.jpg', cap:'A quiet minute.'}
+        ]},
+      { chap:'Ezra & the First Team',
+        title:'A son. A team. A turning point.',
+        text:'Ezra arrived in January. So did the people who’d carry the standard with us — hired for character first, because we can teach the rest.',
+        photos:[
+          {src:'images/story/ch2_203.jpg', cap:'January 2021. Ezra.'},
+          {src:'images/story/ch2_205.jpg', cap:'“Sister soon, Papi.”'},
+          {src:'images/story/ch4_217.jpg', cap:'Character first.'},
+          {src:'images/story/ch4_224.jpg', cap:'The crew, together.'},
+          {src:'images/story/ch2_237.jpg', cap:'The three of us.'}
+        ]},
+      { chap:'Systems & Standards',
+        title:'We built the machine that holds the standard.',
+        text:'Green Sheets, written processes, a warranty we stand behind. The boring, invisible work that makes the finish reliable every single time.',
+        photos:[
+          {src:'images/story/ch3_289.jpg', cap:'Ninety percent is prep.'},
+          {src:'images/story/ch3_294.jpg', cap:'Everything, in writing.'},
+          {src:'images/story/ch4_269.jpg', cap:'The team, 2022.'},
+          {src:'images/story/ch5_331.jpg', cap:'Our name, out front.'},
+          {src:'images/story/ch6_298.jpg', cap:'The next generation.'}
+        ]},
+      { chap:'It All Clicked',
+        title:'The systems held — and our family grew again.',
+        text:'Crew leads ran the jobs; I stepped off the tools for good. We won an industry award, the reputation compounded — and Alba arrived.',
+        photos:[
+          {src:'images/story/y2023_19.jpg',  cap:'Crew leads run the jobs now.'},
+          {src:'images/story/y2023_7.jpg',   cap:'2023 APPC Academy Award.'},
+          {src:'images/story/y2023_11.jpg',  cap:'The whole philosophy, one slide.'},
+          {src:'images/story/y2023_28.jpg',  cap:'Alba. Our sunrise.'},
+          {src:'images/story/y2023_99.jpg',  cap:'The name on the road.'},
+          {src:'images/story/y2023_118.jpg', cap:'Four of us now.'}
+        ]},
+      { chap:'Scale & Reputation',
+        title:'Bigger work. A real team. A bigger voice.',
+        text:'Full renovations, our first estimators, a crew we photograph on purpose — and a camera finally pointed at the work worth showing.',
+        photos:[
+          {src:'images/story/y2024_100.jpg', cap:'The kind of home we build for.'},
+          {src:'images/story/y2024_14.jpg',  cap:'Full renovations, not just walls.'},
+          {src:'images/story/y2024_20.jpg',  cap:'BNI Notable Networker.'},
+          {src:'images/story/y2024_65.jpg',  cap:'A team we photograph on purpose.'},
+          {src:'images/story/y2024_70.jpg',  cap:'Even the beanies are ours.'},
+          {src:'images/story/y2024_104.jpg', cap:'Ask our customers.'}
+        ]},
+      { chap:'Home',
+        title:'Same two people. Same standard.',
+        text:'A family, a crew, a name that finally fits. Everything still comes back to one idea: someone trusted us with their home, and we mean to be worthy of it.',
+        photos:[
+          {src:'images/story/hero_333.jpg', cap:'Home.'},
+          {src:'images/story/y2024_77.jpg', cap:'Off the ladder, for once.'},
+          {src:'images/story/home_304.jpg', cap:'On the sand.'},
+          {src:'images/story/y2024_103.jpg',cap:'Up a mountain with Ezra.'},
+          {src:'images/story/ownr_360.jpg', cap:'Rick.'},
+          {src:'images/story/ch6_317.jpg',  cap:'Why Quack? Ask him.'}
+        ]}
+    ];
+
+    const $img=document.getElementById('tlImg'),  $cap=document.getElementById('tlCap'),
+          $chap=document.getElementById('tlChap'), $title=document.getElementById('tlTitle'),
+          $text=document.getElementById('tlText'), $thumbs=document.getElementById('tlThumbs');
+
+    function setPrimary(p, thumbEl){
+      $img.classList.add('tl-fade'); $cap.classList.add('tl-fade');
+      setTimeout(()=>{
+        $img.src=p.src; $img.alt=p.cap||''; $cap.textContent=p.cap||'';
+        $img.classList.remove('tl-fade'); $cap.classList.remove('tl-fade');
+      },200);
+      $thumbs.querySelectorAll('.tl-thumb').forEach(t=>t.classList.remove('active'));
+      if(thumbEl) thumbEl.classList.add('active');
+    }
+
+    function loadYear(i){
+      const d=TL[i];
+      [$chap,$title,$text].forEach(n=>n.classList.add('tl-fade'));
+      setTimeout(()=>{
+        $chap.textContent=d.chap; $title.textContent=d.title; $text.textContent=d.text;
+        [$chap,$title,$text].forEach(n=>n.classList.remove('tl-fade'));
+      },200);
+      $thumbs.innerHTML='';
+      d.photos.forEach((p,idx)=>{
+        const b=document.createElement('button');
+        b.className='tl-thumb'+(idx===0?' active':'');
+        b.innerHTML='<img src="'+p.src+'" alt="">';
+        b.addEventListener('click',()=>setPrimary(p,b));
+        $thumbs.appendChild(b);
+      });
+      setPrimary(d.photos[0], $thumbs.firstChild);
+    }
+
+    document.getElementById('tlRail').addEventListener('click',ev=>{
+      const b=ev.target.closest('.tl-year'); if(!b) return;
+      document.querySelectorAll('.tl-year').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      loadYear(+b.dataset.i);
+    });
+    loadYear(0);
+  </script>
+</body>
+</html>
