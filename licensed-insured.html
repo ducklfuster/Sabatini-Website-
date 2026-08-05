@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Licensed, Insured &amp; Guaranteed — Sabatini Pro Painting</title>
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --cream:#E9E1D2; --cream-lift:#FBF8F2; --sand:#D8CEBC; --taupe:#B9AE99;
+      --stone:#8A8171; --slate:#57534A; --ink:#1B1A17; --char:#211F1B;
+      --rust:#9C4A2E; --rust-lt:#d98b6c; --rust-deep:#803a22;
+      --f-display:"Anton","Arial Narrow",sans-serif; --f-cond:"Oswald",sans-serif;
+      --f-serif:"Fraunces",Georgia,serif; --f-hand:"Caveat",cursive;
+      --ease:cubic-bezier(0.16,1,0.3,1);
+    }
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{margin:0;background:var(--cream);color:var(--ink);
+      font-family:Georgia,"Times New Roman",serif;font-size:18px;line-height:1.7;
+      -webkit-font-smoothing:antialiased;overflow-x:hidden;}
+    img{display:block;max-width:100%;}
+    a{color:inherit;}
+    .overline{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;font-weight:600;color:var(--rust);}
+
+    header.bar{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;
+      justify-content:space-between;padding:15px 30px;background:var(--cream);border-bottom:1px solid var(--sand);}
+    header.bar .brand{font-family:var(--f-display);text-transform:uppercase;letter-spacing:.04em;font-size:1.05rem;
+      display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);}
+    header.bar .brand img{width:32px;height:32px;border-radius:50%;object-fit:cover;}
+    header.bar .cta{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;font-weight:600;
+      color:#fff;background:var(--rust);text-decoration:none;padding:10px 18px;border-radius:999px;}
+
+    .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+    .intro{padding:130px 0 10px;max-width:760px;margin:0 auto;}
+    .intro h1{font-family:var(--f-display);text-transform:uppercase;font-size:clamp(2.6rem,6.5vw,5rem);line-height:.92;margin:14px 0 0;}
+    .intro p{font-family:var(--f-serif);font-size:clamp(1.15rem,2.2vw,1.5rem);line-height:1.5;color:var(--slate);margin:22px 0 0;}
+
+    .layer{max-width:1080px;margin:0 auto;padding:70px 32px 0;}
+    .layer__tag{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:600;color:var(--rust);}
+    .layer h2{font-family:var(--f-serif);font-weight:500;font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.16;margin:10px 0 0;}
+    .layer > p{max-width:640px;color:var(--slate);margin:16px 0 0;}
+
+    /* annotated document */
+    .doc{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;margin-top:36px;}
+    .doc__frame{position:relative;line-height:0;box-shadow:0 30px 60px -34px rgba(20,19,16,.5);border:1px solid var(--sand);}
+    .doc__frame img{width:100%;height:auto;}
+    .doc__marks{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+    .doc__marks .ring{fill:none;stroke:var(--rust);stroke-width:5;stroke-linecap:round;
+      stroke-dasharray:2400;stroke-dashoffset:2400;transition:stroke-dashoffset 1s var(--ease);}
+    .doc.in .doc__marks .ring{stroke-dashoffset:0;}
+    .doc__marks .num{fill:var(--rust);}
+    .doc__marks .numt{fill:#fff;font-family:"Oswald",sans-serif;font-weight:700;font-size:44px;text-anchor:middle;}
+    .doc__notes{list-style:none;margin:0;padding:0;position:sticky;top:90px;}
+    .doc__notes li{display:flex;gap:16px;padding:0 0 26px;}
+    .doc__notes .b{flex:none;width:34px;height:34px;border-radius:50%;background:var(--rust);color:#fff;
+      font-family:var(--f-cond);font-weight:700;font-size:1rem;display:flex;align-items:center;justify-content:center;margin-top:2px;}
+    .doc__notes h3{font-family:var(--f-serif);font-weight:500;font-size:1.18rem;margin:0 0 4px;}
+    .doc__notes p{margin:0;font-size:1rem;line-height:1.55;color:var(--slate);}
+    .doc__notes em{font-style:italic;color:var(--rust-deep);}
+    @media(max-width:820px){
+      .doc{grid-template-columns:1fr;gap:28px;}
+      .doc__notes{position:static;}
+    }
+
+    .verify{display:inline-flex;align-items:center;gap:10px;margin-top:20px;font-family:var(--f-cond);
+      text-transform:uppercase;letter-spacing:.13em;font-size:.78rem;font-weight:600;color:var(--rust);
+      text-decoration:none;border-bottom:1px solid var(--rust);padding-bottom:4px;}
+    .verify:hover{color:var(--rust-deep);}
+
+    /* placeholder note for Rick */
+    .todo{max-width:640px;margin:16px 0 0;padding:16px 20px;border:1px dashed var(--rust);background:rgba(156,74,46,.06);
+      color:var(--rust-deep);font-size:.98rem;line-height:1.55;}
+    .todo b{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.12em;font-size:.68rem;display:block;margin-bottom:5px;}
+
+    /* how to vet anyone */
+    .vet{background:var(--ink);color:var(--cream);margin-top:80px;padding:76px 32px;}
+    .vet__inner{max-width:760px;margin:0 auto;}
+    .vet .layer__tag{color:var(--rust-lt);}
+    .vet h2{font-family:var(--f-serif);font-weight:500;font-size:clamp(1.7rem,3.4vw,2.4rem);margin:10px 0 8px;}
+    .vet > .vet__inner > p{color:#d9d2c4;margin:0 0 26px;}
+    .vet ul{list-style:none;margin:0;padding:0;}
+    .vet li{display:flex;gap:14px;padding:14px 0;border-top:1px solid rgba(233,225,210,.15);font-size:1.05rem;}
+    .vet li:first-child{border-top:0;}
+    .vet li .c{color:var(--rust-lt);font-family:var(--f-cond);font-weight:700;}
+    .vet .kicker2{margin-top:26px;font-family:var(--f-serif);font-style:italic;color:#f0b79c;font-size:1.2rem;}
+
+    /* CTA */
+    .final{text-align:center;padding:90px 32px 100px;}
+    .final h2{font-family:var(--f-display);text-transform:uppercase;font-size:clamp(2rem,4.6vw,3.4rem);line-height:.98;margin:0 0 12px;}
+    .final p{color:var(--slate);max-width:44ch;margin:0 auto 28px;font-family:var(--f-serif);font-size:1.15rem;}
+    .btn-pill{display:inline-block;background:var(--rust);color:#fff;text-decoration:none;font-family:var(--f-cond);
+      text-transform:uppercase;letter-spacing:.15em;font-size:.82rem;font-weight:600;padding:19px 44px;border-radius:999px;transition:transform .3s var(--ease),background .3s;}
+    .btn-pill:hover{transform:translateY(-2px);background:var(--rust-deep);}
+    .final .phone{display:block;margin-top:16px;font-family:var(--f-cond);letter-spacing:.08em;font-size:1.05rem;text-decoration:none;}
+
+    footer.foot{background:#151310;color:var(--taupe);font-family:var(--f-cond);text-transform:uppercase;
+      letter-spacing:.1em;font-size:.66rem;padding:30px 32px;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:center;text-align:center;}
+    footer.foot .sep{opacity:.4;}
+
+    .rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+    .rv.in{opacity:1;transform:none;}
+    @media(prefers-reduced-motion:reduce){*{transition:none!important;}.rv{opacity:1;transform:none;}.doc__marks .ring{stroke-dashoffset:0;}}
+  </style>
+</head>
+<body>
+  <header class="bar">
+    <a class="brand" href="index-v11.html"><img src="images/logo.jpg" alt="">Sabatini</a>
+    <a class="cta" href="get-quote.html">Book a Quote</a>
+  </header>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <span class="overline">Licensed, Insured &amp; Guaranteed</span>
+    <h1>How you're protected.</h1>
+    <p>Letting a crew into your home comes with real risks — most of which you never think about until something goes wrong. Here's every layer we put between you and those risks, and how to read the paperwork yourself.</p>
+  </section>
+
+  <!-- LAYER 1 · INSURANCE (annotated doc) -->
+  <section class="layer">
+    <span class="layer__tag">Layer 1 · Insurance</span>
+    <h2>Our certificate of insurance — and how to read it.</h2>
+    <p>This is a real, current certificate. We circled the five things that matter to you, so you can read ours — or anyone's — with confidence.</p>
+
+    <div class="doc rv">
+      <div class="doc__frame">
+        <img src="images/insurance/coi.png" alt="Sabatini Pro Painting certificate of liability insurance">
+        <svg class="doc__marks" viewBox="0 0 1700 2200" preserveAspectRatio="none" aria-hidden="true">
+          <ellipse class="ring" cx="1258" cy="132" rx="128" ry="50" transform="rotate(-3 1258 132)"/>
+          <circle class="num" cx="1420" cy="92" r="30"/><text class="numt" x="1420" y="107">1</text>
+
+          <ellipse class="ring" cx="1112" cy="918" rx="108" ry="46" transform="rotate(-2 1112 918)"/>
+          <circle class="num" cx="1245" cy="876" r="30"/><text class="numt" x="1245" y="891">2</text>
+
+          <ellipse class="ring" cx="262" cy="872" rx="180" ry="38" transform="rotate(-1.5 262 872)"/>
+          <circle class="num" cx="470" cy="836" r="30"/><text class="numt" x="470" y="851">3</text>
+
+          <ellipse class="ring" cx="278" cy="1330" rx="205" ry="50" transform="rotate(-1 278 1330)"/>
+          <circle class="num" cx="512" cy="1288" r="30"/><text class="numt" x="512" y="1303">4</text>
+
+          <ellipse class="ring" cx="372" cy="1946" rx="240" ry="108" transform="rotate(-1 372 1946)"/>
+          <circle class="num" cx="640" cy="1852" r="30"/><text class="numt" x="640" y="1867">5</text>
+        </svg>
+      </div>
+
+      <ol class="doc__notes">
+        <li><span class="b">1</span><div>
+          <h3>The date it was issued</h3>
+          <p>Every certificate shows the day it was created (top right). Always make sure you're looking at a recent one — not last year's.</p>
+        </div></li>
+        <li><span class="b">2</span><div>
+          <h3>The expiration date</h3>
+          <p>Each policy is active only through this date. If a contractor's coverage has expired, you're not protected — so ask for a current certificate before work starts.</p>
+        </div></li>
+        <li><span class="b">3</span><div>
+          <h3>General liability</h3>
+          <p>If we damage your home — a spill, a ladder through the drywall, a broken window — this pays to fix it, <em>not you.</em> Covered up to $1,000,000 per occurrence.</p>
+        </div></li>
+        <li><span class="b">4</span><div>
+          <h3>Workers' compensation</h3>
+          <p>Here's the one most homeowners don't know: if a worker is hurt in your home and the company carries no workers' comp, <em>you can be held liable.</em> This covers our people, so you never are.</p>
+        </div></li>
+        <li><span class="b">5</span><div>
+          <h3>The certificate holder</h3>
+          <p>This is where the certificate holder's name and address go — on your job, that would be <em>you.</em> We blurred our client's here for their privacy. And if your HOA (or you) want a certificate naming you, just ask — we'll send one.</p>
+        </div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- LAYER 1 · LICENSE -->
+  <section class="layer rv">
+    <span class="layer__tag">Layer 1 · Registration</span>
+    <h2>Registered with the state — and easy to verify.</h2>
+    <p>We're a registered Pennsylvania Home Improvement Contractor (<b>PA #124576</b>). You don't have to take our word for it — Pennsylvania keeps a public registry, and you can look us up yourself in ten seconds.</p>
+    <a class="verify" href="https://hicsearch.attorneygeneral.gov/" target="_blank" rel="noopener">Verify our registration →</a>
+    <div class="todo"><b>Rick — confirm</b> Is PA #124576 your Home Improvement Contractor (HIC) registration number? If it's a different kind of license, tell me and I'll relabel + fix the verify link.</div>
+  </section>
+
+  <!-- LAYER 1 · WARRANTY -->
+  <section class="layer rv">
+    <span class="layer__tag">Layer 1 · Warranty</span>
+    <h2>Two years, in writing.</h2>
+    <p>Every job we do carries a two-year warranty. If something isn't holding up the way it should, we come back and make it right — no fine print, no runaround.</p>
+  </section>
+
+  <!-- LAYER 2 · GOOD CONTRACTORS LIST -->
+  <section class="layer rv">
+    <span class="layer__tag">Layer 2 · Vetted by others</span>
+    <h2>Member of The Good Contractors List.</h2>
+    <p>It's one thing for us to vouch for ourselves. It's another for an outside organization to put us through their screening and stand behind us.</p>
+    <div class="todo"><b>Rick — fill in</b> What is The Good Contractors List, in your words? What did it take to get on it (background checks, insurance verification, reviews)? Does membership come with any guarantee/bond that backs the homeowner? Give me the details and I'll write this properly.</div>
+  </section>
+
+  <!-- LAYER 3 · APPC -->
+  <section class="layer rv">
+    <span class="layer__tag">Layer 3 · Committed to the craft</span>
+    <h2>Member, Academy for Professional Painting Contractors.</h2>
+    <p>The APPC is an industry body focused on standards, training, and running a painting business the right way — not just swinging a brush. Being a member means we invest in getting better on purpose.</p>
+    <div class="todo"><b>Rick — fill in</b> Which specific APPC credentials, certifications, or trainings should we list here? Any other affiliations or certs (EPA Lead-Safe, manufacturer certifications, etc.)? List them and I'll add them.</div>
+  </section>
+
+  <!-- GENEROUS: how to vet anyone -->
+  <section class="vet rv">
+    <div class="vet__inner">
+      <span class="layer__tag">Before you hire anyone</span>
+      <h2>How to protect yourself with any contractor.</h2>
+      <p>Whether you hire us or not, here's what to ask everyone who wants to work in your home:</p>
+      <ul>
+        <li><span class="c">01</span><span>Ask for a <b>current</b> certificate of insurance — and check the issue and expiration dates.</span></li>
+        <li><span class="c">02</span><span>Confirm they carry <b>both</b> general liability <b>and</b> workers' compensation.</span></li>
+        <li><span class="c">03</span><span>Verify their state contractor registration number on the public registry.</span></li>
+        <li><span class="c">04</span><span>Get the warranty <b>in writing</b> before any work begins.</span></li>
+      </ul>
+      <p class="kicker2">If a contractor hesitates on any of these — that's your answer.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="final rv">
+    <h2>Want a certificate with your name on it?</h2>
+    <p>Just ask — we'll get one to you or your HOA in a day. And when you're ready, let's talk about your home.</p>
+    <a class="btn-pill" href="get-quote.html">Get a Free Quote</a>
+    <a class="phone" href="tel:+16108105040">or call (610) 810-5040</a>
+  </section>
+
+  <footer class="foot">
+    <span>License #PA124576 · Insured</span><span class="sep">|</span>
+    <span>Est. 2015</span><span class="sep">|</span>
+    <span>Family-owned &amp; operated</span><span class="sep">|</span>
+    <span>4.9★ · 212 Google Reviews</span><span class="sep">|</span>
+    <span>Folsom, PA</span>
+  </footer>
+
+  <script>
+    const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.2});
+    document.querySelectorAll('.rv,.doc').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
