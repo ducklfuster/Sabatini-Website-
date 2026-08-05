@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Licensed, Insured &amp; Guaranteed — Sabatini Pro Painting</title>
+  <title>How We Protect Your Home — Sabatini Pro Painting</title>
   <link rel="icon" type="image/jpeg" href="images/logo.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,15 +34,17 @@
     header.bar .cta{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;font-weight:600;
       color:#fff;background:var(--rust);text-decoration:none;padding:10px 18px;border-radius:999px;}
 
-    .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
-    .intro{padding:130px 0 10px;max-width:760px;margin:0 auto;}
-    .intro h1{font-family:var(--f-display);text-transform:uppercase;font-size:clamp(2.6rem,6.5vw,5rem);line-height:.92;margin:14px 0 0;}
+    .intro{padding:130px 32px 10px;max-width:760px;margin:0 auto;}
+    .intro h1{font-family:var(--f-display);text-transform:uppercase;font-size:clamp(2.5rem,6vw,4.8rem);line-height:.94;margin:14px 0 0;}
     .intro p{font-family:var(--f-serif);font-size:clamp(1.15rem,2.2vw,1.5rem);line-height:1.5;color:var(--slate);margin:22px 0 0;}
 
-    .layer{max-width:1080px;margin:0 auto;padding:70px 32px 0;}
+    .layer{max-width:1080px;margin:0 auto;padding:74px 32px 0;}
     .layer__tag{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;font-weight:600;color:var(--rust);}
     .layer h2{font-family:var(--f-serif);font-weight:500;font-size:clamp(1.7rem,3.4vw,2.5rem);line-height:1.16;margin:10px 0 0;}
     .layer > p{max-width:640px;color:var(--slate);margin:16px 0 0;}
+    .protects{display:inline-block;margin-top:14px;font-family:var(--f-cond);text-transform:uppercase;
+      letter-spacing:.1em;font-size:.78rem;font-weight:600;color:var(--rust-deep);
+      background:rgba(156,74,46,.09);padding:7px 14px;border-radius:999px;}
 
     /* annotated document */
     .doc{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;margin-top:36px;}
@@ -55,40 +57,46 @@
     .doc__marks .num{fill:var(--rust);}
     .doc__marks .numt{fill:#fff;font-family:"Oswald",sans-serif;font-weight:700;font-size:44px;text-anchor:middle;}
     .doc__notes{list-style:none;margin:0;padding:0;position:sticky;top:90px;}
-    .doc__notes li{display:flex;gap:16px;padding:0 0 26px;}
+    .doc__notes li{display:flex;gap:16px;padding:0 0 24px;}
     .doc__notes .b{flex:none;width:34px;height:34px;border-radius:50%;background:var(--rust);color:#fff;
       font-family:var(--f-cond);font-weight:700;font-size:1rem;display:flex;align-items:center;justify-content:center;margin-top:2px;}
-    .doc__notes h3{font-family:var(--f-serif);font-weight:500;font-size:1.18rem;margin:0 0 4px;}
+    .doc__notes h3{font-family:var(--f-serif);font-weight:500;font-size:1.16rem;margin:0 0 4px;}
     .doc__notes p{margin:0;font-size:1rem;line-height:1.55;color:var(--slate);}
     .doc__notes em{font-style:italic;color:var(--rust-deep);}
-    @media(max-width:820px){
-      .doc{grid-template-columns:1fr;gap:28px;}
-      .doc__notes{position:static;}
-    }
+    @media(max-width:820px){.doc{grid-template-columns:1fr;gap:28px;}.doc__notes{position:static;}}
 
-    .verify{display:inline-flex;align-items:center;gap:10px;margin-top:20px;font-family:var(--f-cond);
+    .verify{display:inline-flex;align-items:center;gap:10px;margin-top:18px;font-family:var(--f-cond);
       text-transform:uppercase;letter-spacing:.13em;font-size:.78rem;font-weight:600;color:var(--rust);
       text-decoration:none;border-bottom:1px solid var(--rust);padding-bottom:4px;}
     .verify:hover{color:var(--rust-deep);}
 
-    /* placeholder note for Rick */
+    /* checklists within layers */
+    .checklist{margin:22px 0 0;padding:0;list-style:none;max-width:640px;}
+    .checklist li{position:relative;padding:9px 0 9px 34px;border-top:1px solid var(--sand);font-size:1.04rem;}
+    .checklist li:first-child{border-top:0;}
+    .checklist li::before{content:"✓";position:absolute;left:4px;top:9px;color:var(--rust);font-weight:700;}
+
+    /* highlighted guarantee callout */
+    .guarantee{max-width:640px;margin:24px 0 0;padding:26px 28px;background:var(--ink);color:var(--cream);border-radius:2px;}
+    .guarantee .big{font-family:var(--f-display);font-size:clamp(2rem,4vw,2.8rem);color:#f0b79c;line-height:1;}
+    .guarantee p{margin:10px 0 0;color:#e4ddce;font-size:1rem;line-height:1.55;}
+
     .todo{max-width:640px;margin:16px 0 0;padding:16px 20px;border:1px dashed var(--rust);background:rgba(156,74,46,.06);
       color:var(--rust-deep);font-size:.98rem;line-height:1.55;}
     .todo b{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.12em;font-size:.68rem;display:block;margin-bottom:5px;}
 
-    /* how to vet anyone */
-    .vet{background:var(--ink);color:var(--cream);margin-top:80px;padding:76px 32px;}
+    /* verify-anyone section */
+    .vet{background:var(--ink);color:var(--cream);margin-top:84px;padding:76px 32px;}
     .vet__inner{max-width:760px;margin:0 auto;}
     .vet .layer__tag{color:var(--rust-lt);}
     .vet h2{font-family:var(--f-serif);font-weight:500;font-size:clamp(1.7rem,3.4vw,2.4rem);margin:10px 0 8px;}
-    .vet > .vet__inner > p{color:#d9d2c4;margin:0 0 26px;}
+    .vet__inner > p{color:#d9d2c4;margin:0 0 26px;}
     .vet ul{list-style:none;margin:0;padding:0;}
     .vet li{display:flex;gap:14px;padding:14px 0;border-top:1px solid rgba(233,225,210,.15);font-size:1.05rem;}
     .vet li:first-child{border-top:0;}
     .vet li .c{color:var(--rust-lt);font-family:var(--f-cond);font-weight:700;}
-    .vet .kicker2{margin-top:26px;font-family:var(--f-serif);font-style:italic;color:#f0b79c;font-size:1.2rem;}
+    .vet .close{margin-top:30px;font-family:var(--f-serif);font-style:italic;color:#f0b79c;font-size:1.25rem;line-height:1.45;}
 
-    /* CTA */
     .final{text-align:center;padding:90px 32px 100px;}
     .final h2{font-family:var(--f-display);text-transform:uppercase;font-size:clamp(2rem,4.6vw,3.4rem);line-height:.98;margin:0 0 12px;}
     .final p{color:var(--slate);max-width:44ch;margin:0 auto 28px;font-family:var(--f-serif);font-size:1.15rem;}
@@ -115,15 +123,16 @@
   <!-- INTRO -->
   <section class="intro">
     <span class="overline">Licensed, Insured &amp; Guaranteed</span>
-    <h1>How you're protected.</h1>
-    <p>Letting a crew into your home comes with real risks — most of which you never think about until something goes wrong. Here's every layer we put between you and those risks, and how to read the paperwork yourself.</p>
+    <h1>How we protect your home.</h1>
+    <p>Letting a crew into your home comes with real risks — most of which you never think about until something goes wrong. Here are the four layers we put between you and those risks — and how to read the paperwork yourself.</p>
   </section>
 
-  <!-- LAYER 1 · INSURANCE (annotated doc) -->
+  <!-- LAYER 1 · LEGAL -->
   <section class="layer">
-    <span class="layer__tag">Layer 1 · Insurance</span>
-    <h2>Our certificate of insurance — and how to read it.</h2>
-    <p>This is a real, current certificate. We circled the five things that matter to you, so you can read ours — or anyone's — with confidence.</p>
+    <span class="layer__tag">Layer 1 · Legal protection</span>
+    <h2>Insured, registered, and easy to verify.</h2>
+    <p>This is a real, current certificate of insurance. We circled the five things that matter to you, so you can read ours — or anyone's — with confidence.</p>
+    <span class="protects">This protects your finances</span>
 
     <div class="doc rv">
       <div class="doc__frame">
@@ -131,98 +140,100 @@
         <svg class="doc__marks" viewBox="0 0 1700 2200" preserveAspectRatio="none" aria-hidden="true">
           <ellipse class="ring" cx="1258" cy="132" rx="128" ry="50" transform="rotate(-3 1258 132)"/>
           <circle class="num" cx="1420" cy="92" r="30"/><text class="numt" x="1420" y="107">1</text>
-
           <ellipse class="ring" cx="1112" cy="918" rx="108" ry="46" transform="rotate(-2 1112 918)"/>
           <circle class="num" cx="1245" cy="876" r="30"/><text class="numt" x="1245" y="891">2</text>
-
           <ellipse class="ring" cx="262" cy="872" rx="180" ry="38" transform="rotate(-1.5 262 872)"/>
           <circle class="num" cx="470" cy="836" r="30"/><text class="numt" x="470" y="851">3</text>
-
           <ellipse class="ring" cx="278" cy="1330" rx="205" ry="50" transform="rotate(-1 278 1330)"/>
           <circle class="num" cx="512" cy="1288" r="30"/><text class="numt" x="512" y="1303">4</text>
-
           <ellipse class="ring" cx="372" cy="1946" rx="240" ry="108" transform="rotate(-1 372 1946)"/>
           <circle class="num" cx="640" cy="1852" r="30"/><text class="numt" x="640" y="1867">5</text>
         </svg>
       </div>
-
       <ol class="doc__notes">
-        <li><span class="b">1</span><div>
-          <h3>The date it was issued</h3>
-          <p>Every certificate shows the day it was created (top right). Always make sure you're looking at a recent one — not last year's.</p>
-        </div></li>
-        <li><span class="b">2</span><div>
-          <h3>The expiration date</h3>
-          <p>Each policy is active only through this date. If a contractor's coverage has expired, you're not protected — so ask for a current certificate before work starts.</p>
-        </div></li>
-        <li><span class="b">3</span><div>
-          <h3>General liability</h3>
-          <p>If we damage your home — a spill, a ladder through the drywall, a broken window — this pays to fix it, <em>not you.</em> Covered up to $1,000,000 per occurrence.</p>
-        </div></li>
-        <li><span class="b">4</span><div>
-          <h3>Workers' compensation</h3>
-          <p>Here's the one most homeowners don't know: if a worker is hurt in your home and the company carries no workers' comp, <em>you can be held liable.</em> This covers our people, so you never are.</p>
-        </div></li>
-        <li><span class="b">5</span><div>
-          <h3>The certificate holder</h3>
-          <p>This is where the certificate holder's name and address go — on your job, that would be <em>you.</em> We blurred our client's here for their privacy. And if your HOA (or you) want a certificate naming you, just ask — we'll send one.</p>
-        </div></li>
+        <li><span class="b">1</span><div><h3>The date it was issued</h3>
+          <p>Every certificate shows the day it was created (top right). Always make sure you're looking at a recent one — not last year's.</p></div></li>
+        <li><span class="b">2</span><div><h3>The expiration date</h3>
+          <p>Each policy is active only through this date. An expired policy protects no one — so ask for a current certificate before work starts.</p></div></li>
+        <li><span class="b">3</span><div><h3>General liability</h3>
+          <p>If we damage your home — a spill, a ladder through the drywall, a broken window — this pays to fix it, <em>not you.</em> Covered up to $1,000,000 per occurrence.</p></div></li>
+        <li><span class="b">4</span><div><h3>Workers' compensation</h3>
+          <p>The one most homeowners don't know: if a worker is hurt in your home and the company carries no workers' comp, <em>you can be held liable.</em> This covers our people, so you never are.</p></div></li>
+        <li><span class="b">5</span><div><h3>The certificate holder</h3>
+          <p>This is where the certificate holder's name and address go — on your job, that would be <em>you.</em> We blurred our client's here for their privacy. Want one naming you or your HOA? Just ask.</p></div></li>
       </ol>
     </div>
-  </section>
 
-  <!-- LAYER 1 · LICENSE -->
-  <section class="layer rv">
-    <span class="layer__tag">Layer 1 · Registration</span>
-    <h2>Registered with the state — and easy to verify.</h2>
-    <p>We're a registered Pennsylvania Home Improvement Contractor (<b>PA #124576</b>). You don't have to take our word for it — Pennsylvania keeps a public registry, and you can look us up yourself in ten seconds.</p>
+    <p style="margin-top:40px;">We're also a registered <b>Pennsylvania Home Improvement Contractor, #PA124576.</b> You don't have to take our word for it — Pennsylvania keeps a public registry, and you can look us up yourself in ten seconds.</p>
     <a class="verify" href="https://hicsearch.attorneygeneral.gov/" target="_blank" rel="noopener">Verify our registration →</a>
-    <div class="todo"><b>Rick — confirm</b> Is PA #124576 your Home Improvement Contractor (HIC) registration number? If it's a different kind of license, tell me and I'll relabel + fix the verify link.</div>
   </section>
 
-  <!-- LAYER 1 · WARRANTY -->
+  <!-- LAYER 2 · PROFESSIONAL -->
   <section class="layer rv">
-    <span class="layer__tag">Layer 1 · Warranty</span>
-    <h2>Two years, in writing.</h2>
-    <p>Every job we do carries a two-year warranty. If something isn't holding up the way it should, we come back and make it right — no fine print, no runaround.</p>
+    <span class="layer__tag">Layer 2 · Professional protection</span>
+    <h2>Nothing left to memory or a handshake.</h2>
+    <p>Most problems on a job aren't disasters — they're misunderstandings. So we put the whole thing in writing and in photos, start to finish.</p>
+    <span class="protects">This protects your project</span>
+    <ul class="checklist">
+      <li>A written proposal, and written change orders if anything shifts</li>
+      <li>Clear, daily communication — you always know what's happening and what's next</li>
+      <li>Every day documented with CompanyCam photos, time-stamped and shared with you</li>
+      <li>A final walkthrough together before we ever call it done</li>
+      <li>A written two-year warranty — if it isn't holding up, we come back and fix it</li>
+    </ul>
   </section>
 
-  <!-- LAYER 2 · GOOD CONTRACTORS LIST -->
+  <!-- LAYER 3 · ORGANIZATIONAL -->
   <section class="layer rv">
-    <span class="layer__tag">Layer 2 · Vetted by others</span>
-    <h2>Member of The Good Contractors List.</h2>
-    <p>It's one thing for us to vouch for ourselves. It's another for an outside organization to put us through their screening and stand behind us.</p>
-    <div class="todo"><b>Rick — fill in</b> What is The Good Contractors List, in your words? What did it take to get on it (background checks, insurance verification, reviews)? Does membership come with any guarantee/bond that backs the homeowner? Give me the details and I'll write this properly.</div>
+    <span class="layer__tag">Layer 3 · Organizational protection</span>
+    <h2>Outside groups vouch for us — and back the work.</h2>
+    <p>It's one thing for us to vouch for ourselves. It's another for independent organizations to put us through their screening and stand behind us.</p>
+    <span class="protects">This protects the standard of your work</span>
+
+    <div class="guarantee">
+      <div class="big">$25,000</div>
+      <p><b>The Good Contractors List guarantee.</b> We're a vetted, background-checked member of The Good Contractors List — an independent organization that screens the contractors it lists and backs their work with a guarantee to you of up to $25,000 on your project. It's third-party accountability: someone other than us, standing behind the job.</p>
+    </div>
+
+    <p style="margin-top:26px;">We're also members of the <b>Academy for Professional Painting Contractors (APPC)</b> — an industry group focused on standards, systems, and running a painting business the right way. It's where we go to keep getting better on purpose, instead of by accident.</p>
+    <div class="todo"><b>Rick — optional</b> Any manufacturer certifications (Sherwin-Williams, Benjamin Moore) or safety/EPA Lead-Safe (RRP) certifications to add here? They'd strengthen this layer. If not, we leave it as is.</div>
   </section>
 
-  <!-- LAYER 3 · APPC -->
+  <!-- LAYER 4 · CULTURAL -->
   <section class="layer rv">
-    <span class="layer__tag">Layer 3 · Committed to the craft</span>
-    <h2>Member, Academy for Professional Painting Contractors.</h2>
-    <p>The APPC is an industry body focused on standards, training, and running a painting business the right way — not just swinging a brush. Being a member means we invest in getting better on purpose.</p>
-    <div class="todo"><b>Rick — fill in</b> Which specific APPC credentials, certifications, or trainings should we list here? Any other affiliations or certs (EPA Lead-Safe, manufacturer certifications, etc.)? List them and I'll add them.</div>
+    <span class="layer__tag">Layer 4 · Cultural protection</span>
+    <h2>The part no certificate can prove.</h2>
+    <p>Paperwork protects you if something goes wrong. Culture is what keeps it from going wrong in the first place. This is the standard we hold whether anyone's checking or not.</p>
+    <span class="protects">This protects your experience</span>
+    <ul class="checklist">
+      <li>We hire for character first — every person we send is someone we'd trust in our own home</li>
+      <li>Dust containment on every job — the hard lesson that became an absolute rule</li>
+      <li>Floors and furniture protected, and a real clean-up at the end of <em>every</em> day</li>
+      <li>We treat your home like it's ours, because our name is on the wall too</li>
+    </ul>
   </section>
 
-  <!-- GENEROUS: how to vet anyone -->
+  <!-- GENEROUS: 5 things to verify -->
   <section class="vet rv">
     <div class="vet__inner">
       <span class="layer__tag">Before you hire anyone</span>
-      <h2>How to protect yourself with any contractor.</h2>
-      <p>Whether you hire us or not, here's what to ask everyone who wants to work in your home:</p>
+      <h2>Five things every homeowner should verify.</h2>
+      <p>Whether you hire us or not, ask everyone who wants to work in your home:</p>
       <ul>
-        <li><span class="c">01</span><span>Ask for a <b>current</b> certificate of insurance — and check the issue and expiration dates.</span></li>
-        <li><span class="c">02</span><span>Confirm they carry <b>both</b> general liability <b>and</b> workers' compensation.</span></li>
-        <li><span class="c">03</span><span>Verify their state contractor registration number on the public registry.</span></li>
-        <li><span class="c">04</span><span>Get the warranty <b>in writing</b> before any work begins.</span></li>
+        <li><span class="c">01</span><span>Do they carry <b>workers' compensation</b> insurance? (Ask for a current certificate.)</span></li>
+        <li><span class="c">02</span><span>Do they carry <b>general liability</b> insurance — and is it current?</span></li>
+        <li><span class="c">03</span><span>Do they use <b>subcontractors</b> — and if so, are those subs covered too?</span></li>
+        <li><span class="c">04</span><span>Is there a <b>written warranty</b>, in writing, before work begins?</span></li>
+        <li><span class="c">05</span><span>Do they have real <b>references and reviews</b> you can actually check?</span></li>
       </ul>
-      <p class="kicker2">If a contractor hesitates on any of these — that's your answer.</p>
+      <p class="close">Even if you don't hire us, we hope this page helps you ask sharper questions and hire with confidence. That's the whole point.</p>
     </div>
   </section>
 
   <!-- CTA -->
   <section class="final rv">
-    <h2>Want a certificate with your name on it?</h2>
-    <p>Just ask — we'll get one to you or your HOA in a day. And when you're ready, let's talk about your home.</p>
+    <h2>Ready when you are.</h2>
+    <p>A free estimate and an honest number — and a certificate with your name on it any time you want one.</p>
     <a class="btn-pill" href="get-quote.html">Get a Free Quote</a>
     <a class="phone" href="tel:+16108105040">or call (610) 810-5040</a>
   </section>
