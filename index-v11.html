@@ -85,6 +85,15 @@
     .chip.sw-brown{background:#6E4423;color:#f3ece0;}
     .chip.sw-char {background:#2A2825;color:#f3ece0;}
     .chip.sw-brick{background:#8F3524;color:#fff;}
+    /* rotating Google-review swatch */
+    .review-body{margin-top:16px;}
+    .review-stars{color:#D9A227;font-size:.98rem;letter-spacing:2px;}
+    .review-fade{transition:opacity .3s ease;margin-top:7px;}
+    .review-quote{font-family:var(--f-serif);font-style:italic;font-size:.84rem;line-height:1.36;margin:0;color:#3a352c;
+      display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
+    .review-author{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.06em;font-size:.62rem;font-weight:600;margin-top:7px;color:#4a473f;}
+    .review-google{position:absolute;left:15px;bottom:14px;font-family:var(--f-cond);text-transform:uppercase;
+      letter-spacing:.05em;font-size:.58rem;font-weight:600;color:var(--rust);}
     @media(max-width:640px){.grid{grid-template-columns:1fr 1fr;gap:22px 16px;}}
     @media(max-width:400px){.grid{grid-template-columns:1fr;}.chip{max-width:220px;}}
 
@@ -152,10 +161,17 @@
       <h2>Pick where to start.</h2>
     </div>
     <div class="grid">
-      <a class="chip sw-cream" style="--r:-2deg" href="https://www.google.com/maps/place/Sabatini+Pro+Painting/@39.8799306,-75.3351085,17z/data=!3m1!4b1!4m6!3m5!1s0x89c6e7d8c8bd1b61:0x1130aaf7edb03d08!8m2!3d39.8799306!4d-75.3351085!16s%2Fg%2F11c1rtwc4n" target="_blank" rel="noopener">
+      <a class="chip sw-cream" style="--r:-2deg" data-review-rotator href="https://www.google.com/maps/place/Sabatini+Pro+Painting/@39.8799306,-75.3351085,17z/data=!3m1!4b1!4m6!3m5!1s0x89c6e7d8c8bd1b61:0x1130aaf7edb03d08!8m2!3d39.8799306!4d-75.3351085!16s%2Fg%2F11c1rtwc4n" target="_blank" rel="noopener">
         <span class="loc">301-C1</span>
         <span class="code">SPP 6004</span><span class="name">Reviews</span>
-        <span class="fear">Can I trust them?</span></a>
+        <div class="review-body">
+          <div class="review-stars">★★★★★</div>
+          <div class="review-fade">
+            <p class="review-quote">“On time, careful with our floors, and the paint job looks incredible.”</p>
+            <div class="review-author">— Jamie R.</div>
+          </div>
+        </div>
+        <span class="review-google">See all 212 on Google ↗</span></a>
       <a class="chip sw-lav" style="--r:1.5deg" href="job-stories.html">
         <span class="loc">176-C4</span>
         <span class="code">SPP 6003</span><span class="name">Our Work</span>
@@ -229,6 +245,34 @@
   <script>
     const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.15});
     document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+    /* rotating Google reviews (placeholder quotes — swap for real ones) */
+    (function(){
+      const cards=document.querySelectorAll('[data-review-rotator]');
+      if(!cards.length) return;
+      const reviews=[
+        {name:'Jamie R.', quote:'On time, careful with our floors, and the paint job looks incredible.'},
+        {name:'Marcus T.', quote:"Best contractor experience we've had — clear communication start to finish."},
+        {name:'Elena P.', quote:'They scraped our old popcorn ceilings and everything looks brand new.'},
+        {name:'Dana K.', quote:'Showed up exactly when promised. Would hire again in a heartbeat.'}
+      ];
+      cards.forEach((body)=>{
+        let i=0;
+        const fadeEl=body.querySelector('.review-fade'),
+              quoteEl=body.querySelector('.review-quote'),
+              authorEl=body.querySelector('.review-author');
+        if(!fadeEl||!quoteEl||!authorEl) return;
+        setInterval(()=>{
+          i=(i+1)%reviews.length;
+          fadeEl.style.opacity='0';
+          setTimeout(()=>{
+            quoteEl.textContent='“'+reviews[i].quote+'”';
+            authorEl.textContent='— '+reviews[i].name;
+            fadeEl.style.opacity='1';
+          },300);
+        },4000);
+      });
+    })();
   </script>
 </body>
 </html>
