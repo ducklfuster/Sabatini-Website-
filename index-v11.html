@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabatini Pro Painting — Careful painters for your home</title>
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --cream:#E9E1D2; --cream-lift:#FBF8F2; --sand:#D8CEBC; --taupe:#B9AE99;
+      --stone:#8A8171; --slate:#57534A; --ink:#1B1A17; --char:#211F1B;
+      --rust:#9C4A2E; --rust-lt:#d98b6c; --rust-deep:#803a22; --gold:#D9A227;
+      --f-display:"Anton","Arial Narrow",sans-serif; --f-cond:"Oswald",sans-serif;
+      --f-serif:"Fraunces",Georgia,serif; --ease:cubic-bezier(0.16,1,0.3,1);
+    }
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{margin:0;background:var(--cream);color:var(--ink);
+      font-family:Georgia,"Times New Roman",serif;font-size:18px;line-height:1.7;
+      -webkit-font-smoothing:antialiased;overflow-x:hidden;}
+    img{display:block;max-width:100%;}
+    a{color:inherit;}
+    .overline{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;font-weight:600;color:var(--rust);}
+
+    /* header */
+    header.bar{position:absolute;top:0;left:0;right:0;z-index:30;display:flex;align-items:center;
+      justify-content:space-between;padding:18px 30px;color:#fff;}
+    .brand{font-family:var(--f-display);text-transform:uppercase;letter-spacing:.04em;font-size:1.15rem;
+      display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .brand img{width:38px;height:38px;border-radius:50%;object-fit:cover;}
+    .bar__cta{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;font-weight:600;
+      color:#fff;text-decoration:none;background:var(--rust);padding:11px 20px;border-radius:999px;}
+    .bar__cta:hover{background:var(--rust-deep);}
+
+    /* HERO — the 3-second emotional job */
+    .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;color:var(--cream);overflow:hidden;}
+    .hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;}
+    .hero::after{content:"";position:absolute;inset:0;
+      background:linear-gradient(to top,rgba(20,19,16,.93),rgba(20,19,16,.35) 55%,rgba(20,19,16,.55));}
+    .hero__inner{position:relative;z-index:2;max-width:1120px;margin:0 auto;width:100%;padding:0 32px 74px;}
+    .hero__stars{display:flex;align-items:center;gap:10px;font-family:var(--f-cond);letter-spacing:.06em;
+      text-transform:uppercase;font-size:.78rem;font-weight:600;}
+    .hero__stars .s{color:var(--gold);letter-spacing:2px;font-size:1rem;}
+    .hero h1{font-family:var(--f-display);text-transform:uppercase;font-size:clamp(2.8rem,8vw,6.6rem);
+      line-height:.9;margin:16px 0 0;}
+    .hero .sub{font-family:var(--f-serif);font-size:clamp(1.2rem,2.4vw,1.6rem);max-width:34ch;margin:20px 0 30px;color:#efe8da;}
+    .hero__actions{display:flex;flex-wrap:wrap;gap:16px 22px;align-items:center;}
+    .btn{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.14em;font-size:.85rem;font-weight:600;
+      text-decoration:none;padding:18px 40px;border-radius:999px;transition:transform .25s var(--ease),background .25s;}
+    .btn--primary{background:var(--rust);color:#fff;}
+    .btn--primary:hover{background:var(--rust-lt);transform:translateY(-2px);}
+    .btn--phone{color:#fff;border:1px solid rgba(255,255,255,.55);}
+    .btn--phone:hover{background:rgba(255,255,255,.12);}
+
+    /* PROOF STRIP — validators */
+    .proof{background:var(--ink);color:var(--cream);padding:24px 20px;}
+    .proof__row{max-width:1120px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;gap:12px 38px;align-items:center;text-align:center;}
+    .proof__item{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.06em;font-size:.82rem;color:#e4ddce;}
+    .proof__item b{color:#fff;font-weight:700;}
+    .proof__item .s{color:var(--gold);}
+
+    /* LAUNCHPAD — the swatch grid (placeholder for your tabletop art) */
+    .launch{max-width:1120px;margin:0 auto;padding:70px 32px 10px;}
+    .launch__head{text-align:center;margin-bottom:36px;}
+    .launch__head h2{font-family:var(--f-serif);font-weight:500;font-size:clamp(1.5rem,3vw,2.1rem);margin:8px 0 0;}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    .chip{background:var(--cream-lift);border:1px solid var(--sand);padding:26px 24px;text-decoration:none;color:var(--ink);
+      display:flex;flex-direction:column;gap:6px;min-height:130px;justify-content:flex-end;transition:transform .25s var(--ease),border-color .25s;}
+    .chip:hover{transform:translateY(-3px);border-color:var(--rust);}
+    .chip .code{font-family:var(--f-cond);letter-spacing:.14em;font-size:.64rem;color:var(--stone);text-transform:uppercase;}
+    .chip .name{font-family:var(--f-serif);font-weight:500;font-size:1.35rem;}
+    .chip .fear{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.04em;font-size:.66rem;color:var(--rust);}
+    .chip--cta{background:var(--rust);color:#fff;border-color:var(--rust);}
+    .chip--cta .code,.chip--cta .fear{color:rgba(255,255,255,.75);}
+    @media(max-width:760px){.grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:460px){.grid{grid-template-columns:1fr;}}
+
+    /* CONTROLLED-REVELATION scroll — fragments, not essays */
+    .reveal-sec{max-width:1120px;margin:0 auto;padding:80px 32px 0;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;}
+    .reveal-sec:nth-child(even){direction:rtl;}
+    .reveal-sec:nth-child(even) > *{direction:ltr;}
+    .reveal-sec img{width:100%;height:auto;border:1px solid var(--sand);}
+    .reveal-sec .k{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;color:var(--rust);font-weight:600;}
+    .reveal-sec h3{font-family:var(--f-serif);font-weight:500;font-size:clamp(1.5rem,3vw,2.1rem);margin:10px 0 14px;line-height:1.2;}
+    .reveal-sec p{color:var(--slate);margin:0 0 16px;font-size:1.02rem;line-height:1.7;}
+    .reveal-sec .go{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;font-weight:600;color:var(--rust);text-decoration:none;border-bottom:1px solid var(--rust);padding-bottom:3px;}
+    @media(max-width:760px){.reveal-sec{grid-template-columns:1fr;gap:20px;}.reveal-sec:nth-child(even){direction:ltr;}}
+
+    /* final CTA */
+    .final{text-align:center;padding:96px 32px 100px;margin-top:70px;}
+    .final h2{font-family:var(--f-display);text-transform:uppercase;font-size:clamp(2.2rem,5vw,3.6rem);line-height:.95;margin:0 0 14px;}
+    .final p{color:var(--slate);max-width:40ch;margin:0 auto 28px;font-family:var(--f-serif);font-size:1.15rem;}
+    .final .phone{display:block;margin-top:16px;font-family:var(--f-cond);letter-spacing:.08em;font-size:1.05rem;text-decoration:none;}
+
+    footer.foot{background:#151310;color:var(--taupe);font-family:var(--f-cond);text-transform:uppercase;
+      letter-spacing:.1em;font-size:.66rem;padding:30px 32px;display:flex;flex-wrap:wrap;gap:8px 16px;
+      align-items:center;justify-content:center;text-align:center;}
+    footer.foot .sep{opacity:.4;}
+
+    .rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+    .rv.in{opacity:1;transform:none;}
+    @media(prefers-reduced-motion:reduce){*{transition:none!important;}.rv{opacity:1;transform:none;}}
+  </style>
+</head>
+<body>
+  <header class="bar">
+    <a class="brand" href="#"><img src="images/logo.jpg" alt="">Sabatini</a>
+    <a class="bar__cta" href="get-quote.html">Book a Quote</a>
+  </header>
+
+  <!-- HERO: beautiful work + trustworthy people + one CTA -->
+  <section class="hero">
+    <img class="hero__img" src="images/misc/crew-photo.jpg" alt="The Sabatini crew in a client's home">
+    <div class="hero__inner">
+      <div class="hero__stars"><span class="s">★★★★★</span> 4.9 · 212 Google reviews</div>
+      <h1>We treat your home<br>like it's ours.</h1>
+      <p class="sub">Careful, trustworthy painters for homes across Delco, Montco &amp; the Main Line.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="get-quote.html">Get a Free Quote</a>
+        <a class="btn btn--phone" href="tel:+16108105040">(610) 810-5040</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF STRIP -->
+  <div class="proof">
+    <div class="proof__row">
+      <span class="proof__item"><span class="s">★</span> <b>4.9</b> · 212 Google Reviews</span>
+      <span class="proof__item"><b>Licensed &amp; Insured</b> · PA #124576</span>
+      <span class="proof__item"><b>2-Year Warranty</b></span>
+      <span class="proof__item"><b>Family-Owned</b> · Est. 2015 · Folsom, PA</span>
+    </div>
+  </div>
+
+  <!-- LAUNCHPAD (your tabletop grid drops in here) -->
+  <section class="launch">
+    <div class="launch__head">
+      <span class="overline">Everything you'd want to know</span>
+      <h2>Pick where to start.</h2>
+    </div>
+    <div class="grid">
+      <a class="chip" href="https://www.google.com/maps/place/Sabatini+Pro+Painting/@39.8799306,-75.3351085,17z/data=!3m1!4b1!4m6!3m5!1s0x89c6e7d8c8bd1b61:0x1130aaf7edb03d08!8m2!3d39.8799306!4d-75.3351085!16s%2Fg%2F11c1rtwc4n" target="_blank" rel="noopener">
+        <span class="code">SPP 6004</span><span class="name">Reviews</span><span class="fear">Can I trust them?</span></a>
+      <a class="chip" href="job-stories.html">
+        <span class="code">SPP 6003</span><span class="name">Our Work</span><span class="fear">Will it look good?</span></a>
+      <a class="chip" href="our-process.html">
+        <span class="code">SPP 6002</span><span class="name">What to Expect</span><span class="fear">Will this be a hassle?</span></a>
+      <a class="chip" href="our-story-v12.html">
+        <span class="code">SPP 6006</span><span class="name">About Us</span><span class="fear">Who's in my home?</span></a>
+      <a class="chip" href="get-quote.html">
+        <span class="code">SPP 6008</span><span class="name">Licensed &amp; Insured</span><span class="fear">Am I protected?</span></a>
+      <a class="chip chip--cta" href="get-quote.html">
+        <span class="code">SPP 6005</span><span class="name">Book a Quote →</span><span class="fear">Let's start.</span></a>
+    </div>
+  </section>
+
+  <!-- CONTROLLED REVELATION — fragments -->
+  <section class="reveal-sec rv">
+    <img src="images/misc/crew-photo.jpg" alt="The crew">
+    <div>
+      <span class="k">Who's coming into your home</span>
+      <h3>We hire for character first.</h3>
+      <p>We can teach someone to paint. We can't teach them to care about your home. Every person we send is someone we'd trust in our own.</p>
+      <a class="go" href="our-story-v12.html">Meet the people →</a>
+    </div>
+  </section>
+
+  <section class="reveal-sec rv">
+    <img src="images/havertown/after-livingroom.png" alt="A finished living room">
+    <div>
+      <span class="k">The work</span>
+      <h3>Clean lines. Protected floors. A tidy house at the end of every day.</h3>
+      <p>Not just the end of the job — the end of every day. You should barely know we're there, right up until it's done.</p>
+      <a class="go" href="job-stories.html">See the work →</a>
+    </div>
+  </section>
+
+  <section class="reveal-sec rv">
+    <img src="images/havertown/prep-ceiling.png" alt="Careful prep and protection">
+    <div>
+      <span class="k">If something goes wrong</span>
+      <h3>We make it right, on our dime.</h3>
+      <p>The promise was never that nothing goes wrong. It's that when it does, we fix it — no argument. That's the standard you're hiring.</p>
+      <a class="go" href="our-story-v12.html">How we work →</a>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final rv">
+    <h2>Let's talk about your home.</h2>
+    <p>A free estimate and an honest number. No pressure, no games.</p>
+    <a class="btn btn--primary" href="get-quote.html">Get a Free Quote</a>
+    <a class="phone" href="tel:+16108105040">or call (610) 810-5040</a>
+  </section>
+
+  <footer class="foot">
+    <span>License #PA124576 · Insured</span><span class="sep">|</span>
+    <span>Est. 2015</span><span class="sep">|</span>
+    <span>Family-owned &amp; operated</span><span class="sep">|</span>
+    <span>4.9★ · 212 Google Reviews</span><span class="sep">|</span>
+    <span>Folsom, PA · Delco, Montco &amp; the Main Line</span>
+  </footer>
+
+  <script>
+    const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.15});
+    document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
