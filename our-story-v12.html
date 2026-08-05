@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Who's Coming Into Your Home — Sabatini Pro Painting</title>
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --cream:#E9E1D2; --cream-lift:#FBF8F2; --sand:#D8CEBC; --taupe:#B9AE99;
+      --stone:#8A8171; --slate:#57534A; --ink:#1B1A17; --char:#211F1B;
+      --rust:#9C4A2E; --rust-lt:#d98b6c; --rust-deep:#803a22; --gold:#B8862F;
+      --f-display:"Anton","Arial Narrow",sans-serif; --f-cond:"Oswald",sans-serif;
+      --f-serif:"Fraunces",Georgia,serif;
+      --ease:cubic-bezier(0.16,1,0.3,1);
+    }
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{margin:0;background:var(--cream);color:var(--ink);
+      font-family:Georgia,"Times New Roman",serif;font-size:18px;line-height:1.7;
+      -webkit-font-smoothing:antialiased;overflow-x:hidden;}
+    img{display:block;max-width:100%;}
+    a{color:inherit;}
+    .overline{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.2em;
+      font-size:.72rem;font-weight:600;color:var(--rust);}
+
+    .progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--rust);z-index:50;}
+    header.bar{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;
+      justify-content:space-between;padding:16px 30px;
+      background:linear-gradient(to bottom,rgba(27,26,23,.5),transparent);transition:background .4s var(--ease);}
+    header.bar.solid{background:var(--cream);border-bottom:1px solid var(--sand);}
+    header.bar .brand{font-family:var(--f-display);text-transform:uppercase;letter-spacing:.04em;
+      font-size:1.05rem;color:#fff;display:flex;align-items:center;gap:10px;text-decoration:none;}
+    header.bar.solid .brand{color:var(--ink);}
+    header.bar .brand img{width:32px;height:32px;border-radius:50%;object-fit:cover;}
+    header.bar .cta-top{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.12em;
+      font-size:.72rem;font-weight:600;color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.5);
+      padding:9px 16px;border-radius:999px;}
+    header.bar.solid .cta-top{color:var(--ink);border-color:var(--ink);}
+    header.bar .cta-top:hover{background:var(--rust);color:#fff;border-color:var(--rust);}
+
+    /* HERO — client's fear, not our childhood */
+    .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;color:var(--cream);overflow:hidden;}
+    .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;}
+    .hero::after{content:"";position:absolute;inset:0;
+      background:linear-gradient(to top,rgba(20,19,16,.92),rgba(20,19,16,.25) 60%,rgba(20,19,16,.55));}
+    .hero__inner{position:relative;z-index:2;max-width:1120px;margin:0 auto;width:100%;padding:0 32px 80px;}
+    .hero h1{font-family:var(--f-display);text-transform:uppercase;font-size:clamp(2.6rem,7vw,6rem);line-height:.92;margin:16px 0 0;}
+    .hero .dek{font-family:var(--f-serif);font-size:clamp(1.2rem,2.3vw,1.55rem);max-width:40ch;margin-top:22px;color:#efe8da;}
+
+    /* PROOF BAND — men want certainty, early */
+    .proof{background:var(--ink);color:var(--cream);padding:26px 20px;}
+    .proof__row{max-width:1120px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:center;
+      gap:14px 40px;align-items:center;text-align:center;}
+    .proof__item{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.06em;font-size:.82rem;font-weight:500;color:#e4ddce;}
+    .proof__item b{color:#fff;font-weight:700;}
+    .proof__item .star{color:var(--gold);}
+
+    .sec{max-width:680px;margin:0 auto;padding:70px 32px 0;}
+    .sec .kicker{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;color:var(--rust);font-weight:600;}
+    .sec h2{font-family:var(--f-serif);font-weight:500;font-size:clamp(1.7rem,3.2vw,2.35rem);line-height:1.18;margin:12px 0 0;}
+    .text{max-width:680px;margin:0 auto;padding:18px 32px 0;}
+    .text p{margin:0 0 18px;} .text p:last-child{margin-bottom:0;}
+    .text em{font-style:italic;color:var(--rust-deep);}
+
+    .figure{max-width:1120px;margin:44px auto 0;padding:0 32px;}
+    .figure img{width:100%;height:auto;border:1px solid var(--sand);}
+    .figure .cap{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.14em;font-size:.66rem;color:var(--stone);text-align:center;padding:12px 0 0;}
+
+    /* the promise / risk reversal — set off */
+    .promise{background:var(--char);color:var(--cream);margin-top:70px;padding:70px 32px;}
+    .promise__inner{max-width:680px;margin:0 auto;}
+    .promise .kicker{color:var(--rust-lt);}
+    .promise h2{font-family:var(--f-serif);font-weight:500;font-size:clamp(1.7rem,3.2vw,2.35rem);line-height:1.2;margin:12px 0 20px;}
+    .promise p{color:#e4ddce;margin:0 0 18px;}
+    .promise .big{font-family:var(--f-serif);font-style:italic;color:#f0b79c;font-size:1.3rem;line-height:1.5;}
+
+    /* THE PLAN — give them certainty about the process */
+    .plan{max-width:1000px;margin:0 auto;padding:74px 32px 0;}
+    .plan__head{text-align:center;margin-bottom:40px;}
+    .plan__head .kicker{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;color:var(--rust);font-weight:600;}
+    .plan__head h2{font-family:var(--f-serif);font-weight:500;font-size:clamp(1.7rem,3.2vw,2.35rem);margin:12px 0 0;}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+    .step{background:var(--cream-lift);border:1px solid var(--sand);padding:28px 24px;}
+    .step .n{font-family:var(--f-display);font-size:2.2rem;color:var(--rust);line-height:1;}
+    .step h3{font-family:var(--f-serif);font-weight:500;font-size:1.2rem;margin:12px 0 8px;}
+    .step p{font-size:.98rem;line-height:1.6;color:var(--slate);margin:0;}
+    @media(max-width:720px){.steps{grid-template-columns:1fr;}}
+
+    /* who we are — brief, the guide's credibility + link to the memoir */
+    .about{max-width:960px;margin:74px auto 0;padding:0 32px;display:grid;grid-template-columns:0.8fr 1fr;gap:40px;align-items:center;}
+    .about img{width:100%;height:auto;border:1px solid var(--sand);}
+    .about .kicker{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.2em;font-size:.72rem;color:var(--rust);font-weight:600;}
+    .about h2{font-family:var(--f-serif);font-weight:500;font-size:clamp(1.6rem,3vw,2.1rem);margin:10px 0 14px;}
+    .about p{font-size:1rem;line-height:1.7;color:var(--slate);margin:0 0 14px;}
+    .about .longer{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;font-weight:600;color:var(--rust);text-decoration:none;border-bottom:1px solid var(--rust);padding-bottom:3px;}
+    @media(max-width:720px){.about{grid-template-columns:1fr;}}
+
+    /* CTA */
+    .cta{text-align:center;padding:90px 32px 100px;margin-top:70px;}
+    .cta h2{font-family:var(--f-display);text-transform:uppercase;font-size:clamp(2.2rem,5vw,3.6rem);line-height:.95;margin:0 0 14px;}
+    .cta p{color:var(--slate);max-width:42ch;margin:0 auto 30px;font-family:var(--f-serif);font-size:1.15rem;}
+    .btn-pill{display:inline-block;background:var(--rust);color:#fff;text-decoration:none;font-family:var(--f-cond);
+      text-transform:uppercase;letter-spacing:.15em;font-size:.85rem;font-weight:600;padding:20px 46px;border-radius:999px;transition:transform .3s var(--ease),background .3s;}
+    .btn-pill:hover{transform:translateY(-2px);background:var(--rust-deep);}
+    .cta .phone{display:block;margin-top:18px;font-family:var(--f-cond);letter-spacing:.08em;font-size:1.05rem;color:var(--ink);text-decoration:none;}
+    .cta .rev{margin-top:24px;font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;color:var(--stone);}
+
+    footer.foot{background:#151310;color:var(--taupe);font-family:var(--f-cond);text-transform:uppercase;
+      letter-spacing:.1em;font-size:.66rem;padding:30px 32px;display:flex;flex-wrap:wrap;gap:8px 16px;
+      align-items:center;justify-content:center;text-align:center;}
+    footer.foot .sep{opacity:.4;}
+
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+    .reveal.in{opacity:1;transform:none;}
+    @media(prefers-reduced-motion:reduce){*{transition:none!important;}.reveal{opacity:1;transform:none;}}
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <header class="bar" id="bar">
+    <a class="brand" href="index-tabletop-v8.html"><img src="images/logo.jpg" alt="">Sabatini</a>
+    <a class="cta-top" href="get-quote.html">Free Estimate</a>
+  </header>
+
+  <!-- HERO: the client's real decision -->
+  <section class="hero">
+    <img src="images/misc/crew-photo.jpg" alt="The Sabatini crew">
+    <div class="hero__inner">
+      <span class="overline" style="color:#f0b79c">Before you hire anyone</span>
+      <h1>Who's coming<br>into your home.</h1>
+      <p class="dek">The most important thing you're hiring isn't paint. It's the people who'll be in your house all week — around your family, your things, your life. So here's exactly who we are.</p>
+    </div>
+  </section>
+
+  <!-- PROOF BAND -->
+  <div class="proof">
+    <div class="proof__row">
+      <span class="proof__item"><span class="star">★</span> <b>4.9</b> · 212 Google Reviews</span>
+      <span class="proof__item"><b>Licensed &amp; Insured</b> · PA #124576</span>
+      <span class="proof__item"><b>2-Year Warranty</b> on every job</span>
+      <span class="proof__item"><b>Family-Owned</b> · Est. 2015 · Folsom, PA</span>
+    </div>
+  </div>
+
+  <!-- 1 · CHARACTER = SAFETY -->
+  <div class="sec reveal">
+    <span class="kicker">The people we send</span>
+    <h2>We hire for character first.</h2>
+  </div>
+  <div class="text reveal">
+    <p>We can teach someone to paint. We can't teach them to care about your home. So every person we send has been vetted for the thing that actually matters while they're standing in your living room and you're at work: whether they'll treat your house the way they'd treat their own.</p>
+    <p>Skilled hands are the easy part to find. Trustworthy ones are the whole point — and they're the only kind we keep.</p>
+  </div>
+
+  <!-- 2 · HOW WE TREAT YOUR HOME -->
+  <div class="sec reveal">
+    <span class="kicker">Your home</span>
+    <h2>We protect it like it's ours.</h2>
+  </div>
+  <div class="text reveal">
+    <p>Floors covered. Furniture moved and wrapped. Clean lines, and a real clean-up at the end of <em>every</em> day — not just the end of the job. You should be able to keep living in your house while we work in it and barely know we're there, right up until it's done.</p>
+  </div>
+  <div class="figure reveal">
+    <img src="images/havertown/after-livingroom.png" alt="A finished living room">
+    <p class="cap">Havertown, PA — a finished room, floors and furniture untouched.</p>
+  </div>
+
+  <!-- 3 · RISK REVERSAL (the dust story, reframed for the client) -->
+  <section class="promise reveal">
+    <div class="promise__inner">
+      <span class="kicker">If something goes wrong</span>
+      <h2>You find out who a company really is on a bad day.</h2>
+      <p>A few years ago, on a job while I was away, a piece of our equipment failed and the crew tried to work around it instead of stopping. It filled a family's home with dust. They had a newborn. They couldn't stay there.</p>
+      <p>We paid for their hotel. We paid to have the whole place professionally cleaned. We refunded the job, and we replaced the equipment that day. We lost real money on it — and we'd do it again, exactly the same way.</p>
+      <p class="big">The promise was never that nothing would go wrong. It's that when it does, we make it right — on our dime, without an argument. That's the standard you're actually hiring.</p>
+    </div>
+  </section>
+
+  <!-- 4 · THE PLAN -->
+  <div class="plan reveal">
+    <div class="plan__head">
+      <span class="kicker">What to expect</span>
+      <h2>Simple, and no surprises.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="n">1</div>
+        <h3>An honest estimate</h3>
+        <p>We come out, listen, and give you a clear, itemized number — not a guess, and not a hard sell you have to talk your way out of.</p>
+      </div>
+      <div class="step">
+        <div class="n">2</div>
+        <h3>A crew you'd trust with a key</h3>
+        <p>The same vetted people, a schedule you can count on, and your home protected from the first drop cloth to the last.</p>
+      </div>
+      <div class="step">
+        <div class="n">3</div>
+        <h3>A walkthrough &amp; a warranty</h3>
+        <p>We point out the details you'd never have caught, make them right, and stand behind the whole job for two years.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 · WHO WE ARE (guide credibility, brief, links to memoir) -->
+  <div class="about reveal">
+    <img src="images/misc/owner-photo.jpg" alt="Rick and Alejandra Sabatini">
+    <div>
+      <span class="kicker">Us</span>
+      <h2>We're Rick &amp; Ale.</h2>
+      <p>We started this company ourselves and did every job by hand for years, so we know exactly what "right" looks like and what it costs to get there. We're family-owned, we live ten minutes from you, and our name is on every wall we paint — which is the whole reason we care so much that it's done well.</p>
+      <p>If you want the longer version of how two people and an $800 van got here, it's worth a read.</p>
+      <a class="longer" href="our-story-v11.html">Read our full story →</a>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="cta reveal">
+    <h2>Let's talk about your home.</h2>
+    <p>A free estimate and an honest number. No pressure, no games.</p>
+    <a class="btn-pill" href="get-quote.html">Get a Free Estimate</a>
+    <a class="phone" href="tel:+16108105040">or call (610) 810-5040</a>
+    <div class="rev">Licensed &amp; insured · 2-year warranty · 4.9★ from 212 reviews</div>
+  </section>
+
+  <footer class="foot">
+    <span>License #PA124576 · Insured</span><span class="sep">|</span>
+    <span>Est. 2015</span><span class="sep">|</span>
+    <span>Family-owned &amp; operated</span><span class="sep">|</span>
+    <span>4.9★ · 212 Google Reviews</span><span class="sep">|</span>
+    <span>Folsom, PA</span>
+  </footer>
+
+  <script>
+    const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.15});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    const prog=document.getElementById('progress'),bar=document.getElementById('bar');
+    const onScroll=()=>{const h=document.documentElement.scrollHeight-window.innerHeight;
+      prog.style.width=(window.scrollY/h*100)+'%';
+      bar.classList.toggle('solid',window.scrollY>window.innerHeight*.8);};
+    document.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  </script>
+</body>
+</html>
