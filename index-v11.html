@@ -63,20 +63,30 @@
     .proof__item .s{color:var(--gold);}
 
     /* LAUNCHPAD — the swatch grid (placeholder for your tabletop art) */
-    .launch{max-width:1120px;margin:0 auto;padding:70px 32px 10px;}
-    .launch__head{text-align:center;margin-bottom:36px;}
+    .launch{max-width:900px;margin:0 auto;padding:74px 32px 20px;}
+    .launch__head{text-align:center;margin-bottom:48px;}
     .launch__head h2{font-family:var(--f-serif);font-weight:500;font-size:clamp(1.5rem,3vw,2.1rem);margin:8px 0 0;}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-    .chip{background:var(--cream-lift);border:1px solid var(--sand);padding:26px 24px;text-decoration:none;color:var(--ink);
-      display:flex;flex-direction:column;gap:6px;min-height:130px;justify-content:flex-end;transition:transform .25s var(--ease),border-color .25s;}
-    .chip:hover{transform:translateY(-3px);border-color:var(--rust);}
-    .chip .code{font-family:var(--f-cond);letter-spacing:.14em;font-size:.64rem;color:var(--stone);text-transform:uppercase;}
-    .chip .name{font-family:var(--f-serif);font-weight:500;font-size:1.35rem;}
-    .chip .fear{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.04em;font-size:.66rem;color:var(--rust);}
-    .chip--cta{background:var(--rust);color:#fff;border-color:var(--rust);}
-    .chip--cta .code,.chip--cta .fear{color:rgba(255,255,255,.75);}
-    @media(max-width:760px){.grid{grid-template-columns:1fr 1fr;}}
-    @media(max-width:460px){.grid{grid-template-columns:1fr;}}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px 22px;justify-items:center;}
+    /* paint-chip swatches (matches tabletop .chip-card) */
+    .chip{position:relative;display:block;width:100%;max-width:196px;aspect-ratio:178/254;
+      border-radius:2px;overflow:hidden;text-decoration:none;padding:16px 15px;color:#33312b;
+      box-shadow:2px 10px 20px rgba(0,0,0,.26);transform:rotate(var(--r,0deg));transform-origin:center;
+      transition:transform .3s var(--ease),box-shadow .3s var(--ease);}
+    .chip:hover{transform:rotate(var(--r,0deg)) scale(1.05);box-shadow:4px 18px 32px rgba(0,0,0,.4);z-index:5;}
+    .chip .code{display:block;font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.08em;
+      font-size:.68rem;font-weight:500;opacity:.7;}
+    .chip .name{display:block;font-family:var(--f-serif);font-weight:500;font-size:1.3rem;line-height:1.15;margin-top:3px;}
+    .chip .loc{position:absolute;top:15px;right:14px;font-style:italic;font-size:.66rem;opacity:.6;}
+    .chip .fear{position:absolute;left:15px;bottom:15px;font-family:var(--f-cond);text-transform:uppercase;
+      letter-spacing:.04em;font-size:.6rem;opacity:.72;max-width:82%;line-height:1.3;}
+    .chip.sw-cream{background:#ECE5D6;}
+    .chip.sw-sage {background:#AFC0B4;}
+    .chip.sw-lav  {background:#C6BBD4;}
+    .chip.sw-brown{background:#6E4423;color:#f3ece0;}
+    .chip.sw-char {background:#2A2825;color:#f3ece0;}
+    .chip.sw-brick{background:#8F3524;color:#fff;}
+    @media(max-width:640px){.grid{grid-template-columns:1fr 1fr;gap:22px 16px;}}
+    @media(max-width:400px){.grid{grid-template-columns:1fr;}.chip{max-width:220px;}}
 
     /* CONTROLLED-REVELATION scroll — fragments, not essays */
     .reveal-sec{max-width:1120px;margin:0 auto;padding:80px 32px 0;display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;}
@@ -142,18 +152,30 @@
       <h2>Pick where to start.</h2>
     </div>
     <div class="grid">
-      <a class="chip" href="https://www.google.com/maps/place/Sabatini+Pro+Painting/@39.8799306,-75.3351085,17z/data=!3m1!4b1!4m6!3m5!1s0x89c6e7d8c8bd1b61:0x1130aaf7edb03d08!8m2!3d39.8799306!4d-75.3351085!16s%2Fg%2F11c1rtwc4n" target="_blank" rel="noopener">
-        <span class="code">SPP 6004</span><span class="name">Reviews</span><span class="fear">Can I trust them?</span></a>
-      <a class="chip" href="job-stories.html">
-        <span class="code">SPP 6003</span><span class="name">Our Work</span><span class="fear">Will it look good?</span></a>
-      <a class="chip" href="our-process.html">
-        <span class="code">SPP 6002</span><span class="name">What to Expect</span><span class="fear">Will this be a hassle?</span></a>
-      <a class="chip" href="our-story-v12.html">
-        <span class="code">SPP 6006</span><span class="name">About Us</span><span class="fear">Who's in my home?</span></a>
-      <a class="chip" href="get-quote.html">
-        <span class="code">SPP 6008</span><span class="name">Licensed &amp; Insured</span><span class="fear">Am I protected?</span></a>
-      <a class="chip chip--cta" href="get-quote.html">
-        <span class="code">SPP 6005</span><span class="name">Book a Quote →</span><span class="fear">Let's start.</span></a>
+      <a class="chip sw-cream" style="--r:-2deg" href="https://www.google.com/maps/place/Sabatini+Pro+Painting/@39.8799306,-75.3351085,17z/data=!3m1!4b1!4m6!3m5!1s0x89c6e7d8c8bd1b61:0x1130aaf7edb03d08!8m2!3d39.8799306!4d-75.3351085!16s%2Fg%2F11c1rtwc4n" target="_blank" rel="noopener">
+        <span class="loc">301-C1</span>
+        <span class="code">SPP 6004</span><span class="name">Reviews</span>
+        <span class="fear">Can I trust them?</span></a>
+      <a class="chip sw-lav" style="--r:1.5deg" href="job-stories.html">
+        <span class="loc">176-C4</span>
+        <span class="code">SPP 6003</span><span class="name">Our Work</span>
+        <span class="fear">Will it look good?</span></a>
+      <a class="chip sw-sage" style="--r:-1deg" href="our-process.html">
+        <span class="loc">210-C4</span>
+        <span class="code">SPP 6002</span><span class="name">What to Expect</span>
+        <span class="fear">Will this be a hassle?</span></a>
+      <a class="chip sw-brown" style="--r:2deg" href="our-story-v12.html">
+        <span class="loc">204-C6</span>
+        <span class="code">SPP 6006</span><span class="name">About Us</span>
+        <span class="fear">Who's in my home?</span></a>
+      <a class="chip sw-char" style="--r:-1.5deg" href="get-quote.html">
+        <span class="loc">118-C2</span>
+        <span class="code">SPP 6008</span><span class="name">Licensed &amp; Insured</span>
+        <span class="fear">Am I protected?</span></a>
+      <a class="chip sw-brick" style="--r:1deg" href="get-quote.html">
+        <span class="loc">255-C7</span>
+        <span class="code">SPP 6005</span><span class="name">Book a Quote →</span>
+        <span class="fear">Let's start.</span></a>
     </div>
   </section>
 
