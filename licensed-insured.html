@@ -80,6 +80,15 @@
     .promises{list-style:none;margin:0;padding:0;}
     .promises li{position:relative;padding:8px 0 8px 30px;font-size:1.02rem;line-height:1.5;}
     .promises li::before{content:"♦";position:absolute;left:5px;top:9px;color:var(--rust);font-size:.72rem;}
+    .tagline{font-family:var(--f-serif);font-style:italic;font-size:clamp(1.05rem,2vw,1.3rem);color:var(--rust-deep);margin:20px 0 0;}
+    .numbers{background:var(--ink);color:var(--cream);margin-top:44px;padding:38px 32px;}
+    .numbers__row{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:30px 20px;text-align:center;}
+    .numbers .n{font-family:var(--f-display);font-size:clamp(1.7rem,3.4vw,2.4rem);color:#f0b79c;line-height:1;letter-spacing:.01em;}
+    .numbers .l{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.08em;font-size:.7rem;color:#d9d2c4;margin-top:9px;}
+    @media(max-width:600px){.numbers__row{grid-template-columns:repeat(2,1fr);}}
+    .dustbox{max-width:640px;margin:26px 0 0;padding:22px 26px;border-left:3px solid var(--rust);background:rgba(156,74,46,.05);}
+    .dustbox p{margin:0;font-size:1.02rem;line-height:1.6;color:var(--slate);}
+    .dustbox b{color:var(--rust-deep);}
 
     /* highlighted guarantee callout */
     .guarantee{max-width:640px;margin:24px 0 0;padding:26px 28px;background:var(--ink);color:var(--cream);border-radius:2px;}
@@ -130,7 +139,20 @@
     <span class="overline">Licensed, Insured &amp; Guaranteed</span>
     <h1>How we protect your home.</h1>
     <p>Letting a crew into your home comes with real risks — most of which you never think about until something goes wrong. Here are the four layers we put between you and those risks — and how to read the paperwork yourself.</p>
+    <p class="tagline">If you never read another page on our site, we'd want you to read this one.</p>
   </section>
+
+  <!-- NUMBERS -->
+  <div class="numbers">
+    <div class="numbers__row">
+      <div><div class="n">4.9★</div><div class="l">212 Google Reviews</div></div>
+      <div><div class="n">$1,000,000</div><div class="l">Liability Coverage</div></div>
+      <div><div class="n">$25,000</div><div class="l">Project Guarantee</div></div>
+      <div><div class="n">3–5 yrs</div><div class="l">Written Warranty</div></div>
+      <div><div class="n">#PA124576</div><div class="l">State Registration</div></div>
+      <div><div class="n">Since 2015</div><div class="l">Family-Owned</div></div>
+    </div>
+  </div>
 
   <!-- LAYER 1 · LEGAL -->
   <section class="layer">
@@ -168,6 +190,8 @@
           <p>This is where the certificate holder's name and address go — on your job, that would be <em>you.</em> We blurred our client's here for their privacy. Want one naming you or your HOA? Just ask.</p></div></li>
       </ol>
     </div>
+
+    <a class="verify" href="images/insurance/sabatini-certificate-of-insurance.pdf" target="_blank" rel="noopener">Download the full certificate (PDF) ↓</a>
 
     <p style="margin-top:40px;">We're also a registered <b>Pennsylvania Home Improvement Contractor, #PA124576.</b> You don't have to take our word for it — Pennsylvania keeps a public registry, and you can look us up yourself in ten seconds.</p>
     <a class="verify" href="https://hicsearch.attorneygeneral.gov/" target="_blank" rel="noopener">Verify our registration →</a>
@@ -210,6 +234,7 @@
     <h2>The part no certificate can prove.</h2>
     <p>Paperwork protects you if something goes wrong. Culture is what keeps it from going wrong in the first place. This is the standard we hold whether anyone's checking or not.</p>
     <span class="protects">This protects your experience</span>
+    <div class="dustbox"><p>Years ago, while Rick was away, a machine failed on a job and the crew tried to work around it instead of stopping — and dust spread through a family's home. We paid for their hotel, cleaned the house, refunded the job, and changed the way we operate for good. <b>That's the reason containment and protection aren't optional here. They're the rule.</b></p></div>
     <ul class="checklist">
       <li>We hire for character first — every person we send is someone we'd trust in our own home</li>
       <li>Every painter on our team is background-checked</li>
@@ -228,6 +253,34 @@
         <li>We won't put any people or products in your home that we wouldn't put in our own.</li>
       </ul>
     </div>
+  </section>
+
+  <!-- REFERENCES -->
+  <section class="layer rv">
+    <span class="layer__tag">Beyond reviews</span>
+    <h2>People you can talk to.</h2>
+    <p>Reviews are helpful, but sometimes you want to speak with a real person who stood where you're standing now. With our customers' permission, we're glad to connect you with references from projects like yours:</p>
+    <ul class="checklist">
+      <li>Interior painting</li>
+      <li>Exterior painting</li>
+      <li>Cabinet refinishing</li>
+      <li>Historic homes</li>
+      <li>Wallpaper removal</li>
+      <li>Carpentry &amp; repairs</li>
+    </ul>
+    <a class="verify" href="get-quote.html">Ask us for references →</a>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section class="layer rv">
+    <span class="layer__tag">Who this is for</span>
+    <h2>This page is for you if…</h2>
+    <ul class="checklist">
+      <li>you've never hired a painter before</li>
+      <li>you've been let down by a contractor in the past</li>
+      <li>you want to understand exactly what you're paying for</li>
+      <li>you want to protect your family and your home</li>
+    </ul>
   </section>
 
   <!-- GENEROUS: 5 things to verify -->
