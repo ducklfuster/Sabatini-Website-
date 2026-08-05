@@ -75,6 +75,11 @@
     .checklist li{position:relative;padding:9px 0 9px 34px;border-top:1px solid var(--sand);font-size:1.04rem;}
     .checklist li:first-child{border-top:0;}
     .checklist li::before{content:"✓";position:absolute;left:4px;top:9px;color:var(--rust);font-weight:700;}
+    .promises__wrap{max-width:640px;margin:32px 0 0;padding:28px 30px;background:var(--cream-lift);border:1px solid var(--sand);}
+    .promises__h{font-family:var(--f-serif);font-weight:500;font-size:1.4rem;margin:0 0 16px;}
+    .promises{list-style:none;margin:0;padding:0;}
+    .promises li{position:relative;padding:8px 0 8px 30px;font-size:1.02rem;line-height:1.5;}
+    .promises li::before{content:"♦";position:absolute;left:5px;top:9px;color:var(--rust);font-size:.72rem;}
 
     /* highlighted guarantee callout */
     .guarantee{max-width:640px;margin:24px 0 0;padding:26px 28px;background:var(--ink);color:var(--cream);border-radius:2px;}
@@ -138,14 +143,14 @@
       <div class="doc__frame">
         <img src="images/insurance/coi.png" alt="Sabatini Pro Painting certificate of liability insurance">
         <svg class="doc__marks" viewBox="0 0 1700 2200" preserveAspectRatio="none" aria-hidden="true">
-          <ellipse class="ring" cx="1258" cy="132" rx="128" ry="50" transform="rotate(-3 1258 132)"/>
-          <circle class="num" cx="1420" cy="92" r="30"/><text class="numt" x="1420" y="107">1</text>
-          <ellipse class="ring" cx="1112" cy="918" rx="108" ry="46" transform="rotate(-2 1112 918)"/>
-          <circle class="num" cx="1245" cy="876" r="30"/><text class="numt" x="1245" y="891">2</text>
-          <ellipse class="ring" cx="262" cy="872" rx="180" ry="38" transform="rotate(-1.5 262 872)"/>
-          <circle class="num" cx="470" cy="836" r="30"/><text class="numt" x="470" y="851">3</text>
-          <ellipse class="ring" cx="278" cy="1330" rx="205" ry="50" transform="rotate(-1 278 1330)"/>
-          <circle class="num" cx="512" cy="1288" r="30"/><text class="numt" x="512" y="1303">4</text>
+          <ellipse class="ring" cx="1420" cy="150" rx="100" ry="44" transform="rotate(-3 1420 150)"/>
+          <circle class="num" cx="1420" cy="66" r="30"/><text class="numt" x="1420" y="81">1</text>
+          <ellipse class="ring" cx="1035" cy="985" rx="58" ry="248"/>
+          <circle class="num" cx="1035" cy="702" r="30"/><text class="numt" x="1035" y="717">2</text>
+          <ellipse class="ring" cx="1400" cy="848" rx="188" ry="70" transform="rotate(-1 1400 848)"/>
+          <circle class="num" cx="1400" cy="740" r="30"/><text class="numt" x="1400" y="755">3</text>
+          <ellipse class="ring" cx="248" cy="1368" rx="188" ry="44" transform="rotate(-1 248 1368)"/>
+          <circle class="num" cx="480" cy="1345" r="30"/><text class="numt" x="480" y="1360">4</text>
           <ellipse class="ring" cx="372" cy="1946" rx="240" ry="108" transform="rotate(-1 372 1946)"/>
           <circle class="num" cx="640" cy="1852" r="30"/><text class="numt" x="640" y="1867">5</text>
         </svg>
@@ -177,10 +182,11 @@
     <ul class="checklist">
       <li>A written proposal, and written change orders if anything shifts</li>
       <li>Clear, daily communication — you always know what's happening and what's next</li>
-      <li>Every day documented with CompanyCam photos, time-stamped and shared with you</li>
-      <li>A final walkthrough together before we ever call it done</li>
-      <li>A written two-year warranty — if it isn't holding up, we come back and fix it</li>
+      <li>Every day, documented with time-stamped photos and shared with you in a custom end-of-day report</li>
+      <li>A final walkthrough against a written checklist — our crew leader signs off on every item, then we ask you to sign off too, so nothing gets called "done" until you agree it is</li>
+      <li>A written warranty of three to five years, depending on your product selection — if it isn't holding up, we come back and make it right</li>
     </ul>
+    <div class="todo"><b>Rick — send me the file</b> Drop the "Final Inspection &amp; Payment Authorization" walkthrough form somewhere (like the COI) and I'll blur the client name + signature and add it here as proof — it's a great visual.</div>
   </section>
 
   <!-- LAYER 3 · ORGANIZATIONAL -->
@@ -196,7 +202,6 @@
     </div>
 
     <p style="margin-top:26px;">We're also members of the <b>Academy for Professional Painting Contractors (APPC)</b> — an industry group focused on standards, systems, and running a painting business the right way. It's where we go to keep getting better on purpose, instead of by accident.</p>
-    <div class="todo"><b>Rick — optional</b> Any manufacturer certifications (Sherwin-Williams, Benjamin Moore) or safety/EPA Lead-Safe (RRP) certifications to add here? They'd strengthen this layer. If not, we leave it as is.</div>
   </section>
 
   <!-- LAYER 4 · CULTURAL -->
@@ -207,10 +212,22 @@
     <span class="protects">This protects your experience</span>
     <ul class="checklist">
       <li>We hire for character first — every person we send is someone we'd trust in our own home</li>
+      <li>Every painter on our team is background-checked</li>
       <li>Dust containment on every job — the hard lesson that became an absolute rule</li>
       <li>Floors and furniture protected, and a real clean-up at the end of <em>every</em> day</li>
       <li>We treat your home like it's ours, because our name is on the wall too</li>
     </ul>
+
+    <div class="promises__wrap">
+      <h3 class="promises__h">Our promises to you</h3>
+      <ul class="promises">
+        <li>You'll get a real update — real photos, real names — every single day we're in your home.</li>
+        <li>If we're going to be late or delayed, we'll tell you right away.</li>
+        <li>If we make a mistake, we'll fix it.</li>
+        <li>We'll tell you exactly who's coming to your home, and when, before they arrive.</li>
+        <li>We won't put any people or products in your home that we wouldn't put in our own.</li>
+      </ul>
+    </div>
   </section>
 
   <!-- GENEROUS: 5 things to verify -->
